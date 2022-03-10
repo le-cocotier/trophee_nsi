@@ -1,0 +1,19 @@
+{
+  "name": "trophee_nsi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./master.scss:./master.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quegzacov/trophee_nsi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quegzacov/trophee_nsi/issues"
+  },
+  "homepage": "https://github.com/quegzacov/trophee_nsi#readme"
+}
