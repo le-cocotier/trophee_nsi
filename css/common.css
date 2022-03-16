@@ -1,0 +1,42 @@
+/*VARIABLES*/
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
+body {
+  font-family: "Fredoka", sans-serif;
+  margin: 0;
+}
+
+.buttons {
+  display: flex;
+}
+
+.button {
+  transition: 0.2s ease-in-out;
+  border: none;
+  padding: 0.6em 0.8em;
+  border-radius: 10px;
+}
+.button.is-white {
+  background-color: white;
+}
+.button.is-white:hover {
+  background-color: #ececec;
+  transition: 0.2s ease-in-out;
+}
+.button.is-black {
+  background-color: black;
+  color: white;
+}
+.button.is-black:hover {
+  background-color: #272727;
+  transition: 0.2s ease-in-out;
+}
+.button.is-primary {
+  background-color: #21A63C;
+  color: white;
+}
+.button.is-primary:hover {
+  background-color: #26b943;
+  transition: 0.2s ease-in-out;
+}
+
+/*# sourceMappingURL=common.css.map */
