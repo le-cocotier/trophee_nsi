@@ -23,12 +23,18 @@
             <div class="header"> Hello</div>
             <hr>
             <div class="contents">
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi reiciendis optio eius ipsa sit quas minus assumenda perferendis quibusdam officia ab sunt hic et id magnam exercitationem doloribus expedita?</div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi reiciendis optio eius ipsa sit quas minus assumenda perferendis quibusdam officia ab sunt hic et id magnam exercitationem doloribus expedita?</div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi reiciendis optio eius ipsa sit quas minus assumenda perferendis quibusdam officia ab sunt hic et id magnam exercitationem doloribus expedita?</div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi reiciendis optio eius ipsa sit quas minus assumenda perferendis quibusdam officia ab sunt hic et id magnam exercitationem doloribus expedita?</div>
-                <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, modi reiciendis optio eius ipsa sit quas minus assumenda perferendis quibusdam officia ab sunt hic et id magnam exercitationem doloribus expedita?</div>
-                
+            <div class="card">
+                <div class="container">
+                    <h4><b>Title</b></h4>
+                    <p>Subtitle</p>
+                </div>
+                <img src="https://picsum.photos/800/800" alt="" style="width:100%">
+            </div> 
+            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
+            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
+            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
+            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
+            
             </div>
         </section>
         <div class="right-menu">
