@@ -10,32 +10,49 @@ body{
 .main {
     display: flex;
     height: 100vh;
-    & nav {
+    nav {
         display: none;
         position: fixed;
         background-color: red;
         width: 20%;
         height: 100vh;
     }
-    & section {
+
+    section {
         padding: 20px;
         background-color: green;
         width: 100%;
         max-width: 80%;
         overflow-y: scroll;
-        & .contents {
+        
+        .contents {
+            margin-left: 16%;
+            margin-right: 16%;
             display: flex;
-            justify-content: space-around;
-            & div {
+            flex-wrap: wrap;
+            flex-direction: column;
+            justify-content: flex-start;
+            .card {
+                background-color: red;
                 padding: 10px;
+                width: 100%;
+                height: 60vh;
+                margin-bottom: 1vh;
+                display: flex;
+                flex-direction: column;
+                &__image {
+                    width: inherit;
+                    max-height: 60%;
+                }
             }
+            
         }
     }
-    & .right-menu {
+    .right-menu {
         background-color: blue;
         width: 100%;
         max-width: 20%;
-        & .icons {
+        .icons {
             padding: 10px;
             display: flex;
             justify-content: space-around;
