@@ -1,18 +1,14 @@
-<?php
-if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['birth_date'])) {
-    $bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
-    $response = $bdd->query("SELECT * FROM users");
 
-    while ($line = $response->fetchArray()) {
-        if (($line["name"] == $_POST['name'] && $line["password"] == $_POST['password']) or ($line["email"] == $_POST['email'] && $line["password"] == $_POST['password'])) {
-            session_start();
-            $_SESSION['name'] = $_POST['name'];
-            $_SESSION['password'] = $_POST['password'];
-            header('location: ../page/index.php');
-        }
-    }
-}
+<!DOCTYPE html>
+<html>
+ <body>
+     <form action="../cible/sign_in.php" method="post">
+         <h1>username or email</h1>
+         <input type="text" name="name" required>
+         <h1>password</h1>
+         <input type="password" name="password" required>
+         <input type="submit" value="sign up">
 
-echo '<meta http-equiv="refresh" content="0;URL=../page/sign_up.php">';
-
- ?>
+     </form>
+ </body>
+</html>
