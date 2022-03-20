@@ -1,0 +1,59 @@
+body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100vh;
+}
+
+#container {
+  padding: 2em;
+  border-radius: 20px;
+  background-color: #ffffff;
+  width: 20vw;
+}
+#container .container__go-home {
+  color: #919191;
+  text-decoration: none;
+  display: block;
+  margin: 0.6em 0 0 0;
+}
+#container .container__go-home:hover {
+  text-decoration: underline;
+}
+#container .container__brand {
+  display: block;
+  margin: auto;
+  margin-bottom: 1em;
+}
+#container .container__buttons {
+  text-align: center;
+  margin-bottom: 1em;
+}
+#container .container__buttons a {
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  font-weight: 600;
+  color: #919191;
+  transition: 0.2s ease-in-out;
+}
+#container .container__buttons a:hover {
+  color: #a5a5a5;
+  transition: 0.2s ease-in-out;
+}
+#container .container__buttons a.active {
+  color: #21A63C;
+  transition: 0.2s ease-in-out;
+}
+#container .container__buttons a.active:hover {
+  color: #26b943;
+  transition: 0.2s ease-in-out;
+}
+#container .container__buttons :first-child {
+  margin-right: 0.5em;
+}
+#container .container__buttons :last-child {
+  margin-left: 0.5em;
+}
+
+/*# sourceMappingURL=sign-in.css.map */

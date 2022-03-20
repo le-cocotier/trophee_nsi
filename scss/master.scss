@@ -1,61 +1,97 @@
+@import "util/variables.scss";
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
 
+
 body{
-    margin: 0;
-    padding: 0;
     font-family: 'Fredoka', sans-serif;
-    font-weight: 300;
+    margin: 0;
+    background-color: $color-background;
 }
-// Idée affichage postes dynamiques
-.main {
-    display: flex;
-    height: 100vh;
-    nav {
-        display: none;
-        position: fixed;
-        background-color: red;
-        width: 20%;
-        height: 100vh;
+
+h1{
+    margin: 0 0 0.5em 0;
+}
+
+.button{
+    transition: 0.2s ease-in-out;
+    border: none;
+    padding: 0.6em 0.8em;
+    border-radius: 10px;
+    background-color: white;
+    &:hover{
+        background-color: rgb(236, 236, 236);
+        transition: 0.2s ease-in-out;
+    }
+    &.is-black{
+        background-color: black;
+        color: white;
+        &:hover{
+            background-color: #272727;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    &.is-primary{
+        background-color: $color-primary;
+        color: white;
+        &:hover{
+            background-color: $color-primary-light;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    &.is-secondary{
+        background-color: $color-secondary;
+        color: white;
+        &:hover{
+            background-color: $color-secondary-light;
+            transition: 0.2s ease-in-out;
+        }
+    }
+    &.is-error{
+        background-color: $color-error;
+        color: white;
+        &:hover{
+            background-color: $color-error-light;
+            transition: 0.2s ease-in-out;
+        }
+    }
+}
+
+.form-chunck{
+    padding-bottom: 1em;
+    label{
+        margin-right: 0.6em;
+    }
+    input{
+        width: inherit;
+    }
+    &.is-vertical input, &.is-vertical label{
+        display: block;
+    }
+    &.is-vertical label{
+        margin-bottom: 0.2em;
+    }
+}
+
+.input{
+    border-radius: 5px;
+    border: 1px $color-light-gray solid;
+    outline: none;
+    padding: 0.5em 0.6em;
+    transition: 0.2s ease-in-out;
+    &::placeholder{
+        color: gray;
+    }
+    &:focus{
+        border: 1px $color-primary solid;
+        transition: 0.2s ease-in-out;
+    }
+    &.is-secondary:focus{
+        border: 1px $color-secondary solid;
+        transition: 0.2s ease-in-out;
     }
 
-    section {
-        padding: 20px;
-        background-color: green;
-        width: 100%;
-        max-width: 80%;
-        overflow-y: scroll;
-        
-        .contents {
-            margin-left: 16%;
-            margin-right: 16%;
-            display: flex;
-            flex-wrap: wrap;
-            flex-direction: column;
-            justify-content: flex-start;
-            .card {
-                background-color: red;
-                padding: 10px;
-                width: 100%;
-                height: 60vh;
-                margin-bottom: 1vh;
-                display: flex;
-                flex-direction: column;
-                &__image {
-                    width: inherit;
-                    max-height: 60%;
-                }
-            }
-            
-        }
-    }
-    .right-menu {
-        background-color: blue;
-        width: 100%;
-        max-width: 20%;
-        .icons {
-            padding: 10px;
-            display: flex;
-            justify-content: space-around;
-        }
+    &.is-error:focus{
+        border: 1px $color-error solid;
+        transition: 0.2s ease-in-out;
     }
 }
