@@ -12,6 +12,7 @@ h1{
     margin: 0 0 0.5em 0;
 }
 
+//boutons et différentes couleurs
 .button{
     transition: 0.2s ease-in-out;
     border: none;
@@ -54,8 +55,19 @@ h1{
             transition: 0.2s ease-in-out;
         }
     }
+    &.is-alert{
+        background-color: $color-alert;
+        color: white;
+        &:hover{
+            background-color: $color-alert-light;
+            transition: 0.2s ease-in-out;
+        }
+    }
 }
 
+
+//FORMS
+//Block d'une case de form (ex: label + input)
 .form-chunck{
     padding-bottom: 1em;
     label{
@@ -72,12 +84,16 @@ h1{
     }
 }
 
+//Diférents inputs
 .input{
     border-radius: 5px;
     border: 1px $color-light-gray solid;
     outline: none;
     padding: 0.5em 0.6em;
     transition: 0.2s ease-in-out;
+    box-sizing: border-box;
+
+    //Couleurs et affichage
     &::placeholder{
         color: gray;
     }
@@ -89,9 +105,16 @@ h1{
         border: 1px $color-secondary solid;
         transition: 0.2s ease-in-out;
     }
-
     &.is-error:focus{
         border: 1px $color-error solid;
         transition: 0.2s ease-in-out;
     }
+    &.is-alert:focus{
+        border: 1px $color-alert solid;
+        transition: 0.2s ease-in-out;
+    }
+    &.is-wide{
+        width: 100%;
+    }
+
 }

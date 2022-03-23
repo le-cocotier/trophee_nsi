@@ -52,6 +52,14 @@ h1 {
   background-color: #f78181;
   transition: 0.2s ease-in-out;
 }
+.button.is-alert {
+  background-color: #ffc219;
+  color: white;
+}
+.button.is-alert:hover {
+  background-color: #ffc72e;
+  transition: 0.2s ease-in-out;
+}
 
 .form-chunck {
   padding-bottom: 1em;
@@ -75,6 +83,7 @@ h1 {
   outline: none;
   padding: 0.5em 0.6em;
   transition: 0.2s ease-in-out;
+  box-sizing: border-box;
 }
 .input::placeholder {
   color: gray;
@@ -90,6 +99,13 @@ h1 {
 .input.is-error:focus {
   border: 1px #ec7373 solid;
   transition: 0.2s ease-in-out;
+}
+.input.is-alert:focus {
+  border: 1px #ffc219 solid;
+  transition: 0.2s ease-in-out;
+}
+.input.is-wide {
+  width: 100%;
 }
 
 /*# sourceMappingURL=master.css.map */
