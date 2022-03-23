@@ -19,34 +19,34 @@
             <form action="../cible/sign_in.php" method="post">
                 <div class="form-chunck is-vertical">
                     <label for="username">Nom d'utilisateur</label>
-                    <input class="input" id="username" type="text" name="name" required>
+                    <input class="input is-wide" id="username" type="text" name="name" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
-                    <input class="input" id="password" type="password" name="password" required>
+                    <input class="input is-wide" id="password-signin" type="password" name="password" required>
                 </div>
-                <input class="button is-primary" type="submit" value="Se connecter">
+                <input class="button is-primary is-wide" type="submit" value="Se connecter">
             </form>
         </div>
         <div id="sign-up" style="display: none;">
-            <form action="../cible/sign_up.php" method="post">
+            <form id="sign-up_form" onsubmit="return false">
                 <div class="form-chunck is-vertical">
                     <label for="username">Nom d'utilisateur</label>
-                    <input class="input" id="username" type="text" name="name" required>
+                    <input class="input is-wide" id="username-signup" type="text" name="name" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="email">E-mail</label>
-                    <input class="input" id="email" type="text" name="email" required>
+                    <input class="input is-wide" id="email-signup" type="text" name="email" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="birth_date">Date de naissance</label>
-                    <input class="input" id="birth_date" type="date" name="birth_date" required>
+                    <input class="input" id="birth_date-signup" type="date" name="birth_date" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
-                    <input class="input" id="password" type="password" name="password" required>
+                    <input class="input is-wide" id="password-signup" type="password" name="password" required>
                 </div>
-                <input class="button is-primary" type="submit" value="S'inscrire">
+                <input id="sign-up_form_submit" class="button is-primary is-wide" type="submit" value="S'inscrire">
             </form>
         </div>
 
