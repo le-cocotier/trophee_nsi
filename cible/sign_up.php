@@ -15,6 +15,8 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 	if($birth_date <= $date_18) {
 		$bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
 
+
+		// Je reagarde si l'user exixte déjà
 	    $response = $bdd->query("SELECT * FROM users");
 
 	    while ($line = $response->fetchArray()) {
@@ -37,9 +39,10 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 	    $append->bindValue(':birth_date', $_POST['birth_date']);
 
 	    $append->execute();
+
 	}
 	else {
-		echo "vous êtes mineure";
+		echo "date";
 	}
 }
  ?>

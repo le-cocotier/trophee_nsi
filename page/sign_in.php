@@ -36,11 +36,11 @@
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="email">E-mail</label>
-                    <input class="input" id="email" type="text" name="name" required>
+                    <input class="input" id="email" type="text" name="email" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="birth_date">Date de naissance</label>
-                    <input class="input" id="birth_date" type="date" name="name" required>
+                    <input class="input" id="birth_date" type="date" name="birth_date" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
