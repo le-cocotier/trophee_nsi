@@ -60,7 +60,7 @@ body {
 .main section .contents .card .container .title img {
   height: 40px;
   clip-path: circle(40%);
-  width: fit-content;
+  width: auto;
 }
 .main section .contents .card-text p {
   margin: 0 0 2% 0;
