@@ -24,7 +24,7 @@
             <div class="header"> Hello</div>
             <hr>
             <div class="contents">
-            <div class="card card-image">
+            <div class="card">
                 <div class="container">
                 <div class="title">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
@@ -34,7 +34,7 @@
                     <img src="https://picsum.photos/600/400" alt="" style="width:100%">
                 </div>
             </div> 
-            <div class="card card-text">
+            <div class="card">
                 <div class="container">
                 <div class="title">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
@@ -43,7 +43,7 @@
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam sint molestiae suscipit molestias odio ex quas, commodi dignissimos iste quis accusantium, debitis voluptatum nam vel. Eaque neque molestias obcaecati incidunt magni! Fuga velit impedit quidem rerum sint aspernatur quae, obcaecati numquam, molestiae mollitia aut at eaque recusandae iste? Exercitationem!</p>
                 </div>
             </div>
-            <div class="card card-image">
+            <div class="card">
                 <div class="container">
                     <div class="title">
                         <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
@@ -53,9 +53,12 @@
                     <img src="https://picsum.photos/600/400" alt="content" style="width:100%">
                 </div>
             </div>
-            <div class="card card-text">
+            <div class="card">
                 <div class="container">
-                    <h4>Title</h4>
+                <div class="title">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                        <h4>Concours 100K abo</h4>
+                </div>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam sint molestiae suscipit molestias odio ex quas, commodi dignissimos iste quis accusantium, debitis voluptatum nam vel. Eaque neque molestias obcaecati incidunt magni! Fuga velit impedit quidem rerum sint aspernatur quae, obcaecati numquam, molestiae mollitia aut at eaque recusandae iste? Exercitationem!</p>
                 </div>
             </div>
@@ -70,7 +73,20 @@
             </div>
             <hr>
             <div class="sidebar">
-                
+                <div class="card-dm">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                    <div class="content">
+                        <h5>Pseudo</h5>
+                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
+                    </div>
+                </div>
+                <div class="card-dm">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                    <div class="content">
+                        <h5>Pseudo</h5>
+                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
