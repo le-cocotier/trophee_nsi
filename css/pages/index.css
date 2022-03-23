@@ -1,8 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap");
 body {
   margin: 0;
   padding: 0;
-  font-family: "Fredoka", sans-serif;
   font-weight: 300;
 }
 
@@ -19,34 +17,61 @@ body {
 }
 .main section {
   padding: 20px;
-  background-color: green;
+  background-color: #f7f7f7;
   width: 100%;
   max-width: 80%;
   overflow-y: scroll;
 }
 .main section .contents {
-  margin-left: 16%;
-  margin-right: 16%;
+  margin-left: 20%;
+  margin-right: 20%;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   justify-content: flex-start;
 }
 .main section .contents .card {
-  background-color: red;
-  padding: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 20px;
   width: 100%;
-  height: 60vh;
-  margin-bottom: 1vh;
+  border-radius: 20px;
+  background-color: #ffffff;
+  margin-bottom: 10px;
+}
+.main section .contents .card .container {
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
 }
-.main section .contents .card__image {
-  width: inherit;
-  max-height: 60%;
+.main section .contents .card .container .title {
+  display: flex;
+  box-sizing: border-box;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+}
+.main section .contents .card .container .title h4 {
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0 0 0 0;
+  padding: 2px;
+}
+.main section .contents .card .container .title img {
+  height: 40px;
+  clip-path: circle(40%);
+  width: fit-content;
+}
+.main section .contents .card-text p {
+  margin: 0 0 2% 0;
+  padding: 0 1% 0 1%;
+}
+.main section .contents .card-image p {
+  margin: 0 0 2% 0;
+  padding: 0 5% 0 5%;
 }
 .main .right-menu {
-  background-color: blue;
+  background-color: #26b943;
   width: 100%;
   max-width: 20%;
 }
@@ -54,6 +79,9 @@ body {
   padding: 10px;
   display: flex;
   justify-content: space-around;
+}
+.main .right-menu .sidebar {
+  padding: 5px;
 }
 
 /*# sourceMappingURL=index.css.map */

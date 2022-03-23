@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/master.css">
     <link rel="stylesheet" href="../css/pages/index.css">
     <title>Document</title>
 </head>
@@ -23,17 +24,41 @@
             <div class="header"> Hello</div>
             <hr>
             <div class="contents">
-            <div class="card">
+            <div class="card card-image">
                 <div class="container">
-                    <h4><b>Title</b></h4>
-                    <p>Subtitle</p>
+                <div class="title">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                        <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
                 </div>
-                <img src="https://picsum.photos/800/800" alt="" style="width:100%">
+                    <p>Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
+                    <img src="https://picsum.photos/600/400" alt="" style="width:100%">
+                </div>
             </div> 
-            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
-            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
-            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
-            <div class="card"><h2 class="card__image">Lorem ipsum dolor sit, amet</h2><img src="https://picsum.photos/800/800" alt=""></div>
+            <div class="card card-text">
+                <div class="container">
+                <div class="title">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                        <h4>Concours 100K abo</h4>
+                </div>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam sint molestiae suscipit molestias odio ex quas, commodi dignissimos iste quis accusantium, debitis voluptatum nam vel. Eaque neque molestias obcaecati incidunt magni! Fuga velit impedit quidem rerum sint aspernatur quae, obcaecati numquam, molestiae mollitia aut at eaque recusandae iste? Exercitationem!</p>
+                </div>
+            </div>
+            <div class="card card-image">
+                <div class="container">
+                    <div class="title">
+                        <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                        <h4>Titre</h4>
+                    </div>
+                    <p>Subtitle</p>
+                    <img src="https://picsum.photos/600/400" alt="content" style="width:100%">
+                </div>
+            </div>
+            <div class="card card-text">
+                <div class="container">
+                    <h4>Title</h4>
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Odit magnam sint molestiae suscipit molestias odio ex quas, commodi dignissimos iste quis accusantium, debitis voluptatum nam vel. Eaque neque molestias obcaecati incidunt magni! Fuga velit impedit quidem rerum sint aspernatur quae, obcaecati numquam, molestiae mollitia aut at eaque recusandae iste? Exercitationem!</p>
+                </div>
+            </div>
             
             </div>
         </section>
@@ -45,7 +70,7 @@
             </div>
             <hr>
             <div class="sidebar">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus possimus iusto vitae commodi quibusdam? Quo ad aliquid ex quod consequuntur blanditiis! Illo asperiores tempora numquam animi, cumque voluptas reprehenderit eaque.
+                
             </div>
         </div>
     </div>

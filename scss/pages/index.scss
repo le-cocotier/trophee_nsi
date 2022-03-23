@@ -1,9 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
-
+@import "../util/variables.scss";
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Fredoka', sans-serif;
     font-weight: 300;
 }
 // Idée affichage postes dynamiques
@@ -20,42 +18,81 @@ body{
 
     section {
         padding: 20px;
-        background-color: green;
+        background-color: $color-background;
         width: 100%;
         max-width: 80%;
         overflow-y: scroll;
         
         .contents {
-            margin-left: 16%;
-            margin-right: 16%;
+            margin-left: 20%;
+            margin-right: 20%;
             display: flex;
             flex-wrap: wrap;
             flex-direction: column;
             justify-content: flex-start;
             .card {
-                background-color: red;
-                padding: 10px;
+                box-sizing: border-box;
+                overflow: hidden;
+                padding: 20px;
                 width: 100%;
-                height: 60vh;
-                margin-bottom: 1vh;
-                display: flex;
-                flex-direction: column;
-                &__image {
-                    width: inherit;
-                    max-height: 60%;
+                border-radius: 20px;
+
+                background-color: $color-surface;
+                margin-bottom: 10px;
+                .container {
+                    display: flex;
+                    justify-content: flex-start;
+                    flex-direction: column;
+                    .title {
+                        display: flex;
+                        box-sizing: border-box;
+                        justify-content: flex-start;
+                        flex-direction: row;
+                        width: 100%;
+                        h4 {
+                            font-size: 28px;
+                            font-weight: 300;
+                            margin: 0 0 0 0;
+                            padding: 2px;
+                        }
+                        img {
+                            height: 40px;
+                            clip-path: circle(40%);
+                            width: fit-content;
+                        }
+                    } 
+                    
+                }
+                img {
                 }
             }
+            .card-text {
+                p {
+                    margin: 0 0 2% 0;
+                    padding: 0 1% 0 1%;
+                }
+            }
+            .card-image {
+                p {
+                    margin: 0 0 2% 0;
+                    padding: 0 5% 0 5%;
+                }
+            }
+            
             
         }
     }
     .right-menu {
-        background-color: blue;
+        background-color: $color-primary-light;
         width: 100%;
         max-width: 20%;
         .icons {
             padding: 10px;
             display: flex;
             justify-content: space-around;
+        }
+        .sidebar {
+            padding: 5px;
         }
     }
 }
