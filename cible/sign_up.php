@@ -1,5 +1,4 @@
 <?php
-
 if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['birth_date'])) {
 
 	// date aujourd'hui
@@ -21,11 +20,11 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	    while ($line = $response->fetchArray()) {
 	        if ($line["name"] == $_POST['name']) {
-	            echo "name";
+	            print_r(json_encode("{error: 'name'}"));
 	            exit();
 	        }
 	        elseif ($line["email"] == $_POST['email']){
-	            echo "email";
+	            print_r(json_encode("{error: 'email'}"));
 	            exit();
 	        }
 	    }
@@ -42,7 +41,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	}
 	else {
-		echo "date";
+		print_r(json_encode("{error: 'date'}"));
 	}
 }
  ?>

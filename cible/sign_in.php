@@ -12,7 +12,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
             $_SESSION['password'] = $line['password'];
         }
         else {
-            echo "Nom d'utilisateur ou mot de passe incorect.";
+            print_r(json_encode("{error: 'name'}"));
         }
     }
 }
