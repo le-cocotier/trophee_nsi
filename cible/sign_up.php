@@ -45,8 +45,3 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 	}
 }
  ?>
-
-<!-- créer un compte.
-
-Si erreur la page renvoie l'info erronée.
--->
