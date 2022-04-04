@@ -20,11 +20,11 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	    while ($line = $response->fetchArray()) {
 	        if ($line["name"] == $_POST['name']) {
-	            print_r(json_encode("{error: 'name'}"));
+	            print_r(json_encode("{'error': 'name'}"));
 	            exit();
 	        }
 	        elseif ($line["email"] == $_POST['email']){
-	            print_r(json_encode("{error: 'email'}"));
+	            print_r(json_encode("{'error': 'email'}"));
 	            exit();
 	        }
 	    }
@@ -41,7 +41,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	}
 	else {
-		print_r(json_encode("{error: 'date'}"));
+		print_r(json_encode("{'error': 'date'}"));
 	}
 }
  ?>
