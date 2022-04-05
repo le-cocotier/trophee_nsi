@@ -1,0 +1,1 @@
+<?php //ok flemme d'expliquer ici mon idée, si qq voit ça go voc savoir si ça peut marcher? ?>
