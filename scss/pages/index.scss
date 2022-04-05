@@ -22,7 +22,7 @@ body{
         width: 100%;
         max-width: 80%;
         overflow-y: scroll;
-        
+
         .contents {
             margin-left: 20%;
             margin-right: 20%;
@@ -60,16 +60,16 @@ body{
                             clip-path: circle(40%);
                             width: auto;
                         }
-                    } 
+                    }
                     p {
                         margin: 0 0 2% 0;
                         padding: 0 1% 0 0%;
                     }
                 }
             }
-            
-            
-            
+
+
+
         }
     }
     .right-menu {
@@ -88,13 +88,16 @@ body{
             .card-dm {
                 display: flex;
                 flex-direction: row;
-                border: solid grey 1px;
+                border-bottom: solid grey 1px;
                 box-sizing: content-box;
                 height: 10vh;
-                background-color: $color-error;
+                background-color:#EEEEEE;
                 overflow: hidden;
+                font-size: 1.5vh;
+                text-decoration: none;
+                color: black;
                 .content {
-                    h5 { 
+                    h5 {
                         margin: 0;
                         font-size: 18px;
                         font-weight: 300;
@@ -107,9 +110,44 @@ body{
                 }
                 img {
                     height: 100%;
-                    clip-path: circle(40%);
+                    clip-path: circle(35%);
                 }
             }
         }
     }
+}
+
+.sidebar-header {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  background-color: #EEEEEE;
+}
+.sidebar-header div {
+  padding: 1vh 0 1vh 0;
+  text-align: center;
+}
+.sidebar_is-select {
+  background-color: #919191;
+}
+header {
+  display: grid;
+  grid-template-columns: 80% 20%;
+  position: relative;
+}
+header > .title {
+  position: relative;
+  padding:  2%;
+}
+header > .title::after {
+  position: absolute;
+  content: " ";
+  width: 96%;
+  height: 2px;
+  background-color: black;
+}
+
+.icons {
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
 }
