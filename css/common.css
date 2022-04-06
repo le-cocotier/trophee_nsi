@@ -5,7 +5,6 @@ header {
 }
 header .header__left {
   width: 80%;
-  background-color: red;
 }
 header .header__left h1 {
   margin: 0 0 0 0.4em;

@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -23,37 +24,11 @@
                 <span>Groupes</span>
                 <span class="section__right-frame__menu--active">DM</span>
             </div>
-            <div class="section__right-frame__cards">
-                <div class="card-dm">
-                    <img width="64" height="64" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
-                    <div class="content">
-                        <h5>Pseudo</h5>
-                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
-                    </div>
-                </div>
-                <div class="card-dm">
-                    <img width="64" height="64" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
-                    <div class="content">
-                        <h5>Pseudo</h5>
-                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
-                    </div>
-                </div>
-                <div class="card-dm">
-                    <img width="64" height="64" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
-                    <div class="content">
-                        <h5>Pseudo</h5>
-                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
-                    </div>
-                </div>
-                <div class="card-dm">
-                    <img width="64" height="64" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
-                    <div class="content">
-                        <h5>Pseudo</h5>
-                        <p>Message limité à cent quarante quartre caractères ou dans ces eaux là car tous les bandeaux font la même taille.</p>
-                    </div>
-                </div>
-            </div>
+            <?php include '../includes/get_discussions.php'; ?>
         </div>
     </section>
+    <script src="index_travail_A21.js">
+        // Futur code changement de menu -- Groupes <-> DM
+    </script>
 </body>
 </html>
