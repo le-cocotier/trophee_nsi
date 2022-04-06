@@ -33,20 +33,24 @@
                 <div class="form-chunck is-vertical">
                     <label for="username">Nom d'utilisateur</label>
                     <input class="input is-wide" id="username-signup" type="text" name="name" required>
+                    <p id="username-signup-error" class="input-error hidden">Le nom d'utilisateur doit être long de 4 caractères</p>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="email">E-mail</label>
                     <input class="input is-wide" id="email-signup" type="text" name="email" required>
+                    <p id="email-signup-error" class="input-error hidden">L'e-mail n'a pas la bonne forme</p>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="birth_date">Date de naissance</label>
-                    <input class="input" id="birth_date-signup" type="date" name="birth_date" required>
+                    <input class="input" id="date-signup" type="date" name="birth_date" required>
+                    <p id="date-signup-error" class="input-error hidden">Date de naissance invalide</p>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
                     <input class="input is-wide" id="password-signup" type="password" name="password" required>
+                    <p id="password-signup-error" class="input-error hidden">Le mot de passe doit être long de 8 caractères, avoir des majuscules, des miniscules et des caractères spéciaux</p>
                 </div>
-                <input id="sign-up_form_submit" class="button is-primary is-wide" type="submit" value="S'inscrire">
+                <input id="sign-up_form_submit" class="button is-primary is-wide" type="submit" value="S'inscrire" onclick="sumbitSignIn()">
             </form>
         </div>
 

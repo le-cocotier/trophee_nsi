@@ -108,4 +108,14 @@ h1 {
   width: 100%;
 }
 
+.input-error {
+  margin: 0;
+  color: #ec7373;
+  font-size: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
 /*# sourceMappingURL=master.css.map */
