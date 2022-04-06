@@ -20,9 +20,9 @@
             </div>
         </div>
         <div class="section__right-frame">
-            <div class="section__right-frame__menu">
+            <div class="section__right-frame__header">
                 <span>Groupes</span>
-                <span class="section__right-frame__menu--active">DM</span>
+                <span class="section__right-frame__header active">DM</span>
             </div>
             <?php include '../includes/get_discussions.php'; ?>
         </div>
