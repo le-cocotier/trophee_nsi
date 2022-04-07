@@ -3,15 +3,15 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	// date aujourd'hui
 	$date = new DateTime();
-	// date - 18 ans
-	$date->sub(new DateInterval('P18Y'));
-	$date_18 = $date->format('Ymj');
+	// date - 13 ans
+	$date->sub(new DateInterval('P13Y'));
+	$date_13 = $date->format('Ymd');
 
 	// si $_POST['date_naissance'] est au format jj-mm-yyyy, par exemple = 25-12-2001 on le converti au format dateTime avec DateTime::createFromFormat
 	$date_naissance = date_create($_POST['birth_date']);
-	$birth_date = date_format($date_naissance, 'Ymj');
+	$birth_date = date_format($date_naissance, 'Ymd');
 
-	if($birth_date <= $date_18) {
+	if($birth_date <= $date_13) {
 		$bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
 
 
@@ -20,7 +20,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	    while ($line = $response->fetchArray()) {
 	        if ($line["name"] == $_POST['name']) {
-	            print_r(json_encode("{'error': 'name'}"));
+	            print_r(json_encode("{'error': 'username'}"));
 	            exit();
 	        }
 	        elseif ($line["email"] == $_POST['email']){

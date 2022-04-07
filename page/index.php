@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h4><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h4>
     <?php include "common/header.php";?>
     <section>
         <div class="section__frame">
@@ -24,7 +25,7 @@
                 <span>Groupes</span>
                 <span class="section__right-frame__header active">DM</span>
             </div>
-            <?php include '../includes/get_discussions.php'; ?>
+            <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])) {include '../includes/get_discussions.php';} ?>
         </div>
     </section>
     <script src="index_travail_A21.js">

@@ -16,16 +16,16 @@
             <a id="button_sing-up" href="#" onclick="switchForm('sign-up')">Inscription</a>
         </div>
         <div id="sign-in">
-            <form action="../cible/sign_in.php" method="post">
+            <form id="sign-in_form" onsubmit="return false">
                 <div class="form-chunck is-vertical">
                     <label for="username">Nom d'utilisateur</label>
-                    <input class="input is-wide" id="username" type="text" name="name" required>
+                    <input class="input is-wide" id="username-signin" type="text" name="name" required>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
                     <input class="input is-wide" id="password-signin" type="password" name="password" required>
                 </div>
-                <input class="button is-primary is-wide" type="submit" value="Se connecter">
+                <input class="button is-primary is-wide" type="submit" value="Se connecter" onclick="submitSignIn()">
             </form>
         </div>
         <div id="sign-up" style="display: none;">
@@ -50,7 +50,7 @@
                     <input class="input is-wide" id="password-signup" type="password" name="password" required>
                     <p id="password-signup-error" class="input-error hidden">Le mot de passe doit être long de 8 caractères, avoir des majuscules, des miniscules et des caractères spéciaux</p>
                 </div>
-                <input id="sign-up_form_submit" class="button is-primary is-wide" type="submit" value="S'inscrire" onclick="sumbitSignIn()">
+                <input id="sign-up_form_submit" class="button is-primary is-wide" type="submit" value="S'inscrire" onclick="sumbitSignUp()">
             </form>
         </div>
 
