@@ -12,6 +12,13 @@ header {
     .header__right{
         width: 20%;
         text-align: right;
+        &__item{
+            padding: 0.2em;
+            border-radius: 50px;
+            &:hover{
+                background-color: grey;
+            }
+        }
     }
 }
 
