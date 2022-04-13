@@ -13,9 +13,19 @@ function submitSignIn(){
     request.onreadystatechange = () => {
         if(request.readyState == 4 && request.status == 200){
             if (request.response != '') {
-                console.log(request.response);
-                if(request.response === "username") username.classList.add("is-error")
-                else if(request.response === "password") password.classList.add("is-error")
+                let resData = JSON.parse(request.response)
+                if(resData.error.includes("username")){
+                    document.getElementById("username-signin-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("username-signin-error").classList.add('hidden');
+                }
+                if (resData.error.includes('password')) {
+                    document.getElementById("password-signin-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("password-signin-error").classList.add('hidden');
+                }
             }
             else {
                 window.location.assign('index.php');
@@ -27,26 +37,36 @@ function submitSignIn(){
 }
 
 function sumbitSignUp(){
-    console.log('quene');
     let username = document.getElementById("username-signup");
     let email = document.getElementById("email-signup");
     let date = document.getElementById("birth_date-signup");
     let password = document.getElementById("password-signup");
-    if(!username.value.length > 4){
+    if(username.value.length < 4){
         username.classList.add("is-alert")
-        document.getElementById("username-signup-error").classList.remove("hidden");
+        document.getElementById("username-signup-error").classList.remove('hidden')
         return
+    }
+    else {
+        username.classList.remove("is-alert")
+        document.getElementById("username-signup-error").classList.add('hidden');
     }
     if(!email.value.includes("@")){
         email.classList.add("is-alert")
-        document.getElementById("email-signup-error").classList.remove("hidden");
+        document.getElementById("email-signup-error").classList.remove('hidden');
         return
+    }
+    else {
+        email.classList.remove("is-alert")
+        document.getElementById("email-signup-error").classList.add('hidden');
     }
     if(!password.value.match("^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!.@$%^&*-]).{8,}$")){
         password.classList.add("is-alert")
-        document.getElementById("password-signup-error").classList.remove("hidden");
-        console.log('salut');
+        document.getElementById("password-signup-error").classList.remove('hidden');
         return
+    }
+    else {
+        password.classList.remove("is-alert")
+        document.getElementById("password-signup-error").classList.add('hidden');
     }
 
     let request = new XMLHttpRequest();
@@ -54,16 +74,35 @@ function sumbitSignUp(){
     request.onreadystatechange = () => {
         if(request.readyState == 4 && request.status == 200){
             if (request.response != '') {
-                console.log(request.response);
                 let resData = JSON.parse(request.response)
-                if(resData.error == "email") email.classList.add("is-error")
-                else if(resData.error == "date") date.classList.add("is-error")
-                else if(resData.error == "username") username.classList.add("is-error")
-                else if(resData.error == "password") password.classList.add("is-error")
+                if(resData.error.includes("email")){
+                    document.getElementById("email-signup-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("email-signup-error").classList.add('hidden');
+                }
+                if(resData.error.includes("date")){
+                    document.getElementById("birth_date-signup-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("birth_date-signup-error").classList.add('hidden');
+                }
+                if(resData.error.includes("username")){
+                    document.getElementById("username-signup-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("username-signup-error").classList.add('hidden');
+                }
+                if(resData.error.includes("password")){
+                    document.getElementById("password-signup-error").classList.remove('hidden');
+                }
+                else {
+                    document.getElementById("password-signup-error").classList.add('hidden');
+                }
             }
             else {
                 window.location.assign('index.php');
-                
+
             }
         }
     }

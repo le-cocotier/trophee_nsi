@@ -11,11 +11,10 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 	$date_naissance = date_create($_POST['birth_date']);
 	$birth_date = date_format($date_naissance, 'Ymd');
 
-	$error="";
+	$error=array("error"=>[]);
 
-	if(!$birth_date <= $date_13) {
-		$error.=array("error"=>array());
-		var_dump(json_encode($error));
+	if($birth_date > $date_13) {
+		array_push($error["error"], "date");
 		// print_r(json_encode("{'error': 'date'}"));
 
 	}
@@ -27,25 +26,28 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 	while ($line = $response->fetchArray()) {
 		if ($line["name"] == $_POST['name']) {
-			echo 'name';
-			$error.="'error;': 'username',";
+			array_push($error["error"], "username");
 			// print_r(json_encode("{'error': 'username'}"));
 		}
-		elseif ($line["email"] == $_POST['email']){
-			$error.="'error;': 'email',";
+		if ($line["email"] == $_POST['email']){
+			array_push($error["error"], "email");
 			// print_r(json_encode("{'error': 'email'}"));
 		}
 	}
-	// Si le nom d'utilisateur et l'email n'est pas utilisé on peut créer le compte
+	if (count($error['error']) == 0){
+		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date) VALUES(:name, :password, :email, :birth_date)");
 
-	// $append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date) VALUES(:name, :password, :email, :birth_date)");
-	//
-	// $append->bindValue(':name', $_POST['name']);
-	// $append->bindValue(':password', $_POST['password']);
-	// $append->bindValue(':email', $_POST['email']);
-	// $append->bindValue(':birth_date', $_POST['birth_date']);
-	//
-	// $append->execute();
-	var_dump($error);
+		$append->bindValue(':name', $_POST['name']);
+		$append->bindValue(':password', $_POST['password']);
+		$append->bindValue(':email', $_POST['email']);
+		$append->bindValue(':birth_date', $_POST['birth_date']);
+
+		$append->execute();
+	}
+
+	else{
+		print_r(json_encode($error));
+	}
+	// Si le nom d'utilisateur et l'email n'est pas utilisé on peut créer le compte
 }
  ?>

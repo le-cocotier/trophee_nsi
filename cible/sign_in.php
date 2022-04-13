@@ -2,6 +2,7 @@
 
 
 if (isset($_POST['name']) && isset($_POST['password'])) {
+    $error = ["error"=>array()];
     $bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd->query("SELECT * FROM users where name='".$_POST['name']."'");
 
@@ -13,11 +14,14 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
             $_SESSION['password'] = $line['password'];
         }
         else {
-            print_r("password");
+            array_push($error['error'], "password");
         }
     }
     else {
-        print_r("username");
+        array_push($error['error'], "username");
+    }
+    if (count($error['error']) != 0) {
+        print_r(json_encode($error));
     }
 }
 ?>
