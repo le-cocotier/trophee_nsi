@@ -14,9 +14,8 @@ function submitSignIn(){
         if(request.readyState == 4 && request.status == 200){
             if (request.response != '') {
                 console.log(request.response);
-                let resData = JSON.parse(request.response)
-                if(resData.error == "username") username.classList.add("is-error")
-                else if(resData.error == "password") password.classList.add("is-error")
+                if(request.response === "username") username.classList.add("is-error")
+                else if(request.response === "password") password.classList.add("is-error")
             }
             else {
                 window.location.assign('index.php');
@@ -33,7 +32,7 @@ function sumbitSignUp(){
     let email = document.getElementById("email-signup");
     let date = document.getElementById("birth_date-signup");
     let password = document.getElementById("password-signup");
-    if(!username.value > 4){
+    if(!username.value.length > 4){
         username.classList.add("is-alert")
         document.getElementById("username-signup-error").classList.remove("hidden");
         return

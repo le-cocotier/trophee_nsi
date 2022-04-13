@@ -13,11 +13,11 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
             $_SESSION['password'] = $line['password'];
         }
         else {
-            print_r(json_encode("{error: 'password'}"));
+            print_r("password");
         }
     }
     else {
-        print_r(json_encode("{error: 'username'}"));
+        print_r("username");
     }
 }
 ?>
