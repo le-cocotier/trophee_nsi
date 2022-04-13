@@ -8,7 +8,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
 
     $line = $response->fetchArray();
     if ($line !='') {
-        if ($line["password"] == $_POST["password"]) {
+        if ($line["password"] == sha1($_POST["password"])) {
             session_start();
             $_SESSION['name'] = $line['name'];
             $_SESSION['password'] = $line['password'];

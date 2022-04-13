@@ -38,7 +38,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date) VALUES(:name, :password, :email, :birth_date)");
 
 		$append->bindValue(':name', $_POST['name']);
-		$append->bindValue(':password', $_POST['password']);
+		$append->bindValue(':password', sha1($_POST['password']));
 		$append->bindValue(':email', $_POST['email']);
 		$append->bindValue(':birth_date', $_POST['birth_date']);
 
