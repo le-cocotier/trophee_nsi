@@ -19,14 +19,12 @@ echo <<<HTML
     </div> 
     <div class="card is-post">
         <div class="post-header">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
     </div>
     <div class="card is-post">
         <div class="post-header">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
@@ -34,7 +32,6 @@ echo <<<HTML
     </div> 
     <div class="card is-post">
         <div class="post-header">
-                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
