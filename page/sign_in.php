@@ -20,10 +20,12 @@
                 <div class="form-chunck is-vertical">
                     <label for="username">Nom d'utilisateur</label>
                     <input class="input is-wide" id="username-signin" type="text" name="name" required>
+                    <p id="username-signin-error" class="input-error hidden">Nom d'utilisateur ou email incorrecte</p>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>
                     <input class="input is-wide" id="password-signin" type="password" name="password" required>
+                    <p id="password-signin-error" class="input-error hidden">Mot de passe incorrecte</p>
                 </div>
                 <input class="button is-primary is-wide" type="submit" value="Se connecter" onclick="submitSignIn()">
             </form>
@@ -42,8 +44,8 @@
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="birth_date">Date de naissance</label>
-                    <input class="input" id="date-signup" type="date" name="birth_date" required>
-                    <p id="date-signup-error" class="input-error hidden">Date de naissance invalide</p>
+                    <input class="input" id="birth_date-signup" type="date" name="birth_date" required>
+                    <p id="birth_date-signup-error" class="input-error hidden">Date de naissance invalide</p>
                 </div>
                 <div class="form-chunck is-vertical">
                     <label for="password">Mot de passe</label>

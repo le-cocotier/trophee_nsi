@@ -13,6 +13,13 @@ header .header__right {
   width: 20%;
   text-align: right;
 }
+header .header__right__item {
+  padding: 0.2em;
+  border-radius: 50px;
+}
+header .header__right__item:hover {
+  background-color: grey;
+}
 
 .card {
   background-color: #ffffff;
