@@ -3,26 +3,29 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href="../css/master.css">
-    <link type="text/css" rel="stylesheet" href="../css/pages/index.css">
-    <link type="text/css" rel="stylesheet" href="../css/common.css">
+    <link type="text/css" rel="stylesheet" href="../../css/master.css">
+    <link type="text/css" rel="stylesheet" href="../../css/pages/index.css">
+    <link type="text/css" rel="stylesheet" href="../../css/common.css">
     <title>Document</title>
 </head>
 <body>
-    <!--<h4><?php /*if (isset($_SESSION['name'])) {echo $_SESSION['name'];}*/ ?></h4>-->
-    <?php include "common/header.php";?>
+    <h4><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h4>
+    <?php include "../common/header.php";?>
     <section>
         <div class="section__frame">
             <div class="content">
                 <?php
-                    if(isset($_GET["content_type"]) {
+                    if(isset($_GET["contentType"])){
                         if($_GET["content_type"] == "feed") {
                             include "index_sections/feed.php";
-                        } else if($_GET["content_type"] == "community" && isset($_GET["id"]) {
+                        } 
+                        elseif($_GET["content_type"] == "community" && isset($_GET["id"])){
                             include "index_sections/community.php";
-                        } else if($_GET["content_type"] == "user" && isset($_GET["id"]) {
+                        }
+                        elseif($_GET["content_type"] == "user" && isset($_GET["id"])){
                             include "index_sections/user_profile.php";
-                        } else {
+                        }
+                        else{
                             echo "TODO: 404.php";
                             //include "index_sections/404.php";
                         }
