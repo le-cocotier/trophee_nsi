@@ -28,6 +28,6 @@ while ($line = $response->fetchArray()) {
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s"); ?>">
             <input type="submit" name="" value="send">
         </form>
-        <p><?php $only_new=true; include '../cible/get_messages.php'; ?></p>
+        <p><?php $only_new=false; include '../cible/get_messages.php'; ?></p>
     </body>
 </html>
