@@ -1,4 +1,4 @@
-<a class="card is-dm" href=<?php echo("../page/dm.php?discussion=".$get); ?>>
+<a class="card is-dm" href=<?php echo("../dm.php?discussion=".$get); ?>>
     <img src=<?php echo $pp ?> alt="user_photo">
     <div class="content">
         <h5><?php echo $name ?></h5>

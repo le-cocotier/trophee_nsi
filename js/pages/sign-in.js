@@ -28,7 +28,7 @@ function submitSignIn(){
                 }
             }
             else {
-                window.location.assign('index.php');
+                window.location.assign('index/index.php');
             }
         }
     }
@@ -101,7 +101,7 @@ function sumbitSignUp(){
                 }
             }
             else {
-                window.location.assign('index.php');
+                window.location.assign('index/index.php');
 
             }
         }

@@ -18,7 +18,7 @@
                     if(isset($_GET["contentType"])){
                         if($_GET["content_type"] == "feed") {
                             include "index_sections/feed.php";
-                        } 
+                        }
                         elseif($_GET["content_type"] == "community" && isset($_GET["id"])){
                             include "index_sections/community.php";
                         }
@@ -37,18 +37,16 @@
                 ?>
             </div>
         </div>
-        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){?>
-            <div class="section__right-frame">
-                <div class="section__right-frame__header">
-                    <span class="section__right-frame__header active">Messages</span>
-                    <span>Groupes</span>
-                </div>
-                <div class="section__right-frame__content">
-                    <div class="section__right-frame__content__dm"><?php include 'right/get_discussions.php'; ?></div>
-                    <div class="section__right-frame__content__groups hidden"></div>
-                </div>
+        <div class="section__right-frame">
+            <div class="section__right-frame__header">
+                <span class="section__right-frame__header active">Messages</span>
+                <span>Groupes</span>
             </div>
-        <?php } ?>
+            <div class="section__right-frame__content">
+                <div class="section__right-frame__content__dm"><?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ include 'right/get_discussions.php';} ?></div>
+                <div class="section__right-frame__content__groups hidden"></div>
+            </div>
+        </div>
     </section>
     <script>
         //TODO: changer message àgroupes

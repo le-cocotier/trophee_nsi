@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3('../database/message.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3('../../database/message.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion");
 
 while ($line = $response->fetchArray()) {
