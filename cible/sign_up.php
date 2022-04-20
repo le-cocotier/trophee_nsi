@@ -44,8 +44,8 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 		$append->execute();
 
-		$_SESSION['name'] = $line['name'];
-		$_SESSION['password'] = $line['password'];
+		$_SESSION['name'] = $_POST['name'];
+		$_SESSION['password'] = sha1($_POST['password']);
 	}
 
 	else{
