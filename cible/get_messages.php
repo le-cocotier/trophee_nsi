@@ -19,13 +19,23 @@ while ($line = $response->fetchArray()) {
         }
     }
     else {
-        if ($line['user'] == $_SESSION['name']) {
-            echo "<div style='text-align: right;'>".$line['mess']."</div>";
+        if ($line['type'] == 'text') {
+            if ($line['user'] == $_SESSION['name']) {
+                echo "<div style='text-align: right;'>".$line['mess']."</div>";
+            }
+            else {
+                echo "<div style='text-align: left;'>".$line['mess']." </div><small>".$line['user']."</small>";
+            }
         }
-        else {
-            echo "<div style='text-align: left;'>".$line['mess']." </div><small>".$line['user']."</small>";
+        elseif (str_contains($line['type'], 'image')) {
+            $stream = $bdd->openBlob('content', 'file', $line['ID']);
+            if ($line['user'] == $_SESSION['name']) {
+                echo "<div style='text-align: right;'><img width='200px' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'></div>";
+            }
+            else {
+                echo "<div style='text-align: left;'><img width='200px' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'><small>".$line['user']."</small></div>";
+            }
         }
-
     }
 
 }

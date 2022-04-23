@@ -28,6 +28,15 @@ while ($line = $response->fetchArray()) {
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s"); ?>">
             <input type="submit" name="" value="send">
         </form>
+        <form class="" action="../cible/send_message.php" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="discussion" value="<?php echo $title; ?>">
+            <input type="hidden" name="user" value=<?php echo $_SESSION['name']; ?>>
+            <input type="hidden" name="type" value="file">
+            <input type="hidden" name="mess" value="">
+            <input type="file" name="file">
+            <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
+            <input type="submit" name="" value="send">
+        </form>
         <p><?php $only_new=false; include '../cible/get_messages.php'; ?></p>
     </body>
 </html>

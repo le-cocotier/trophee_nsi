@@ -4,7 +4,7 @@
 if (isset($_POST['name']) && isset($_POST['password'])) {
     $error = ["error"=>array()];
     $bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
-    $response = $bdd->query("SELECT * FROM users where name='".$_POST['name']."'");
+    $response = $bdd->query('SELECT * FROM users where name="'.$_POST['name'].'"');
 
     $line = $response->fetchArray();
     if ($line !='') {

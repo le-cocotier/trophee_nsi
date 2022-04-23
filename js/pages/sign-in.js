@@ -13,7 +13,9 @@ function submitSignIn(){
     request.onreadystatechange = () => {
         if(request.readyState == 4 && request.status == 200){
             if (request.response != '') {
-                let resData = JSON.parse(request.response)
+                console.log(request.response);
+
+                let resData = JSON.parse(request.response);
                 if(resData.error.includes("username")){
                     document.getElementById("username-signin-error").classList.remove('hidden');
                 }
