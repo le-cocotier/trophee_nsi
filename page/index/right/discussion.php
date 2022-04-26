@@ -1,8 +1,8 @@
-<a class="card is-dm" href=<?php echo("../dm.php?discussion=".$get); ?>>
-    <img src=<?php echo $pp ?> alt="user_photo">
+<a class="card is-dm" href=<?php echo("?content_type=dm&discussion=".$get); ?>>
+    <img height="64" width="64" src=<?php echo $pp ?> alt="user_photo">
     <div class="content">
         <h5><?php echo $name ?></h5>
-        <p><?php echo $message ?></p>
+        <p><?php echo $message ?>Lorem</p>
     </div>
 </a>
 

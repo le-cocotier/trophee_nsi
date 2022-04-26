@@ -56,7 +56,7 @@
             </form>
         </div>
 
-        <a class="container__go-home" href="/trophee_nsi/page/index.php">Retourner à l'accueil</a>
+        <a class="container__go-home" href="/trophee_nsi/page/index/index.php">Retourner à l'accueil</a>
     </div>
     <script src="../js/pages/sign-in.js"></script>
 </body>

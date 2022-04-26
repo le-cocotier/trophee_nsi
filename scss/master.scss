@@ -11,16 +11,35 @@ header {
     background-color: $color-surface;
     display: flex;
     align-items: center;
+    padding: 0.4em 1em;
     .header__left{
         width: 80%;
         h1{
-            margin: 0 0 0 0.4em;
+            margin: 0 0 0 0;
         }
     }
     .header__right{
         width: 20%;
         text-align: right;
+        &__item{
+            margin: 0 0.4em 0 0;
+            padding: 0.2em;
+            border-radius: 10px;
+            &:hover{
+                background-color: #f5f5f5;
+                transition: 0.2s ease-in-out;
+            }
+        }
+        img{
+            border-radius:10px;
+            //object-fit: fill;
+        }
     }
+}
+.footer{
+    background-color: $color-surface;
+    text-align: center;
+    padding: 2em;
 }
 
 
@@ -33,7 +52,12 @@ h1{
 }
 
 //boutons et différentes couleurs
+button{
+    font-family: $font-family;
+}
 .button{
+    text-decoration: none;
+    font-family: $font-family;
     transition: 0.2s ease-in-out;
     border: none;
     padding: 0.6em 0.8em;
@@ -145,46 +169,4 @@ h1{
 }
 .hidden{
     display: none;
-}
-
-.card{
-    background-color: $color-surface;
-    padding: 20px;
-    border-radius: $border-radius;
-    width: 100%;
-    margin-bottom: 1em;
-    &.is-post{
-        .post-header{
-            display: flex;
-            box-sizing: border-box;
-            justify-content: flex-start;
-            flex-direction: row;
-            width: 100%;
-            h4 {
-                font-size: 28px;
-                font-weight: 300;
-                margin: 0 0 0 0;
-                padding: 2px;
-            }
-            img {
-                height: 40px;
-                clip-path: circle(40%);
-                width: auto;
-            }
-        }
-        .post-content{
-            margin: 0 0 2% 0;
-            padding: 0 1% 0 0%;
-        }
-    }
-    //TODO: finir
-    &.is-dm{
-        display: flex;
-        img{
-            
-        }
-        .content{
-
-        }
-    }
 }

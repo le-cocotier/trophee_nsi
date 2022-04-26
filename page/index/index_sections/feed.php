@@ -9,6 +9,7 @@
 //En attendant, posts placeholder
 echo <<<HTML
     <!--bar genre création de poste ou un truc stylé-->
+<div class="content-flow">
     <div class="card is-post">
         <div class="post-header">
                 <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
@@ -37,5 +38,6 @@ echo <<<HTML
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
     
     </div> 
+</div>
 HTML;
 ?>
