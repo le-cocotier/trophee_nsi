@@ -1,5 +1,4 @@
 <?php
-session_start();
 $bdd = new SQLite3('../../database/message.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion where ID=".$_GET['discussion']);
 
@@ -7,7 +6,7 @@ while ($line = $response->fetchArray()) {
     $users=explode(",", $line["users"]);
     $title = $line['name'];
     if (!in_array($_SESSION["name"], $users)) {
-        header('location: ../../page/index.php');
+        header('location: ../index.php');
     }
 }
 ?>
@@ -20,15 +19,15 @@ while ($line = $response->fetchArray()) {
         <h2><?php echo $title; ?></h2>
     </div>
     <div class="dm__content">
-        <?php /*$only_new=false; include '../../cible/get_messages.php';*/ ?>
-        <div class='message message-left'>
+        <?php $only_new=false; include '../../cible/get_messages.php'; ?>
+        <!-- <div class='message message-left'>
             <p class="content">test</p>
             <p class="user">Vous</p>
         </div>
         <div class='message message-right'>
             <p class="content">$line['mess']</p>
             <p class="user">Vous</p>
-        </div>
+        </div> -->
     </div>
     <div class="dm__footer">
         <form class="form-message" action="../../cible/send_message.php" method="post">

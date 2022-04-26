@@ -7,20 +7,18 @@ while ($line = $response->fetchArray()) {
         $vu = explode(",",$line['seen']);
         if (!in_array($_SESSION["name"], $vu)){
             if ($line['user'] == $_SESSION['name']) {
-                //echo "<div class='message-left'>".$line['mess']."</div>";
                 echo <<<HTML
                 <div class='message-left'>
-                    <p class="content">$line['mess']</p>
+                    <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
                 HTML;
             }
             else {
-                //echo "<div class='message-right'>".$line['mess']." </div><small>".$line['user']."</small>";
                 echo <<<HTML
                 <div class='message-right'>
-                    <p class="content">$line['mess']</p>
-                    <p class="user">$line['user']</p>
+                    <p class="content">{$line['mess']}</p>
+                    <p class="user">{$line['user']}</p>
                 </div>
                 HTML;
             }
@@ -33,20 +31,18 @@ while ($line = $response->fetchArray()) {
     else {
         if ($line['type'] == 'text') {
             if (strcasecmp($line['user'], $_SESSION['name'])) {
-                //echo "<div class='message-left'>".$line['mess']."</div>";
                 echo <<<HTML
                 <div class='message-left'>
-                    <p class="content">$line['mess']</p>
+                    <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
                 HTML;
             }
             else {
-                //echo "<div class='message-right'>".$line['mess']." </div><small>".$line['user']."</small>";
                 echo <<<HTML
                 <div class='message-right'>
-                    <p class="content">$line['mess']</p>
-                    <p class="user">$line['user']</p>
+                    <p class="content">{$line['mess']}</p>
+                    <p class="user">{$line['user']}</p>
                 </div>
                 HTML;
             }

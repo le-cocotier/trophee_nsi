@@ -33,20 +33,18 @@
                 } else {
                     include "index_sections/feed.php";
                 }
-            //include "index_sections/community.php";
             ?>
-            <!--<div class="footer">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat voluptatibus at illo error praesentium impedit consequuntur, placeat quas ipsa autem ad iusto. Magnam numquam adipisci expedita molestiae? Necessitatibus, amet architecto.
-            </div>-->
         </div>
         <div class="section__right-frame">
             <div class="section__right-frame__header">
-                <button class="active">Messages</button>
-                <button>Groupes</button>
+                <button id="message-button" class="active">Messages</button>
+                <button id="group-button" >Groupes</button>
             </div>
             <div class="section__right-frame__content">
                 <div class="section__right-frame__content__dm">
-                    <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ include 'right/get_discussions.php';} ?>
+                    <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){
+                        include 'right/get_discussions.php';
+                    } ?>
                     <a href="/trophee_nsi/page/create_group.php" class="create-group">Créer un groupe</a>
                 </div>
                 <div class="section__right-frame__content__groups hidden"></div>

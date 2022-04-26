@@ -7,16 +7,23 @@ while ($line = $response->fetchArray()) {
     $users = explode(",", $line["users"]);
     if (in_array($_SESSION["name"], $users)) {
         $get=$line['ID'];
+        $group=$line['group'];
         $pp="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
         $name=$line['name'];
         $request = 'SELECT * FROM content where "discussion"="'.$name .'" ORDER BY ID DESC LIMIT 1';
         $last_message= $bdd->query($request);
         $message_response=$last_message->fetchArray();
         if ($message_response == false) {
-            $message='';
+            $message='There are no messages yet. Say hye to them!';
         }
         else {
-            $message=$message_response['mess'];
+            if ($message_response['type'] == 'text'){
+                $message=$message_response['mess'];
+            }
+            else {
+                $message='image';
+            }
+
         }
         include('discussion.php');
     }
