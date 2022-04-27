@@ -20,24 +20,76 @@ header .header__left h1 {
 header .header__right {
   width: 20%;
   text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 header .header__right__item {
   margin: 0 0.4em 0 0;
-  padding: 0.2em;
-  border-radius: 10px;
+  padding: 0.4em;
+  border-radius: 15px;
 }
 header .header__right__item:hover {
   background-color: #f5f5f5;
   transition: 0.2s ease-in-out;
 }
 header .header__right img {
-  border-radius: 10px;
+  border-radius: 15px;
+}
+header .header__right__dropdown__item {
+  display: flex;
+  align-items: center;
+  border-radius: 15px;
+}
+header .header__right__dropdown__item img {
+  margin-right: 0.4em;
+}
+header .header__right__dropdown__item p {
+  font-weight: 400;
+  font-size: 16px;
+  margin: 0;
+}
+header .header__right__dropdown__panel {
+  display: none;
+  margin: 0;
+  width: 10vw;
+  list-style-position: inside;
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  left: 89vw;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+header .header__right__dropdown__panel li {
+  padding: 0.8em 1em;
+}
+header .header__right__dropdown__panel li:hover {
+  background-color: #eeeeee;
+  transition: 0.2s ease-in-out;
+}
+header .header__right__dropdown__panel li .item-disconnect {
+  color: #e49191;
+}
+header .header__right__dropdown__panel hr {
+  margin: 0;
+  color: #fcfcfc;
+}
+header .header__right__dropdown:hover .header__right__dropdown__panel {
+  display: block;
 }
 
 .footer {
   background-color: #ffffff;
   text-align: center;
   padding: 2em;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 h1 {
