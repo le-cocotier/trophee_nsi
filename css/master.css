@@ -13,9 +13,11 @@ header {
 }
 header .header__left {
   width: 80%;
+  display: flex;
+  align-items: center;
 }
 header .header__left h1 {
-  margin: 0 0 0 0;
+  margin: 0 0 0 0.4em;
 }
 header .header__right {
   width: 20%;
@@ -53,8 +55,6 @@ header .header__right__dropdown__panel {
   display: none;
   margin: 0;
   width: 10vw;
-  list-style-position: inside;
-  list-style: none;
   padding: 0;
   text-align: left;
   left: 89vw;
@@ -63,15 +63,22 @@ header .header__right__dropdown__panel {
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-header .header__right__dropdown__panel li {
+header .header__right__dropdown__panel a {
+  display: block;
   padding: 0.8em 1em;
 }
-header .header__right__dropdown__panel li:hover {
+header .header__right__dropdown__panel a:hover {
   background-color: #eeeeee;
   transition: 0.2s ease-in-out;
 }
-header .header__right__dropdown__panel li .item-disconnect {
-  color: #e49191;
+header .header__right__dropdown__panel a:first-child {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+header .header__right__dropdown__panel a:last-child {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  color: #d46a6a;
 }
 header .header__right__dropdown__panel hr {
   margin: 0;

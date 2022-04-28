@@ -25,6 +25,9 @@
                     elseif($_GET["content_type"] == "user" && isset($_GET["id"])){
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/user_profile.php';
                     }
+                    elseif($_GET["content_type"] == "settings"){
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/settings.php';
+                    }
                     else{
                         echo "TODO: 404.php";
                     }
