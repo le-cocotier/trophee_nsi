@@ -8,7 +8,6 @@
     <title>Document</title>
 </head>
 <body>
-    <!--<h4><?php if (isset($_SESSION['name'])) {echo $_SESSION['name'];} ?></h4>-->
     <?php include "../common/header.php";?>
     <section>
         <div class="section__frame">
@@ -28,9 +27,9 @@
                     }
                     else{
                         echo "TODO: 404.php";
-                        //include "index_sections/404.php";
                     }
-                } else {
+                }
+                else {
                     include "index_sections/feed.php";
                 }
             ?>
