@@ -28,7 +28,7 @@
                                 }
                             }
                         }
-                        xhr.open("POST", <?php echo $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_users.php'; ?>, true);
+                        xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
                         xhr.send(data);
                     }
 

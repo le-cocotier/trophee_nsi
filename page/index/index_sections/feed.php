@@ -7,6 +7,7 @@
 //c'est possible en php? et demander si pas claire
 
 //En attendant, posts placeholder
+include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_posts.php';
 echo <<<HTML
     <!--bar genre création de poste ou un truc stylé-->
 <div class="content-flow">
@@ -17,7 +18,7 @@ echo <<<HTML
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
         <img src="https://picsum.photos/600/400" alt="" style="width:100%">
-    </div> 
+    </div>
     <div class="card is-post">
         <div class="post-header">
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
@@ -29,15 +30,15 @@ echo <<<HTML
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
-    
-    </div> 
+
+    </div>
     <div class="card is-post">
         <div class="post-header">
                 <h4>Incendie à Brive : l'intervention des pompiers va durer tout l'après-midi</h4>
         </div>
         <p class="post-content">Le travail des pompiers sera long, suite à l'incendie qui a détruit un salon de coiffure ce mercredi 23 mars dans le centre-ville de Brive. voir plus...</p>
-    
-    </div> 
+
+    </div>
 </div>
 HTML;
 ?>
