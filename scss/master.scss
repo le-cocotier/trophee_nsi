@@ -21,18 +21,68 @@ header {
     .header__right{
         width: 20%;
         text-align: right;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
         &__item{
             margin: 0 0.4em 0 0;
-            padding: 0.2em;
-            border-radius: 10px;
+            padding: 0.4em;
+            border-radius: 15px;
             &:hover{
                 background-color: #f5f5f5;
                 transition: 0.2s ease-in-out;
             }
         }
         img{
-            border-radius:10px;
-            //object-fit: fill;
+            border-radius: 15px;
+        }
+        &__dropdown{
+            &__item{
+                display: flex;
+                align-items: center;
+                border-radius: 15px;
+                img{
+                    margin-right: 0.4em;
+                }
+                p{
+                    font-weight: 400;
+                    font-size: 16px;
+                    margin: 0;
+                }
+            }
+            &__panel{
+                display: none;
+                margin: 0;
+                width: 10vw;
+                list-style-position: inside;
+                list-style: none;
+                padding: 0;
+                text-align: left;
+                left: 89vw;
+                position: absolute;
+                background-color: #fff;
+                border-radius: 15px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                li{
+                    padding: 0.8em 1em;
+                    &:hover{
+                        background-color: #eeeeee;
+                        transition: 0.2s ease-in-out;
+                    }
+                    .item-disconnect{
+                        color: rgb(228, 145, 145);
+                    }
+                }
+                hr{
+                    margin: 0;
+                    color: rgb(252, 252, 252)
+                }
+            }
+            &:hover{
+                & .header__right__dropdown__panel{
+                    display: block;  
+                }
+            }
         }
     }
 }
@@ -41,7 +91,10 @@ header {
     text-align: center;
     padding: 2em;
 }
-
+a{
+    text-decoration: none;
+    color: inherit;
+}
 
 
 //===================================
