@@ -1,4 +1,4 @@
-<link type="text/css" rel="stylesheet" href="../../css/pages/index_sections/user_profile.css">
+<link type="text/css" rel="stylesheet" href='/trophee_nsi/css/pages/index_sections/user_profile.css'>
 <div class="content-flow">
     <div class="card is-post card-user">
         <img width="128" height="128" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">

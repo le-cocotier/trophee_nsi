@@ -23,12 +23,12 @@
                             if (xhr.readyState == 4 && xhr.status == 200) {
                                 let response = JSON.parse(xhr.response);
                                 for (var i = 0; i < response.length; i++) {
-                                    document.getElementById("search_user__list").innerHTML+="<li><a href='http://localhost/trophee_nsi/cible/get_user_profil.php?user="+response[i]+"'>"+response[i]+"</a></li>";
+                                    document.getElementById("search_user__list").innerHTML+="<li><a href='/trophee_nsi/cible/get_user_profil.php?user="+response[i]+"'>"+response[i]+"</a></li>";
 
                                 }
                             }
                         }
-                        xhr.open("POST", "http://localhost/trophee_nsi/cible/get_users.php", true);
+                        xhr.open("POST", <?php echo $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_users.php'; ?>, true);
                         xhr.send(data);
                     }
 

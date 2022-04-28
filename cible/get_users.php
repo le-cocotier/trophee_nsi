@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT name FROM users where name LIKE "%'.$_POST['letters'].'%" ');
 
 $liste_of_users=[];
