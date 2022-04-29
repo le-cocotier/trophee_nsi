@@ -8,6 +8,21 @@ c'est possible en php? et demander si pas claire
 
 En attendant, posts placeholder -->
 
-<div class="content-flow">
-    <?php include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_posts.php'; ?>
-</div>
+<?php
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+$response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
+$line = $response->fetchArray();
+$line = explode(",",$line['friends']);
+$liste_of_users = "'".implode("','", $line)."'";
+$query = "SELECT id from users where public='true' EXCEPT SELECT id from users where id IN (".$liste_of_users.") ";
+$request = $bdd->query($query);
+while ($public_profile = $request->fetchArray()){
+    if ($public_profile['id'] != $_SESSION['user_ID']){
+        array_push($line, $public_profile['id']);
+    }
+}
+$liste_of_users = "'".implode("','", $line)."'";
+echo '<div class="content-flow">';
+echo get_user_posts($liste_of_users);
+echo '</div>';
+ ?>

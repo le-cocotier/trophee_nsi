@@ -1,4 +1,5 @@
 <?php
+
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
 $line = $response->fetchArray();
@@ -13,11 +14,102 @@ $line = $response->fetchArray();
         </div>
         <div class="card-user__text">
             <h3><?php echo $line['name'] ?></h3>
-            <!--prendre dans $_GET["id"] l'id du mec voulu-->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus recusandae nihil laborum similique consequuntur placeat ad doloribus dolor officiis quibusdam quisquam aperiam amet exercitationem vero a cum, ipsa neque sint!</p>
+            <p><?php echo $line['description']; ?></p>
         </div>
+
+<!-- Kalyax je te laisse arranger ça -->
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])) {?>
+            <div class="">
+                <?php if (!in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
+                    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
+                    $query = "SELECT * FROM notifications where user_ID=".$_GET['id']." AND user_concerning=".$_SESSION['user_ID']." AND type='follow request'";
+                    $response = $bdd->query($query);
+                    if ($response->fetchArray() == false){
+                        echo "<button id='follow' type='button' onclick='follow()'>s'abonner</button>";
+
+                    }
+                    else {
+                        echo "<button id='follow' type='button' onclick='cancel_follow()'>annuler la demande</button>";
+
+                    }
+                }
+                else {
+                    echo "<button id='follow' type='button' onclick='unfollow()'>se désabonner</button>";
+                }
+                 ?>
+                <script type="text/javascript">
+                    function follow() {
+                        let xhr = new XMLHttpRequest();
+                        let data = new FormData();
+                        data.append('user_to_follow', <?php echo $_GET['id']; ?>);
+                        data.append('user', <?php echo $_SESSION['user_ID']; ?>);
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                let response = JSON.parse(xhr.response);
+                                console.log(response['state']);
+                                if (response['state'] == 'followed') {
+                                    document.getElementById('follow').attributes.onclick = 'unfollow()';
+                                    document.getElementById('follow').innerText = 'se désabonner';
+                                }
+                                else {
+                                    document.getElementById('follow').attributes.onclick = 'cancel_follow()';
+                                    document.getElementById('follow').innerText = 'annuler la demande';
+                                }
+                            }
+                        }
+                        xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+                        xhr.send(data);
+                    }
+                    function unfollow(){
+                        let xhr = new XMLHttpRequest();
+                        let data = new FormData();
+                        data.append('user_to_unfollow', <?php echo $_GET['id']; ?>);
+                        data.append('user', <?php echo $_SESSION['user_ID']; ?>);
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                let response = JSON.parse(xhr.response);
+                                if (response['state'] = 'unfollowed') {
+                                    document.getElementById('follow').attributes.onclick = 'follow()';
+                                    document.getElementById('follow').innerText = "s'abonner";
+                                }
+                            }
+                        }
+                        xhr.open("POST", '/trophee_nsi/cible/unfollow.php', true);
+                        xhr.send(data);
+                    }
+                    function cancel_follow() {
+                        let xhr = new XMLHttpRequest();
+                        let data = new FormData();
+                        data.append('user_to_cancel', <?php echo $_GET['id']; ?>);
+                        data.append('user', <?php echo $_SESSION['user_ID']; ?>);
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                let response = JSON.parse(xhr.response);
+                                if (response['state'] = 'cancelled') {
+                                    document.getElementById('follow').attributes.onclick = 'follow()';
+                                    document.getElementById('follow').innerText = "s'abonner";
+                                }
+                            }
+                        }
+                        xhr.open("POST", '/trophee_nsi/cible/cancel_follow.php', true);
+                        xhr.send(data);
+                    }
+                </script>
+            </div>
+        <?php } ?>
+
+
+
+
     </div>
     <div class="posts">
-        <?php //get_posts utilisateur ?>
+        <?php
+         if ($line['public'] == 'true'){
+            echo get_user_posts($line['id']);
+        }
+        else {
+            echo "Ce compte est privé";
+        }
+         ?>
     </div>
 </div>
