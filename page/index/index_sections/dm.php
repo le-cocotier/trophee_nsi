@@ -5,7 +5,6 @@ $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db',
 $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
 $discussion_ID = $_GET['id'];
-var_dump($_SESSION);
 while ($line = $response->fetchArray()) {
     $users_ID=explode(",", $line["users_ID"]);
     $title = $line['name'];

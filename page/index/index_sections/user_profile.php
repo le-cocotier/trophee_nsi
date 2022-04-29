@@ -18,7 +18,7 @@ $line = $response->fetchArray();
         </div>
 
 <!-- Kalyax je te laisse arranger ça -->
-        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])) {?>
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['password']) && $_GET['id'] != $_SESSION['user_ID']) {?>
             <div class="">
                 <?php if (!in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
                     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');

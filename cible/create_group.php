@@ -13,8 +13,15 @@ if (isset($_POST['name']) && isset($_POST['users'])){
 
     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
 
-    $append = $bdd->prepare("INSERT INTO discussion(name, users_ID, 'group') VALUES(:name, :users_ID, 'true')");
+    $append = $bdd->prepare("INSERT INTO discussion(name, users_ID, 'group') VALUES(:name, :users_ID, :group)");
     $append->bindValue(':name', $_POST['name']);
+    if (count($user_IDs) >2){
+        $group = 'true';
+    }
+    else {
+        $group = 'false';
+    }
+    $append->bindValue(':group', $group);
     $append->bindValue(':users_ID', implode(',', $user_IDs));
     $append->execute();
 
