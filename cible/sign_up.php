@@ -35,8 +35,10 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 		}
 	}
 	if (count($error['error']) == 0){
-		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date) VALUES(:name, :password, :email, :birth_date)");
+		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date, subscribers, subscriptions, pp, type) VALUES(:name, :password, :email, :birth_date, 0, 0, :pp, :type)");
 
+		$append->bindValue(':pp', file_get_contents($_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/img/blank-profile.png"));
+		$append->bindValue(':type', 'image/png');
 		$append->bindValue(':name', $_POST['name']);
 		$append->bindValue(':password', sha1($_POST['password']));
 		$append->bindValue(':email', $_POST['email']);
@@ -44,7 +46,9 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 
 		$append->execute();
 
+		$response = $bdd->query('SELECT id from users where name="'.$_POST["name"].'"');
 		session_start();
+		$_SESSION['user_ID'] = ($response->fetchArray())["id"];
 		$_SESSION['name'] = $_POST['name'];
 		$_SESSION['password'] = sha1($_POST['password']);
 	}

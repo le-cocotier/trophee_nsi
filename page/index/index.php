@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php session_start(); include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/functions.php';?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -16,7 +16,7 @@
                     if($_GET["content_type"] == "feed") {
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/feed.php';
                     }
-                    elseif($_GET["content_type"] == "dm" && isset($_GET["discussion"])) {
+                    elseif($_GET["content_type"] == "dm" && isset($_GET["id"])) {
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/dm.php';
                     }
                     elseif($_GET["content_type"] == "community" && isset($_GET["id"])){

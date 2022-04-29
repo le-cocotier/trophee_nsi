@@ -18,13 +18,14 @@
                         let data = new FormData();
                         input=input.toLowerCase();
                         data.append('letters', input);
+                        data.append('user_ID', <?php echo $_SESSION['user_ID'] ?>);
 
                         let xhr = new XMLHttpRequest();
                         xhr.onreadystatechange = () => {
                             if (xhr.readyState == 4 && xhr.status == 200) {
                                 let response = JSON.parse(xhr.response);
-                                for (var i = 0; i < response.length; i++) {
-                                    document.getElementById("search_user__list").innerHTML+="<li><a href='/trophee_nsi/cible/get_user_profil.php?user="+response[i]+"'>"+response[i]+"</a></li>";
+                                for (var i = 0; i < response['name'].length; i++) {
+                                    document.getElementById("search_user__list").innerHTML+="<li><a href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a></li>";
 
                                 }
                             }
@@ -38,11 +39,11 @@
             <img class="header__right__item" width="38" height="38" src="../../img/notif.png" alt="notif">
             <div class="header__right__dropdown header__right__item">
                 <div class="header__right__dropdown__item">
-                    <img width="38" height="38" src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png" alt="user_photo">
+                    <img width="38" height="38" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">
                     <p><?php echo $_SESSION['name']; ?></p>
                 </div>
                 <div class="header__right__dropdown__panel">
-                    <a href="/trophee_nsi/page/index?content_type=user&id=TODO">Mon profil</a>
+                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $_SESSION['user_ID']; ?>">Mon profil</a>
                     <a href="/trophee_nsi/page/index?content_type=settings">Options</a>
                     <hr>
                     <a href="/trophee_nsi/page/sign_in.php">Se déconnecter</a>

@@ -30,11 +30,11 @@ function submitSignIn(){
                 }
             }
             else {
-                window.location.assign('index/index.php');
+                window.location.assign('/trophee_nsi/page/index/index.php');
             }
         }
     }
-    request.open("POST", "../cible/sign_in.php", true);
+    request.open("POST", "/trophee_nsi/cible/sign_in.php", true);
     request.send(data);
 }
 
@@ -103,12 +103,12 @@ function sumbitSignUp(){
                 }
             }
             else {
-                window.location.assign('index/index.php');
+                window.location.assign('/trophee_nsi/page/index/index.php');
 
             }
         }
     }
-    request.open("POST", "../cible/sign_up.php", true);
+    request.open("POST", "/trophee_nsi/cible/sign_up.php", true);
     request.send(data);
 }
 

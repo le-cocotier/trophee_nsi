@@ -10,6 +10,7 @@ if (isset($_POST['name']) && isset($_POST['password'])) {
     if ($line !='') {
         if ($line["password"] == sha1($_POST["password"])) {
             session_start();
+            $_SESSION['user_ID'] = $line['id'];
             $_SESSION['name'] = $line['name'];
             $_SESSION['password'] = $line['password'];
         }
