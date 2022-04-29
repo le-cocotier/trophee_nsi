@@ -104,11 +104,11 @@ $line = $response->fetchArray();
     </div>
     <div class="posts">
         <?php
-         if ($line['public'] == 'true'){
+         if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
             echo get_user_posts($line['id']);
         }
         else {
-            echo "Ce compte est privé";
+            echo 'Ce compte est privée';
         }
          ?>
     </div>
