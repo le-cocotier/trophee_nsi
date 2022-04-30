@@ -1,0 +1,84 @@
+@import "../../_variables.scss";
+.content-dm{
+    .dm__header{
+        padding: 1em;
+        background-color: #eef7eb;
+        display: flex;
+        align-items: center;
+        h2{
+            margin: 0 0 0 0.6em;
+        }
+    }
+    .dm__content{
+        margin: 1em;
+        .message{
+            padding: 0.6em 1em;
+            width: fit-content;
+            max-width: 40vw;
+            &-left{
+                .content{
+                    background-color: $color-surface;
+                }
+            }
+            &-right{
+                display: block;
+                margin-left: auto;
+                .content{
+                    background-color: $color-primary;
+                    color: white;
+                }
+                .user{
+                    text-align: end;
+                }
+            }
+            .content{
+                margin: 0;
+                padding: 1em;
+                border-radius: $border-radius;
+            }
+            .img{
+                margin-left: auto;
+                display: block;
+                width: 100%;
+                max-width: 200px;
+                height: auto;
+            }
+            .user{
+                margin: 0.2em 0 0 0;
+            }
+        }
+    }
+    .dm__footer{
+        display: flex;
+        background-color: $color-surface;
+        position: fixed;
+        bottom: 0;
+        width: 80vw;
+        height: 5vh;
+        padding: 0.4em 0.6em;
+        box-sizing: border-box;
+        .form-message{
+            width: 80%;
+            display: flex;
+            input[type="text"]{
+                display: block;
+                padding: 0.8em;
+                font-size: 16px;
+                width: 100%;
+            }
+            input[type="submit"]{
+                margin: 0 0.4em;
+            }
+        }
+        .form-img{
+            width: 20%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            input[type="file"]{
+
+            }
+
+        }
+    }
+}

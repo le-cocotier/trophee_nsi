@@ -3,11 +3,10 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href='/trophee_nsi/css/master.css'>
-    <link type="text/css" rel="stylesheet" href='/trophee_nsi/css/pages/index.css'>
+    <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
     <title>Document</title>
 </head>
-<body>
+<body class="index">
     <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/common/header.php";?>
     <section>
         <div class="section__frame">
@@ -40,7 +39,7 @@
         <div class="section__right-frame">
             <div class="section__right-frame__header">
                 <button id="message-button" class="active">Messages</button>
-                <button id="group-button" >Groupes</button>
+                <button id="group-button">Groupes</button>
             </div>
             <div class="section__right-frame__content">
                 <div class="section__right-frame__content__dm">

@@ -5,10 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
-    <link rel="stylesheet" href='/trophee_nsi/css/master.css'>
-    <link rel="stylesheet" href='/trophee_nsi/css/pages/sign-in.css'>
+    <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
 </head>
-<body>
+<body class="sign-in">
     <div id="container">
         <img class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo brand">
         <div class="container__buttons">

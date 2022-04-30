@@ -14,7 +14,7 @@ while ($line = $response->fetchArray()) {
         $last_message= $bdd->query($request);
         $message_response=$last_message->fetchArray();
         if ($message_response == false) {
-            $message='There are no messages yet. Say hye to them!';
+            $message="Il n'y a pas encore de message dans cette conversation";
         }
         else {
             if ($message_response['type'] == 'text'){

@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set("display_errors", 1);
 
 // On vérifie si l'utilisateur fais partie du groupe
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
@@ -14,8 +16,6 @@ while ($line = $response->fetchArray()) {
 }
 ?>
 
-
-<link type="text/css" rel="stylesheet" href='/trophee_nsi/css/pages/index_sections/dm.css'>
 <div class="content-dm">
     <div class="dm__header">
         <a href='/trophee_nsi/page/index/index.php' class="button is-black">Retour</a>
@@ -42,7 +42,7 @@ while ($line = $response->fetchArray()) {
             <input type="hidden" name="mess" value="">
             <input type="file" name="file">
             <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
-            <input class="button is-white" type="submit" name="" value="Envoyer une image">
+            <input class="button is-white" type="submit" name="" value="Envoyer l'image">
         </form>
     </div>
 </div>
