@@ -18,7 +18,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
 <div class="content-dm">
     <div class="dm__header">
         <a href='/trophee_nsi/page/index/index.php' class="button is-black">Retour</a>
-        <h2><?php echo $title; ?></h2>
+        <h2 id="discussion_title"><?php echo $title; ?></h2>
         <?php if ($line['admin'] == $_SESSION['user_ID']) {
         echo <<<HTML
         <div >
@@ -26,7 +26,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
                 <button type='button' class="button">...</button>
             </div>
             <div >
-                <button type="button">Renommer</button>
+                <button type="button" onclick="rename()">Renommer</button>
                 <button type="button" >Ajouter quelqu'un</button>
                 <hr>
                 <button type="button">Supprimer le groupe</button>
@@ -35,6 +35,11 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
         HTML;
         } ?>
     </div>
+    <script type="text/javascript">
+        function rename() {
+            document.getElementById('discussion_title').innerHTML = '<input type="text" value="'+document.getElementById('discussion_title').innerText+'"></input>';
+        }
+    </script>
     <div class="dm__content">
         <!-- On récupère les messages de la discussion -->
         <?php $only_new=false; include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_messages.php'; ?>

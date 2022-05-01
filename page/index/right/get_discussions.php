@@ -7,7 +7,12 @@ while ($line = $response->fetchArray()) {
     $users_ID = explode(",", $line["users_ID"]);
     if (in_array($_SESSION["user_ID"], $users_ID)) {
         $get=$line['ID'];
-        $group=$line['group'];
+        if ($line['group'] == 'true') {
+            $class="is-group";
+        }
+        else {
+            $class="is-dm";
+        }
         $pp="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
         $name=$line['name'];
         $request = "SELECT * FROM content where discussion_ID='$get' ORDER BY ID DESC LIMIT 1";
