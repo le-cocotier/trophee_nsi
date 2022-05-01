@@ -1,0 +1,25 @@
+.form-post{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1em;
+    .form-chunck{
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0.2em;
+        label{
+            margin-right: 0.6em;
+        }
+        input{
+            width: inherit;
+        }
+        &.is-vertical input, &.is-vertical label{
+            display: block;
+        }
+        &.is-vertical label{
+            margin-bottom: 0.2em;
+        }
+    }
+    .button{
+        width: 10em;
+    }
+}

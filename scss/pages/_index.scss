@@ -1,11 +1,10 @@
-@import "../util/variables.scss";
-body{
+@import "../_variables.scss";
+body.index{
     margin: 0;
     padding: 0;
     font-weight: 300;
     overflow-y: hidden;
 }
-
 section {
     display: flex;
 
@@ -70,6 +69,21 @@ section {
         }
     }
 }
+/*TODO: responsive
+@media (max-width: 1024px){
+    section{
+        display: block;
+        .section__frame {
+            display: none;
+        }
+    
+        .section__right-frame{
+            width: 100%;
+            max-width: 100%;
+            height: 95vh;
+        }
+    }
+}*/
 
 .card{
     background-color: $color-surface;
@@ -79,21 +93,29 @@ section {
         padding: 20px;
         width: 100%;
         .post-header{
-            display: flex;
             box-sizing: border-box;
-            justify-content: flex-start;
-            flex-direction: row;
             width: 100%;
-            h4 {
+            margin-bottom: 0.2em;
+            &__title {
                 font-size: 28px;
                 font-weight: 300;
-                margin: 0 0 0 0;
-                padding: 2px;
+                margin: 0 0 0.2em 0;
+                word-wrap: break-word;
+                white-space: pre-wrap;
             }
-            img {
-                height: 40px;
-                clip-path: circle(40%);
-                width: auto;
+            &__user{
+                display: flex;
+                //justify-content: flex-start;
+                align-items: center;
+                &__img {
+                    border-radius: 100px;
+                    margin-right: 0.6em;
+                    width: auto;
+                }
+                &__name{
+                    color: rgb(136, 136, 136);
+                    margin: 0;
+                }
             }
         }
         .post-content{

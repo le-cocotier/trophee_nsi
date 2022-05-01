@@ -1,10 +1,11 @@
-@import "util/variables.scss";
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&display=swap');
+@import "_variables.scss";
 
 
 body{
-    font-family: 'Fredoka', sans-serif;
+    font-family: $font-family;
     margin: 0;
+    padding: 0;
+    font-weight: 300;
     background-color: $color-background;
 }
 header {
@@ -190,6 +191,7 @@ button{
 
 //Diférents inputs
 .input{
+    resize: vertical;
     border-radius: 5px;
     border: 1px $color-light-gray solid;
     outline: none;

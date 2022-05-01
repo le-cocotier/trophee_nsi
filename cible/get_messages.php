@@ -8,7 +8,7 @@ while ($line = $response->fetchArray()) {
         if (!in_array($_SESSION["user_ID"], $vu)){
             if ($line['user_ID'] == $_SESSION['user_ID']) {
                 echo <<<HTML
-                <div class='message-left'>
+                <div class='message message-left'>
                     <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
@@ -16,7 +16,7 @@ while ($line = $response->fetchArray()) {
             }
             else {
                 echo '
-                <div class="message-right">
+                <div class="message message-right">
                     <p class="content">'.$line["mess"].'</p>
                     <p class="user">'.get_username($line["user_ID"]).'</p>
                 </div>';
@@ -31,7 +31,7 @@ while ($line = $response->fetchArray()) {
         if ($line['type'] == 'text') {
             if ($line['user_ID'] == $_SESSION['user_ID']) {
                 echo <<<HTML
-                <div class='message-left'>
+                <div class='message message-left'>
                     <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
@@ -39,7 +39,7 @@ while ($line = $response->fetchArray()) {
             }
             else {
                 echo '
-                <div class="message-right">
+                <div class="message message-right">
                     <p class="content">'.$line['mess'].'</p>
                     <p class="user">'.get_username($line['user_ID']).'</p>
                 </div>';
@@ -58,3 +58,18 @@ while ($line = $response->fetchArray()) {
 
 }
  ?>
+
+
+<!--TEMP PLACEHOLDER A ENLEVER PLUS TARD
+<div class='message message-right'>
+    <img class="content img" src='../../img/notif.png'>
+    <p class="user">Some user</p>
+</div>
+<div class="message message-right">
+    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati repudiandae, mollitia illum animi nesciunt! Ea fugiat placeat sit animi, numquam, libero velit nulla aliquid, quas nostrum ut ducimus eveniet?</p>
+    <p class="user">Some user</p>
+    </div>
+<div class='message message-left'>
+    <p class="content">testest</p>
+    <p class="user">Vous</p>
+</div>-->

@@ -1,13 +1,3 @@
-<!--
-Idée de comment faire fonctioner l'affichage des posts:
-Que ce soit sur le feed principal ou feed d'une communauté
-ça vient demander à la cible get_posts en fonction des arguments,
-exemple: groupe_id si communauté, user_id si feed de l'utilisateur
-et ça return ici les posts et à d'autres endroits etc.
-c'est possible en php? et demander si pas claire
-
-En attendant, posts placeholder -->
-
 <?php
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 if (isset($_SESSION['name']) && isset($_SESSION['password'])){
@@ -32,7 +22,30 @@ else {
     }
 }
 $liste_of_users = "'".implode("','", $line)."'";
-echo '<div class="content-flow">';
-echo get_user_posts($liste_of_users);
-echo '</div>';
  ?>
+
+<div class="content-flow">
+    <div class="card is-post">
+        <div class="post-header">
+            <h4 class="post-header__title">Postez quelque chose...</h4>
+        </div>
+        <form class="form-post" action='/trophee_nsi/cible/send_post.php' method="post" enctype="multipart/form-data" onsubmit="return false">
+            <div class="form-chunck is-vertical">
+                <label for="username">Titre</label>
+                <input class="input" type="text" name="title" placeholder="Une idée originale..." required>
+            </div>
+            <div class="form-chunck is-vertical">
+                <label for="username">Contenu</label>
+                <textarea placeholder="Racontez en un peu plus..." class="input is-secondary" name="content" rows="8" cols="80" required></textarea>
+            </div>
+            <div class="form-chunck is-vertical">
+                <label for="username">Rajoutez une image</label>
+                <input type="file" name="image">
+            </div>
+            <input type="hidden" name="user" value="<?php echo $_SESSION['user_ID']; ?>">
+            <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
+            <input class="button is-primary" type="submit" name="" value="Poster">
+        </form>
+    </div>
+    <?php echo get_user_posts($liste_of_users); ?>
+</div>

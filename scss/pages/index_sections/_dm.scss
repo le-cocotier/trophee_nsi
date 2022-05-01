@@ -1,8 +1,8 @@
-@import "../../util/variables.scss";
+@import "../../_variables.scss";
 .content-dm{
     .dm__header{
         padding: 1em;
-        background-color: $color-surface;
+        background-color: #eef7eb;
         display: flex;
         align-items: center;
         h2{
@@ -13,8 +13,8 @@
         margin: 1em;
         .message{
             padding: 0.6em 1em;
-            width: 100%;
-            max-width: 200px;
+            width: fit-content;
+            max-width: 40vw;
             &-left{
                 .content{
                     background-color: $color-surface;
@@ -27,11 +27,21 @@
                     background-color: $color-primary;
                     color: white;
                 }
+                .user{
+                    text-align: end;
+                }
             }
             .content{
                 margin: 0;
                 padding: 1em;
                 border-radius: $border-radius;
+            }
+            .img{
+                margin-left: auto;
+                display: block;
+                width: 100%;
+                max-width: 200px;
+                height: auto;
             }
             .user{
                 margin: 0.2em 0 0 0;
@@ -43,7 +53,8 @@
         background-color: $color-surface;
         position: fixed;
         bottom: 0;
-        width: 100vw;
+        width: 80vw;
+        height: 5vh;
         padding: 0.4em 0.6em;
         box-sizing: border-box;
         .form-message{
