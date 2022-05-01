@@ -59,11 +59,11 @@ $line = $response->fetchArray();
                     console.log(response['state']);
                     if (response['state'] == 'followed') {
                         document.getElementById('follow').attributes.onclick = 'unfollow()';
-                        document.getElementById('follow').innerText = 'se désabonner';
+                        document.getElementById('follow').innerText = 'Se désabonner';
                     }
                     else {
                         document.getElementById('follow').attributes.onclick = 'cancel_follow()';
-                        document.getElementById('follow').innerText = 'annuler la demande';
+                        document.getElementById('follow').innerText = 'Annuler la demande';
                     }
                 }
             }
@@ -80,7 +80,7 @@ $line = $response->fetchArray();
                     let response = JSON.parse(xhr.response);
                     if (response['state'] = 'unfollowed') {
                         document.getElementById('follow').attributes.onclick = 'follow()';
-                        document.getElementById('follow').innerText = "s'abonner";
+                        document.getElementById('follow').innerText = "S'abonner";
                     }
                 }
             }
@@ -97,7 +97,7 @@ $line = $response->fetchArray();
                     let response = JSON.parse(xhr.response);
                     if (response['state'] = 'cancelled') {
                         document.getElementById('follow').attributes.onclick = 'follow()';
-                        document.getElementById('follow').innerText = "s'abonner";
+                        document.getElementById('follow').innerText = "S'abonner";
                     }
                 }
             }
