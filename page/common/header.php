@@ -36,8 +36,10 @@
 
                 }
             </script>
+            <img onclick="changeRightMenu('__dm')" id="dm-button" class="header__right__item active" width="28" height="28" src="../../img/messages.png" alt="messages">
+            <img onclick="changeRightMenu('__groups')" id="groups-button" class="header__right__item" width="28" height="28" src="../../img/groups.png" alt="groupes">
             <div class="header__right__dropdown header__right__item">
-                <img class="header__right__dropdown__item" width="38" height="38" src="../../img/notif.png" alt="notif">
+                <img class="header__right__dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="header__right__dropdown__panel">
                     <ul>
                         <li>salut</li>
@@ -47,7 +49,7 @@
             </div>
             <div class="header__right__dropdown header__right__item">
                 <div class="header__right__dropdown__item">
-                    <img width="38" height="38" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">
+                    <img width="28" height="28" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">
                     <p><?php echo $_SESSION['name']; ?></p>
                 </div>
                 <div class="header__right__dropdown__panel">
