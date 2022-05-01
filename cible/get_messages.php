@@ -58,7 +58,7 @@ while ($line = $response->fetchArray()) {
                 echo "
                 <div class='message message-right'>
                     <img class='content img' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'>
-                    <p class='user'>.get_username($line['user_ID']).</p>
+                    <p class='user'>.get_username(".$line['user_ID'].")</p>
                 </div>";
             }
         }

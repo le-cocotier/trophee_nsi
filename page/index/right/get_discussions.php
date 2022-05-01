@@ -8,7 +8,7 @@ while ($line = $response->fetchArray()) {
     if (in_array($_SESSION["user_ID"], $users_ID)) {
         $get=$line['ID'];
         if ($line['group'] == 'true') {
-            $class="is-group";
+            $class="is-group hidden";
         }
         else {
             $class="is-dm";
