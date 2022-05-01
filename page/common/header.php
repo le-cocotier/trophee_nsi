@@ -36,7 +36,15 @@
 
                 }
             </script>
-            <img class="header__right__item" width="38" height="38" src="../../img/notif.png" alt="notif">
+            <div class="header__right__dropdown header__right__item">
+                <img class="header__right__dropdown__item" width="38" height="38" src="../../img/notif.png" alt="notif">
+                <div class="header__right__dropdown__panel">
+                    <ul>
+                        <li>salut</li>
+                        
+                    </ul>
+                </div>
+            </div>
             <div class="header__right__dropdown header__right__item">
                 <div class="header__right__dropdown__item">
                     <img width="38" height="38" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">

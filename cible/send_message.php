@@ -3,7 +3,6 @@
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
 
 if ($_POST['type'] == 'text') {
-    var_dump($_POST);
     $append = $bdd->prepare("INSERT INTO content(discussion_ID, user_ID, type, mess, date) VALUES(:discussion_ID, :user_ID, :type, :mess, :date)");
     $append->bindValue(':discussion_ID', $_POST['discussion_ID']);
     $append->bindValue(':user_ID', $_POST['user_ID']);

@@ -18,7 +18,7 @@ while ($line = $response->fetchArray()) {
                 echo '
                 <div class="message-right">
                     <p class="content">'.$line["mess"].'</p>
-                    <p class="user">'.get_username($line['user_ID']).'</p>
+                    <p class="user">'.get_username($line["user_ID"]).'</p>
                 </div>';
             }
             array_push($vu, $_SESSION['user_ID']);

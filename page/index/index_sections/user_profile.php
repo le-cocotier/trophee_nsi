@@ -104,7 +104,7 @@ $line = $response->fetchArray();
     </div>
     <div class="posts">
         <?php
-         if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
+         if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
             echo get_user_posts($line['id']);
         }
         else {
