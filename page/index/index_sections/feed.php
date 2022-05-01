@@ -25,6 +25,7 @@ $liste_of_users = "'".implode("','", $line)."'";
  ?>
 
 <div class="content-flow">
+    <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
     <div class="card is-post">
         <div class="post-header">
             <h4 class="post-header__title">Postez quelque chose...</h4>
@@ -47,5 +48,6 @@ $liste_of_users = "'".implode("','", $line)."'";
             <input class="button is-primary" type="submit" name="" value="Poster">
         </form>
     </div>
-    <?php echo get_user_posts($liste_of_users); ?>
+    <?php }
+    echo get_user_posts($liste_of_users); ?>
 </div>

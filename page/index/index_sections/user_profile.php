@@ -1,5 +1,4 @@
 <?php
-
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
 $line = $response->fetchArray();
@@ -58,11 +57,13 @@ $line = $response->fetchArray();
                     let response = JSON.parse(xhr.response);
                     console.log(response['state']);
                     if (response['state'] == 'followed') {
-                        document.getElementById('follow').attributes.onclick = 'unfollow()';
+                        document.getElementById('follow').setAttribute('onclick', 'unfollow()');
+                        document.getElementById('follow').classList = ['button is-error'];
                         document.getElementById('follow').innerText = 'se désabonner';
                     }
                     else {
-                        document.getElementById('follow').attributes.onclick = 'cancel_follow()';
+                        document.getElementById('follow').setAttribute('onclick', 'cancel_follow()');
+                        document.getElementById('follow').classList = ['button is-alert'];
                         document.getElementById('follow').innerText = 'annuler la demande';
                     }
                 }
@@ -79,7 +80,9 @@ $line = $response->fetchArray();
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let response = JSON.parse(xhr.response);
                     if (response['state'] = 'unfollowed') {
-                        document.getElementById('follow').attributes.onclick = 'follow()';
+                        document.getElementById('follow').setAttribute('onclick', 'follow()');
+                        document.getElementById('follow').classList = ['button is-primary'];
+
                         document.getElementById('follow').innerText = "s'abonner";
                     }
                 }
@@ -96,7 +99,9 @@ $line = $response->fetchArray();
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let response = JSON.parse(xhr.response);
                     if (response['state'] = 'cancelled') {
-                        document.getElementById('follow').attributes.onclick = 'follow()';
+                        document.getElementById('follow').setAttribute('onclick', 'follow()');
+                        document.getElementById('follow').classList = ['button is-primary'];
+
                         document.getElementById('follow').innerText = "s'abonner";
                     }
                 }

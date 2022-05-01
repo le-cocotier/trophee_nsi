@@ -9,8 +9,8 @@
 </head>
 <body class="index">
     <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/common/header.php";?>
-    <section>
-        <div class="section__frame">
+    <section>  
+        <div class="section__frame <?php if (!(isset($_SESSION['name']) && isset($_SESSION['password']))){ echo "is-wide"; }?>">
             <?php
                 if(isset($_GET["content_type"])){
                     if($_GET["content_type"] == "feed") {
@@ -37,24 +37,40 @@
                 }
             ?>
         </div>
-        <div class="section__right-frame">
-            <div class="section__right-frame__header">
-                <button id="message-button" class="active">Messages</button>
-                <button id="group-button">Groupes</button>
-            </div>
-            <div class="section__right-frame__content">
-                <div class="section__right-frame__content__dm">
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
+            <div class="section__right-frame">
+                <div class="section__right-frame__header">
+                    <img onclick="changeRightMenu('is-dm')" id="dm-button" class="active" width="28" height="28" src="../../img/messages.png" alt="messages">
+                    <img onclick="changeRightMenu('is-group')" id="groups-button" width="28" height="28" src="../../img/groups.png" alt="groupes">
+                </div>
+                <div class="section__right-frame__content">
                     <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/right/get_discussions.php';
                     } ?>
-                    <a href="/trophee_nsi/page/create_group.php" class="create-group">Créer une discussion</a>
+                    <a href="/trophee_nsi/page/create_group.php" class="create-group">Créer un groupe</a>
                 </div>
-                <div class="section__right-frame__content__groups hidden"></div>
             </div>
-        </div>
+        <?php } ?>
     </section>
     <script>
-        //TODO: changer message àgroupes
+        let current = "is-dm";
+        function changeRightMenu(where){
+            if(where === current) return;
+            if(current === "is-dm"){
+                document.querySelectorAll(".is-dm").forEach(el => el.classList.add("hidden"));
+                document.querySelectorAll(".is-group").forEach(el => el.classList.remove("hidden"));
+                document.querySelector("#dm-button").classList.remove("active");
+                document.querySelector("#groups-button").classList.add("active");
+                current = "is-group";
+            }
+            else{
+                document.querySelectorAll(".is-group").forEach(el => el.classList.add("hidden"));
+                document.querySelectorAll(".is-dm").forEach(el => el.classList.remove("hidden"));
+                document.querySelector("#dm-button").classList.add("active");
+                document.querySelector("#groups-button").classList.remove("active");
+                current = "is-dm";
+            }
+        }
     </script>
 </body>
 </html>
