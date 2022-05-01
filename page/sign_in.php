@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
     <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
+    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body class="sign-in">
     <div id="container">

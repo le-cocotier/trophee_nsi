@@ -40,8 +40,18 @@
                 <img class="header__right__dropdown__item" width="38" height="38" src="../../img/notif.png" alt="notif">
                 <div class="header__right__dropdown__panel">
                     <ul>
-                        <li>salut</li>
-                        
+                    <?php
+                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
+                        $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."'");
+                        while($line = $response->fetchArray()){
+                            if($line['type'] == 'follow'){ ?>
+
+                                <li>
+                                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?></a>
+                                </li>
+                            
+                            <?php }} ?>
+                        <li><p>salut</p></li>
                     </ul>
                 </div>
             </div>
