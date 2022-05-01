@@ -36,8 +36,6 @@
 
                 }
             </script>
-            <img onclick="changeRightMenu('__dm')" id="dm-button" class="header__right__item active" width="28" height="28" src="../../img/messages.png" alt="messages">
-            <img onclick="changeRightMenu('__groups')" id="groups-button" class="header__right__item" width="28" height="28" src="../../img/groups.png" alt="groupes">
             <div class="header__right__dropdown header__right__item">
                 <img class="header__right__dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="header__right__dropdown__panel">

@@ -11,7 +11,9 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 0.4em 1em;
-    z-index: 99;
+    box-shadow: $color-highlight 0 0 10px;
+    position: relative;
+    z-index: 999;
     .header__left{
         display: flex;
         align-items: center;
@@ -54,8 +56,7 @@ header {
             }
             &__panel{
                 box-shadow: $color-highlight 0 0 10px;
-                opacity: 0;
-                transition: 0.2s ease-in-out;
+                display: none;
                 margin: 0.6em 0 0 0;
                 width: 10vw;
                 padding: 0;
@@ -92,8 +93,7 @@ header {
             }
             &:hover{
                 & .header__right__dropdown__panel{
-                    opacity: 1;
-                    transition: 0.2s ease-in-out;
+                    display: block;
                 }
             }
         }
@@ -123,18 +123,16 @@ section {
         background-color: #eef7eb;
         width: 100%;
         max-width: 20%;
-        /*&__header {
+        &__header {
             background-color: white;
-            //padding: 0.4em 0 0 0;
+            box-shadow: $color-highlight 0 0 10px;
+            padding: 0.4em;
             width: 100%;
             display: flex;
-            button{
-                font-size: 16px;
-                background-color: rgb(245, 245, 245);
-                border: none;
-                width: 100%;
-                padding: 0.4em;
-                border-radius: 10px 10px 0 0;
+            justify-content: space-around;
+            img{
+                padding: 0 0.4em;
+                border-radius: $border-radius;
                 &:hover{
                     background-color: rgb(238, 238, 238);
                 }
@@ -145,13 +143,11 @@ section {
                     background-color: rgb(221, 221, 221);
                 }
             }
-        }*/
-        &__content__dm{
-            >a.is-dm{
-                margin: 1em;
-            }
         }
-        &__content__groups{
+        &__content{
+            & .hidden{
+                display: none;
+            }
             .create-group{
                 //TODO: à changer, prends une place qu'il devrait pas
                 position: fixed;
@@ -226,11 +222,12 @@ section {
         }
     }
     //TODO: finir
-    &.is-dm{
+    &.is-dm, &.is-group{
         display: flex;
         text-decoration: none;
         color: black;
         padding: 0.6em;
+        margin: 1em;
         &:hover{
             background-color: $color-background;
             transition: 0.2s ease-in-out;
