@@ -7,12 +7,11 @@ $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db',
 $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
 $discussion_ID = $_GET['id'];
-while ($line = $response->fetchArray()) {
-    $users_ID=explode(",", $line["users_ID"]);
-    $title = $line['name'];
-    if (!in_array($_SESSION["user_ID"], $users_ID)) {
-        header('location: /trophee_nsi/page/index/index.php');
-    }
+$line = $response->fetchArray();
+$users_ID=explode(",", $line["users_ID"]);
+$title = $line['name'];
+if (!in_array($_SESSION["user_ID"], $users_ID)) {
+    header('location: /trophee_nsi/page/index/index.php');
 }
 ?>
 
@@ -20,6 +19,21 @@ while ($line = $response->fetchArray()) {
     <div class="dm__header">
         <a href='/trophee_nsi/page/index/index.php' class="button is-black">Retour</a>
         <h2><?php echo $title; ?></h2>
+        <?php if ($line['admin'] == $_SESSION['user_ID']) {
+        echo <<<HTML
+        <div >
+            <div >
+                <button type='button' class="button">...</button>
+            </div>
+            <div >
+                <button type="button">Renommer</button>
+                <button type="button" >Ajouter quelqu'un</button>
+                <hr>
+                <button type="button">Supprimer le groupe</button>
+            </div>
+        </div>
+        HTML;
+        } ?>
     </div>
     <div class="dm__content">
         <!-- On récupère les messages de la discussion -->

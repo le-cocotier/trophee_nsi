@@ -35,7 +35,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 		}
 	}
 	if (count($error['error']) == 0){
-		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date, subscribers, subscriptions, pp, type) VALUES(:name, :password, :email, :birth_date, 0, 0, :pp, :type)");
+		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date, subscribers, subscriptions, pp, type, public) VALUES(:name, :password, :email, :birth_date, 0, 0, :pp, :type, 'false')");
 
 		$append->bindValue(':pp', file_get_contents($_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/img/blank-profile.png"));
 		$append->bindValue(':type', 'image/png');
