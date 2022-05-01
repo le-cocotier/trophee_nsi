@@ -8,7 +8,7 @@ while ($line = $response->fetchArray()) {
         if (!in_array($_SESSION["user_ID"], $vu)){
             if ($line['user_ID'] == $_SESSION['user_ID']) {
                 echo <<<HTML
-                <div class='message message-left'>
+                <div class='message message-right'>
                     <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
@@ -16,7 +16,7 @@ while ($line = $response->fetchArray()) {
             }
             else {
                 echo '
-                <div class="message message-right">
+                <div class="message message-left">
                     <p class="content">'.$line["mess"].'</p>
                     <p class="user">'.get_username($line["user_ID"]).'</p>
                 </div>';
@@ -31,7 +31,7 @@ while ($line = $response->fetchArray()) {
         if ($line['type'] == 'text') {
             if ($line['user_ID'] == $_SESSION['user_ID']) {
                 echo <<<HTML
-                <div class='message message-left'>
+                <div class='message message-right'>
                     <p class="content">{$line['mess']}</p>
                     <p class="user">Vous</p>
                 </div>
@@ -39,7 +39,7 @@ while ($line = $response->fetchArray()) {
             }
             else {
                 echo '
-                <div class="message message-right">
+                <div class="message message-left">
                     <p class="content">'.$line['mess'].'</p>
                     <p class="user">'.get_username($line['user_ID']).'</p>
                 </div>';
@@ -48,10 +48,18 @@ while ($line = $response->fetchArray()) {
         elseif (str_contains($line['type'], 'image')) {
             $stream = $bdd->openBlob('content', 'file', $line['ID']);
             if ($line['user_ID'] == $_SESSION['user_ID']) {
-                echo "<div class='message-left'><img width='200px' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'><small>Vous</small></div>";
+                echo "
+                <div class='message message-right'>
+                    <img class='content img' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'>
+                    <p class='user'>Vous</p>
+                </div>";
             }
             else {
-                echo "<div class='message-right'><img width='200px' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'><small>".get_username($line['user_ID'])."</small></div>";
+                echo "
+                <div class='message message-right'>
+                    <img class='content img' src='data:".$line['type'].";base64,".base64_encode(stream_get_contents($stream))."'>
+                    <p class='user'>.get_username($line['user_ID']).</p>
+                </div>";
             }
         }
     }
@@ -60,8 +68,8 @@ while ($line = $response->fetchArray()) {
  ?>
 
 
-<!--TEMP PLACEHOLDER A ENLEVER PLUS TARD
-<div class='message message-right'>
+
+<!--<div class='message message-right'>
     <img class="content img" src='../../img/notif.png'>
     <p class="user">Some user</p>
 </div>

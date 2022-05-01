@@ -340,7 +340,6 @@ body.sign-in {
 .content-dm .dm__content .message .img {
   margin-left: auto;
   display: block;
-  width: 100%;
   max-width: 200px;
   height: auto;
 }
