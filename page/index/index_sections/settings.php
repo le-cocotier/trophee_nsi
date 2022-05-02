@@ -4,9 +4,9 @@ $response = $bdd->query('SELECT * FROM users where name="'.$_SESSION['name'].'"'
 $line = $response->fetchArray();
  ?>
 <div class="content-flow">
-    <div class="card is-post card-user">
+    <div class="card is-post">
         <div class="post-header">
-            <h4>Options</h4>
+            <h4 class="post-header__title">Options</h4>
         </div>
         <form id="sign-in_form" onsubmit="return false">
             <div class="form-chunck is-vertical">

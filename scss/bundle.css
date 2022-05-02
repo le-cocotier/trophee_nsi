@@ -120,7 +120,7 @@ section .section__frame .content-flow {
 }
 section .section__right-frame {
   background-color: #eef7eb;
-  width: 100%;
+  width: 20%;
   max-width: 20%;
 }
 section .section__right-frame__header {
@@ -129,6 +129,7 @@ section .section__right-frame__header {
   padding: 0.4em;
   width: 100%;
   display: flex;
+  box-sizing: border-box;
   justify-content: space-around;
 }
 section .section__right-frame__header img {
@@ -143,6 +144,12 @@ section .section__right-frame__header .active {
 }
 section .section__right-frame__header .active:hover {
   background-color: #dddddd;
+}
+section .section__right-frame__content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
 }
 section .section__right-frame__content .hidden {
   display: none;
@@ -180,10 +187,10 @@ section .section__right-frame__content .create-group:hover {
 .card {
   background-color: #ffffff;
   border-radius: 10px;
-  margin-bottom: 1em;
   box-shadow: #e5e7eb 0 0 10px;
 }
 .card.is-post {
+  margin-bottom: 1em;
   padding: 20px;
   width: 100%;
 }
@@ -217,29 +224,29 @@ section .section__right-frame__content .create-group:hover {
   padding: 0 1% 0 0%;
 }
 .card.is-dm, .card.is-group {
-  display: flex;
+  width: 100%;
+  box-sizing: border-box;
   text-decoration: none;
   color: black;
   padding: 0.6em;
-  margin: 1em;
 }
 .card.is-dm:hover, .card.is-group:hover {
   background-color: #f3f4f6;
   transition: 0.2s ease-in-out;
 }
-.card.is-dm img, .card.is-group img {
+.card.is-dm .card-img, .card.is-group .card-img {
   border-radius: 100px;
   margin: auto 0.6em auto 0;
 }
-.card.is-dm .content, .card.is-group .content {
-  margin: auto 0;
-}
-.card.is-dm .content h5, .card.is-group .content h5 {
+.card.is-dm .card-title, .card.is-group .card-title {
+  width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  margin: 0 0 0.6em 0;
   font-size: 18px;
   font-weight: 500;
-  margin: 0;
 }
-.card.is-dm .content p, .card.is-group .content p {
+.card.is-dm .card-under, .card.is-group .card-under {
   margin: 0;
 }
 
@@ -457,6 +464,20 @@ body {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+.container {
+  display: flex;
+}
+
+.align-items {
+  display: flex;
+  align-items: center;
+}
+
+.justify-content {
+  display: flex;
+  justify-content: center;
 }
 
 button {

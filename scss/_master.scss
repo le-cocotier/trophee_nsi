@@ -23,6 +23,19 @@ a{
 //===================================
 //COMMON STYLES
 //===================================
+.container{
+    display: flex;
+}
+.align-items{
+    display: flex;
+    align-items: center;
+}
+.justify-content{
+    display: flex;
+    justify-content: center;
+}
+
+
 //boutons et différentes couleurs
 button{
     font-family: $font-family;

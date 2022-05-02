@@ -121,7 +121,7 @@ section {
 
     .section__right-frame{
         background-color: #eef7eb;
-        width: 100%;
+        width: 20%;
         max-width: 20%;
         &__header {
             background-color: white;
@@ -129,6 +129,7 @@ section {
             padding: 0.4em;
             width: 100%;
             display: flex;
+            box-sizing: border-box;
             justify-content: space-around;
             img{
                 padding: 0 0.4em;
@@ -145,11 +146,14 @@ section {
             }
         }
         &__content{
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            padding: 1em;
             & .hidden{
                 display: none;
             }
             .create-group{
-                //TODO: à changer, prends une place qu'il devrait pas
                 position: fixed;
                 color: black;
                 text-decoration: 0;
@@ -185,9 +189,9 @@ section {
 .card{
     background-color: $color-surface;
     border-radius: $border-radius;
-    margin-bottom: 1em;
     box-shadow: $color-highlight 0 0 10px;
     &.is-post{
+        margin-bottom: 1em;
         padding: 20px;
         width: 100%;
         .post-header{
@@ -223,29 +227,29 @@ section {
     }
     //TODO: finir
     &.is-dm, &.is-group{
-        display: flex;
+        width: 100%;
+        box-sizing: border-box;
         text-decoration: none;
         color: black;
         padding: 0.6em;
-        margin: 1em;
         &:hover{
             background-color: $color-background;
             transition: 0.2s ease-in-out;
         }
-        img{
+        .card-img{
             border-radius: 100px;
             margin: auto 0.6em auto 0;
         }
-        .content{
-            margin: auto 0;
-            h5{
-                font-size: 18px;
-                font-weight: 500;
-                margin: 0
-            }
-            p{
-                margin: 0;
-            }
+        .card-title{
+            width: 100%;
+            white-space: normal;
+            overflow-wrap: break-word;
+            margin: 0 0 0.6em 0;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .card-under{
+            margin: 0;
         }
     }
 }
