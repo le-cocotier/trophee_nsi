@@ -1,7 +1,7 @@
 <div class="create-group__panel">
     <h1 id="titre" class="create-group__panel__title"></h1>
-    <input id="search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="search_user()">
-    <ul id="search_user__list">
+    <input id="group__search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="search_user()">
+    <ul id="group__search_user__list">
 
     </ul>
     <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
@@ -12,8 +12,8 @@
 
 <script type="text/javascript">
     function search_user() {
-        document.getElementById('search_user__list').innerHTML = "";
-        let input = document.getElementById('search_user').value;
+        document.getElementById('group__search_user__list').innerHTML = "";
+        let input = document.getElementById('group__search_user').value;
         if (input!=""){
             let data = new FormData();
             input=input.toLowerCase();
@@ -25,7 +25,7 @@
                     let response = JSON.parse(xhr.response);
                     for (var i = 0; i < response['name'].length; i++) {
                         console.log(response['name'][i]);
-                        document.getElementById("search_user__list").innerHTML+="<li><a href='#' onclick='add_to_group(\""+response['name'][i]+"\")'>"+response['name'][i]+"</a></li>";
+                        document.getElementById("group__search_user__list").innerHTML+="<li><a href='#' onclick='add_to_group(\""+response['name'][i]+"\")'>"+response['name'][i]+"</a></li>";
                     }
                 }
             }
@@ -38,8 +38,7 @@
         if (!liste_of_users.includes(user)){
             liste_of_users.push(user);
             document.getElementById('users').setAttribute('value', liste_of_users.join(','));
-            document.getElementById('title').innerText = document.getElementById('users').value;
+            document.getElementById('titre').innerText = document.getElementById('users').value;
         }
     }
 </script>
-
