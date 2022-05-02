@@ -47,10 +47,27 @@
                             if($line['type'] == 'follow'){ ?>
 
                                 <li>
-                                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
+                                    <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
                                 </li>
-                            
-                            <?php }} ?>
+
+                    <?php }} ?>
+                        
+                    <script type="text/javascript">
+                        function sup_notif(ID_sup) {
+                            console.log(ID_sup);
+                            let data = new FormData();
+                            data.append('ID_sup', ID_sup);
+                            let xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = () => {
+                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                    let response = JSON.parse(xhr.response);
+                                    console.log(response);
+                                }
+                            }
+                            xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+                            xhr.send(data);
+                        }
+            </script>
                     </ul>
                 </div>
             </div>
