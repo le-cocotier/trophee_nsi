@@ -30,7 +30,7 @@ $liste_of_users = "'".implode("','", $line)."'";
         <div class="post-header">
             <h4 class="post-header__title">Postez quelque chose...</h4>
         </div>
-        <form class="form-post" action='/trophee_nsi/cible/send_post.php' method="post" enctype="multipart/form-data" onsubmit="return false">
+        <form class="form-post" action='/trophee_nsi/cible/send_post.php' method="post" enctype="multipart/form-data">
             <div class="form-chunck is-vertical">
                 <label for="username">Titre</label>
                 <input class="input" type="text" name="title" placeholder="Une idée originale..." required>
