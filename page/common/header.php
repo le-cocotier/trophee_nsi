@@ -47,7 +47,7 @@
                             if($line['type'] == 'follow'){ ?>
 
                                 <li>
-                                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?></a>
+                                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
                                 </li>
                             
                             <?php }} ?>
