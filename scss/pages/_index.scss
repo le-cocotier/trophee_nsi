@@ -57,7 +57,7 @@ header {
             &__panel{
                 box-shadow: $color-highlight 0 0 10px;
                 display: none;
-                margin: 0.6em 0 0 0;
+                margin: 0.4em 0 0 0;
                 width: 10vw;
                 padding: 0;
                 text-align: left;
@@ -68,7 +68,7 @@ header {
                 box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
                 a{
                     display: block;
-                    padding: 0.8em 1em; 
+                    padding: 0.8em 1em;
                     &:hover{
                         background-color: #eeeeee;
                         transition: 0.2s ease-in-out;
@@ -112,7 +112,7 @@ section {
         &.is-wide{
             width: 100%;
         }
-        
+
         .content-flow {
             padding-top: 20px;
             margin: 0 20%;
@@ -151,16 +151,50 @@ section {
             }
             .create-group{
                 position: fixed;
-                color: black;
-                text-decoration: 0;
-                bottom: 0;
+                display: block;
                 width: 20vw;
-                padding: 1em 1em;
+                bottom: 0;
                 text-align: center;
-                background-color: $color-surface;
-                &:hover{
+                &__button{
+                    border: none;
+                    display: block;
+                    text-decoration: 0;
+                    width: 20vw;
+                    padding: 1em 0;
+                    background-color: $color-surface;
+                    &:hover{
+                        background-color: rgb(248, 248, 248);
+                        transition: 0.2s ease-in-out;
+                    }
+                }
+                &__panel{
+                    display: none;
                     background-color: rgb(248, 248, 248);
-                    transition: 0.2s ease-in-out;
+                    
+                    &__title{
+                        padding: 0.2em 0;
+                        margin: 0;
+                    }
+                    &__button{
+                        margin-bottom: 1em;
+                    }
+                    &__list{
+                        list-style-type: none;
+                        padding: 0;
+
+                        & a{
+                            padding: 0.4em;
+                            border-radius: $border-radius;
+                            transition: 0.2s ease-in-out;
+                            &:hover{
+                                background-color: #f1f1f1;
+                                transition: 0.2s ease-in-out;
+                            }
+                        }
+                        & .strong{
+                            font-weight: 600;
+                        }
+                    }
                 }
             }
         }
@@ -173,7 +207,7 @@ section {
         .section__frame {
             display: none;
         }
-    
+
         .section__right-frame{
             width: 100%;
             max-width: 100%;
@@ -181,6 +215,49 @@ section {
         }
     }
 }*/
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+    input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+        &:checked + .switch__slider {
+            background-color: #2ecc71;
+        }
+        &:focus + .switch__slider {
+            box-shadow: 0 0 1px #2ecc71;
+        }
+        &:checked + .switch__slider:before {
+            transform: translateX(26px);
+        }
+    }
+    &__slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: crimson;
+        border-radius: 34px;
+        transition: .4s;
+        &:before {
+            position: absolute;
+            border-radius: 50%;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+        }
+    }
+}
 
 .card{
     background-color: $color-surface;
