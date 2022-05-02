@@ -6,12 +6,12 @@
     <nav class="header__right">
         <?php
         if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
-            <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
+            <input id="search_user" class="input" type="text" name="search_user" onkeyup="group_search_user()">
             <ul id="search_user__list">
 
             </ul>
             <script type="text/javascript">
-                function search_user() {
+                function group_search_user() {
                     document.getElementById('search_user__list').innerHTML = "";
                     let input = document.getElementById('search_user').value;
                     if (input!=""){
@@ -47,10 +47,27 @@
                             if($line['type'] == 'follow'){ ?>
 
                                 <li>
-                                    <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?></a>
+                                    <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
                                 </li>
-                            
-                            <?php }} ?>
+
+                    <?php }} ?>
+
+                    <script type="text/javascript">
+                        function sup_notif(ID_sup) {
+                            console.log(ID_sup);
+                            let data = new FormData();
+                            data.append('ID_sup', ID_sup);
+                            let xhr = new XMLHttpRequest();
+                            xhr.onreadystatechange = () => {
+                                if (xhr.readyState == 4 && xhr.status == 200) {
+                                    let response = JSON.parse(xhr.response);
+                                    console.log(response);
+                                }
+                            }
+                            xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+                            xhr.send(data);
+                        }
+            </script>
                     </ul>
                 </div>
             </div>

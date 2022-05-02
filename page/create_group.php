@@ -1,7 +1,7 @@
 <div class="create-group__panel">
     <h1 id="titre" class="create-group__panel__title"></h1>
     <input id="group__search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="search_user()">
-    <ul id="group__search_user__list">
+    <ul id="group__search_user__list" class="create-group__panel__list">
 
     </ul>
     <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
@@ -25,7 +25,7 @@
                     let response = JSON.parse(xhr.response);
                     for (var i = 0; i < response['name'].length; i++) {
                         console.log(response['name'][i]);
-                        document.getElementById("group__search_user__list").innerHTML+="<li><a href='#' onclick='add_to_group(\""+response['name'][i]+"\")'>"+response['name'][i]+"</a></li>";
+                        document.getElementById("group__search_user__list").innerHTML+="<li><a href='#' onclick='add_to_group(\""+response['name'][i]+"\")'>Ajouter <span class='strong'>"+response['name'][i]+"</span></a></li>";
                     }
                 }
             }

@@ -48,10 +48,9 @@
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/right/get_discussions.php';
                     } ?>
                     <div class="create-group">
-                        <a href="#" class="create-group__button">Créer un groupe</a>
+                        <button href="#" onclick="openGroup()" class="create-group__button">Créer un groupe</button>
                         <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/create_group.php"; ?>
                     </div>
-
                 </div>
             </div>
         <?php } ?>
@@ -74,6 +73,12 @@
                 document.querySelector("#groups-button").classList.remove("active");
                 current = "is-dm";
             }
+        }
+
+        function openGroup(){
+            let group = document.querySelector(".create-group__panel");
+            if(group.style.display === "block") group.style.display = "none";
+            else group.style.display = "block";
         }
     </script>
 </body>
