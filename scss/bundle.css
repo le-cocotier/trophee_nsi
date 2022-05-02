@@ -64,7 +64,7 @@ header .header__right__dropdown__item p {
 header .header__right__dropdown__panel {
   box-shadow: #e5e7eb 0 0 10px;
   display: none;
-  margin: 0.6em 0 0 0;
+  margin: 0.4em 0 0 0;
   width: 10vw;
   padding: 0;
   text-align: left;
@@ -156,6 +156,7 @@ section .section__right-frame__content .create-group {
   text-align: center;
 }
 section .section__right-frame__content .create-group__button {
+  border: none;
   display: block;
   text-decoration: 0;
   width: 20vw;
@@ -167,13 +168,31 @@ section .section__right-frame__content .create-group__button:hover {
   transition: 0.2s ease-in-out;
 }
 section .section__right-frame__content .create-group__panel {
+  display: none;
   background-color: #f8f8f8;
 }
 section .section__right-frame__content .create-group__panel__title {
+  padding: 0.2em 0;
   margin: 0;
 }
 section .section__right-frame__content .create-group__panel__button {
   margin-bottom: 1em;
+}
+section .section__right-frame__content .create-group__panel__list {
+  list-style-type: none;
+  padding: 0;
+}
+section .section__right-frame__content .create-group__panel__list a {
+  padding: 0.4em;
+  border-radius: 10px;
+  transition: 0.2s ease-in-out;
+}
+section .section__right-frame__content .create-group__panel__list a:hover {
+  background-color: #f1f1f1;
+  transition: 0.2s ease-in-out;
+}
+section .section__right-frame__content .create-group__panel__list .strong {
+  font-weight: 600;
 }
 
 /*TODO: responsive
@@ -191,37 +210,27 @@ section .section__right-frame__content .create-group__panel__button {
         }
     }
 }*/
-.card {
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: #e5e7eb 0 0 10px;
-}
-.card.is-post {
-  margin-bottom: 1em;
-  padding: 20px;
-  width: 100%;
-}
-.card.is-post .switch {
+.switch {
   position: relative;
   display: inline-block;
   width: 60px;
   height: 34px;
 }
-.card.is-post .switch input {
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-.card.is-post .switch input:checked + .switch__slider {
+.switch input:checked + .switch__slider {
   background-color: #2ecc71;
 }
-.card.is-post .switch input:focus + .switch__slider {
+.switch input:focus + .switch__slider {
   box-shadow: 0 0 1px #2ecc71;
 }
-.card.is-post .switch input:checked + .switch__slider:before {
+.switch input:checked + .switch__slider:before {
   transform: translateX(26px);
 }
-.card.is-post .switch__slider {
+.switch__slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -232,7 +241,7 @@ section .section__right-frame__content .create-group__panel__button {
   border-radius: 34px;
   transition: 0.4s;
 }
-.card.is-post .switch__slider:before {
+.switch__slider:before {
   position: absolute;
   border-radius: 50%;
   content: "";
@@ -242,6 +251,17 @@ section .section__right-frame__content .create-group__panel__button {
   bottom: 4px;
   background-color: white;
   transition: 0.4s;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: #e5e7eb 0 0 10px;
+}
+.card.is-post {
+  margin-bottom: 1em;
+  padding: 20px;
+  width: 100%;
 }
 .card.is-post .post-header {
   box-sizing: border-box;
