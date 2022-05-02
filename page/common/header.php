@@ -51,7 +51,6 @@
                                 </li>
                             
                             <?php }} ?>
-                        <li><p>salut</p></li>
                     </ul>
                 </div>
             </div>

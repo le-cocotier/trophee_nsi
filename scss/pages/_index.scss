@@ -121,7 +121,7 @@ section {
 
     .section__right-frame{
         background-color: #eef7eb;
-        width: 100%;
+        width: 20%;
         max-width: 20%;
         &__header {
             background-color: white;
@@ -129,6 +129,7 @@ section {
             padding: 0.4em;
             width: 100%;
             display: flex;
+            box-sizing: border-box;
             justify-content: space-around;
             img{
                 padding: 0 0.4em;
@@ -149,13 +150,12 @@ section {
                 display: none;
             }
             .create-group{
-                //TODO: à changer, prends une place qu'il devrait pas
                 position: fixed;
                 color: black;
                 text-decoration: 0;
                 bottom: 0;
                 width: 20vw;
-                padding: 1em 0;
+                padding: 1em 1em;
                 text-align: center;
                 background-color: $color-surface;
                 &:hover{
@@ -185,9 +185,9 @@ section {
 .card{
     background-color: $color-surface;
     border-radius: $border-radius;
-    margin-bottom: 1em;
     box-shadow: $color-highlight 0 0 10px;
     &.is-post{
+        margin-bottom: 1em;
         padding: 20px;
         width: 100%;
         .switch {
@@ -263,29 +263,32 @@ section {
             padding: 0 1% 0 0%;
         }
     }
-    //TODO: finir
     &.is-dm, &.is-group{
         display: flex;
+        width: 90%;
+        margin: 5%;
+        box-sizing: border-box;
         text-decoration: none;
         color: black;
         padding: 0.6em;
-        margin: 1em;
         &:hover{
             background-color: $color-background;
             transition: 0.2s ease-in-out;
         }
-        img{
+        .card-img{
             border-radius: 100px;
+            width: auto;
             margin: auto 0.6em auto 0;
         }
         .content{
-            margin: auto 0;
-            h5{
+            width: 70%;
+            overflow-wrap: break-word;
+            .card-title{
                 font-size: 18px;
                 font-weight: 500;
-                margin: 0
+                margin: 0;
             }
-            p{
+            .card-under{
                 margin: 0;
             }
         }
