@@ -22,4 +22,6 @@ else if ($_POST['type'] == 'file') {
     $append->bindValue(':date', $_POST['date']);
     $append->execute();
 }
+
+header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.$_POST["discussion_ID"]);
 ?>
