@@ -145,12 +145,6 @@ section .section__right-frame__header .active {
 section .section__right-frame__header .active:hover {
   background-color: #dddddd;
 }
-section .section__right-frame__content {
-  display: flex;
-  flex-direction: column;
-  gap: 1em;
-  padding: 1em;
-}
 section .section__right-frame__content .hidden {
   display: none;
 }
@@ -160,7 +154,7 @@ section .section__right-frame__content .create-group {
   text-decoration: 0;
   bottom: 0;
   width: 20vw;
-  padding: 1em 0;
+  padding: 1em 1em;
   text-align: center;
   background-color: #ffffff;
 }
@@ -224,7 +218,9 @@ section .section__right-frame__content .create-group:hover {
   padding: 0 1% 0 0%;
 }
 .card.is-dm, .card.is-group {
-  width: 100%;
+  display: flex;
+  width: 90%;
+  margin: 5%;
   box-sizing: border-box;
   text-decoration: none;
   color: black;
@@ -236,17 +232,19 @@ section .section__right-frame__content .create-group:hover {
 }
 .card.is-dm .card-img, .card.is-group .card-img {
   border-radius: 100px;
+  width: auto;
   margin: auto 0.6em auto 0;
 }
-.card.is-dm .card-title, .card.is-group .card-title {
-  width: 100%;
-  white-space: normal;
+.card.is-dm .content, .card.is-group .content {
+  width: 70%;
   overflow-wrap: break-word;
-  margin: 0 0 0.6em 0;
+}
+.card.is-dm .content .card-title, .card.is-group .content .card-title {
   font-size: 18px;
   font-weight: 500;
+  margin: 0;
 }
-.card.is-dm .card-under, .card.is-group .card-under {
+.card.is-dm .content .card-under, .card.is-group .content .card-under {
   margin: 0;
 }
 

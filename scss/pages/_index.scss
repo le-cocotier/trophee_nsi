@@ -146,10 +146,6 @@ section {
             }
         }
         &__content{
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-            padding: 1em;
             & .hidden{
                 display: none;
             }
@@ -159,7 +155,7 @@ section {
                 text-decoration: 0;
                 bottom: 0;
                 width: 20vw;
-                padding: 1em 0;
+                padding: 1em 1em;
                 text-align: center;
                 background-color: $color-surface;
                 &:hover{
@@ -225,9 +221,10 @@ section {
             padding: 0 1% 0 0%;
         }
     }
-    //TODO: finir
     &.is-dm, &.is-group{
-        width: 100%;
+        display: flex;
+        width: 90%;
+        margin: 5%;
         box-sizing: border-box;
         text-decoration: none;
         color: black;
@@ -238,18 +235,20 @@ section {
         }
         .card-img{
             border-radius: 100px;
+            width: auto;
             margin: auto 0.6em auto 0;
         }
-        .card-title{
-            width: 100%;
-            white-space: normal;
+        .content{
+            width: 70%;
             overflow-wrap: break-word;
-            margin: 0 0 0.6em 0;
-            font-size: 18px;
-            font-weight: 500;
-        }
-        .card-under{
-            margin: 0;
+            .card-title{
+                font-size: 18px;
+                font-weight: 500;
+                margin: 0;
+            }
+            .card-under{
+                margin: 0;
+            }
         }
     }
 }
