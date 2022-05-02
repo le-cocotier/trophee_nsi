@@ -1,12 +1,14 @@
-<h1 id="title"></h1>
-<input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
-<ul id="search_user__list">
+<div class="create-group__panel">
+    <h1 id="titre" class="create-group__panel__title"></h1>
+    <input id="search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="search_user()">
+    <ul id="search_user__list">
 
-</ul>
-<form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
-    <input id="users" type="hidden" name="users" value="">
-    <input type="submit" value="Créer la discussion">
-</form>
+    </ul>
+    <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
+        <input id="users" type="hidden" name="users" value="">
+        <input class="button is-primary create-group__panel__button" type="submit" value="Créer la discussion">
+    </form>
+</div>
 
 <script type="text/javascript">
     function search_user() {

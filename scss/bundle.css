@@ -150,17 +150,30 @@ section .section__right-frame__content .hidden {
 }
 section .section__right-frame__content .create-group {
   position: fixed;
-  color: black;
-  text-decoration: 0;
-  bottom: 0;
+  display: block;
   width: 20vw;
-  padding: 1em 1em;
+  bottom: 0;
   text-align: center;
+}
+section .section__right-frame__content .create-group__button {
+  display: block;
+  text-decoration: 0;
+  width: 20vw;
+  padding: 1em 0;
   background-color: #ffffff;
 }
-section .section__right-frame__content .create-group:hover {
+section .section__right-frame__content .create-group__button:hover {
   background-color: #f8f8f8;
   transition: 0.2s ease-in-out;
+}
+section .section__right-frame__content .create-group__panel {
+  background-color: #f8f8f8;
+}
+section .section__right-frame__content .create-group__panel__title {
+  margin: 0;
+}
+section .section__right-frame__content .create-group__panel__button {
+  margin-bottom: 1em;
 }
 
 /*TODO: responsive

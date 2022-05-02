@@ -47,7 +47,11 @@
                     <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/right/get_discussions.php';
                     } ?>
-                    <a href="/trophee_nsi/page/create_group.php" class="create-group">Créer un groupe</a>
+                    <div class="create-group">
+                        <a href="#" class="create-group__button">Créer un groupe</a>
+                        <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/create_group.php"; ?>
+                    </div>
+
                 </div>
             </div>
         <?php } ?>

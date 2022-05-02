@@ -151,16 +151,30 @@ section {
             }
             .create-group{
                 position: fixed;
-                color: black;
-                text-decoration: 0;
-                bottom: 0;
+                display: block;
                 width: 20vw;
-                padding: 1em 1em;
+                bottom: 0;
                 text-align: center;
-                background-color: $color-surface;
-                &:hover{
+                &__button{
+                    display: block;
+                    text-decoration: 0;
+                    width: 20vw;
+                    padding: 1em 0;
+                    background-color: $color-surface;
+                    &:hover{
+                        background-color: rgb(248, 248, 248);
+                        transition: 0.2s ease-in-out;
+                    }
+                }
+                &__panel{
                     background-color: rgb(248, 248, 248);
-                    transition: 0.2s ease-in-out;
+                    
+                    &__title{
+                        margin: 0;
+                    }
+                    &__button{
+                        margin-bottom: 1em;
+                    }
                 }
             }
         }
