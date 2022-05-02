@@ -44,24 +44,25 @@ header .header__right__item:hover {
 header .header__right__item.active {
   background-color: #fafafa;
 }
-header .header__right__dropdown {
+
+.dropdown {
   position: relative;
   display: inline-block;
 }
-header .header__right__dropdown__item {
+.dropdown .dropdown__item {
   display: flex;
   align-items: center;
 }
-header .header__right__dropdown__item img {
+.dropdown .dropdown__item img {
   margin-right: 0.4em;
   border-radius: 50px;
 }
-header .header__right__dropdown__item p {
+.dropdown .dropdown__item p {
   font-weight: 400;
   font-size: 16px;
   margin: 0;
 }
-header .header__right__dropdown__panel {
+.dropdown .dropdown__panel {
   box-shadow: #e5e7eb 0 0 10px;
   display: none;
   margin: 0.4em 0 0 0;
@@ -74,31 +75,45 @@ header .header__right__dropdown__panel {
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
 }
-header .header__right__dropdown__panel a {
+.dropdown .dropdown__panel.dropdown {
+  height: 5vh;
+  overflow-y: scroll;
+}
+.dropdown .dropdown__panel.top {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 0.4em;
+}
+.dropdown .dropdown__panel.show {
+  display: block;
+}
+.dropdown .dropdown__panel__item {
   display: block;
   padding: 0.8em 1em;
 }
-header .header__right__dropdown__panel a:hover {
+.dropdown .dropdown__panel__item:hover {
   background-color: #eeeeee;
   transition: 0.2s ease-in-out;
 }
-header .header__right__dropdown__panel a:first-child {
+.dropdown .dropdown__panel__item:first-child {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
-header .header__right__dropdown__panel a:last-child {
+.dropdown .dropdown__panel__item:last-child {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
+}
+.dropdown .dropdown__panel__item.red {
   color: #d46a6a;
 }
-header .header__right__dropdown__panel hr {
+.dropdown .dropdown__panel hr {
   border: none;
   height: 1px;
   margin: 0;
   color: #cccccc;
   background-color: #cccccc;
 }
-header .header__right__dropdown:hover .header__right__dropdown__panel {
+.dropdown:hover .dropdown__panel {
   display: block;
 }
 
@@ -176,11 +191,10 @@ section .section__right-frame__content .create-group__panel__title {
   margin: 0;
 }
 section .section__right-frame__content .create-group__panel__button {
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 section .section__right-frame__content .create-group__panel__list {
   list-style-type: none;
-  padding: 0;
 }
 section .section__right-frame__content .create-group__panel__list a {
   padding: 0.4em;
@@ -190,9 +204,6 @@ section .section__right-frame__content .create-group__panel__list a {
 section .section__right-frame__content .create-group__panel__list a:hover {
   background-color: #f1f1f1;
   transition: 0.2s ease-in-out;
-}
-section .section__right-frame__content .create-group__panel__list .strong {
-  font-weight: 600;
 }
 
 /*TODO: responsive
