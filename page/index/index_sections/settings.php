@@ -23,7 +23,7 @@ $line = $response->fetchArray();
             </div>
             <div class="form-chunck is-vertical">
                 <label for="description">Description</label>
-                <textarea name="description" rows="8" cols="100%" value="<?php echo $line['description']; ?>"><?php echo $line['description']; ?></textarea>
+                <textarea class="input is-wide" name="description" rows="8" cols="100%" value="<?php echo $line['description']; ?>"><?php echo $line['description']; ?></textarea>
             </div>
             <div class="form-chunck is-vertical">
                 <label for="public">Profile public</label>

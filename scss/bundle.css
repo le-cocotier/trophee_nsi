@@ -284,7 +284,7 @@ section .section__right-frame__content .create-group__panel__list a:hover {
   font-weight: 300;
   margin: 0 0 0.2em 0;
   word-wrap: break-word;
-  white-space: pre-wrap;
+  white-space: normal;
 }
 .card.is-post .post-header__user {
   display: flex;
@@ -302,6 +302,7 @@ section .section__right-frame__content .create-group__panel__list a:hover {
 .card.is-post .post-content {
   margin: 0 0 2% 0;
   padding: 0 1% 0 0%;
+  white-space: pre-wrap;
 }
 .card.is-dm, .card.is-group {
   display: flex;

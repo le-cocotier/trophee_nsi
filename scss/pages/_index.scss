@@ -287,7 +287,7 @@ section {
                 font-weight: 300;
                 margin: 0 0 0.2em 0;
                 word-wrap: break-word;
-                white-space: pre-wrap;
+                white-space: normal;
             }
             &__user{
                 display: flex;
@@ -307,6 +307,7 @@ section {
         .post-content{
             margin: 0 0 2% 0;
             padding: 0 1% 0 0%;
+            white-space: pre-wrap;
         }
     }
     &.is-dm, &.is-group{
