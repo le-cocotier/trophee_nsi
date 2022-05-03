@@ -58,20 +58,17 @@
                         <?php   }
                                 if($line['type'] == 'follow request'){ ?>
                                     <li>
-<<<<<<< HEAD
-                                        <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre <br><a onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>" >Accepter</a></a>
-=======
                                         <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                             <?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre 
                                             <br>
                                             <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>">Accepter</a>
                                         </a>
->>>>>>> 187031ed753d10663daaab2c52a85318aa8b178b
                                     </li>
                         <?php }  } ?>
                                 
                         <script type="text/javascript">
                             function sup_notif(ID_sup) {
+                                alert("Hello world_1");
                                 console.log(ID_sup);
                                 let data = new FormData();
                                 data.append('ID_sup', ID_sup);
@@ -86,12 +83,11 @@
                                 xhr.send(data);
                             }
 
-                            function accept(user_send, user_to_follow, id_delete_notif) {
+                            function accept(user_send, user_to_follow, ID_delete_notif) {
                                 let data = new FormData();
                                 data.append('user_to_follow', user_to_follow);
                                 data.append('user', user_send);
                                 data.append('accept_user', 'true');
-                                //data.append('ID_delete_notif', id_delete_notif);
                                 let xhr = new XMLHttpRequest();
                                 xhr.onreadystatechange = () => {
                                     if (xhr.readyState == 4 && xhr.status == 200) {

@@ -4,8 +4,8 @@ $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', S
 $response = $bdd->query("SELECT public FROM users where id='".$_POST['user_to_follow']."'");
 $public = $response->fetchArray()['public'];
 if($_POST['accept_user']=='true'){
-    $bdd_notif_accept = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db', SQLITE3_OPEN_READWRITE);
-    $append = $bdd_notif_accept->prepare("INSERT INTO notifications(user_ID, type, user_concerning) VALUES(:user_ID, :type, :user_concerning)");
+    $bdd_notif = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db', SQLITE3_OPEN_READWRITE);
+    $append = $bdd_notif->prepare("INSERT INTO notifications(user_ID, type, user_concerning) VALUES(:user_ID, :type, :user_concerning)");
     $append->bindValue(':user_ID', $_POST['user_to_follow']);
     $append->bindValue(':type', 'follow');
     $append->bindValue(':user_concerning', $_POST['user']);
@@ -24,11 +24,10 @@ if($_POST['accept_user']=='true'){
     $liste_of_friends = implode(',', $liste_of_friends);
     $response = $bdd->exec("UPDATE users SET subscriptions=".$nb_subscriptions.", friends='".$liste_of_friends."' where id='".$_POST['user']."'");
     print_r(json_encode(["state"=>"followed"]));
-    //include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/cible/delete_notif_view.php?id_to_delete='".$_POST['id_delete_notif']."'";
 }
-if ($public == 'false') {
-    $bdd_notif_prive = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db', SQLITE3_OPEN_READWRITE);
-    $append = $bdd_notif_prive->prepare("INSERT INTO notifications(user_ID, type, user_concerning) VALUES(:user_ID, :type, :user_concerning)");
+elseif ($public == 'false') {
+    $bdd_notif = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db', SQLITE3_OPEN_READWRITE);
+    $append = $bdd_notif->prepare("INSERT INTO notifications(user_ID, type, user_concerning) VALUES(:user_ID, :type, :user_concerning)");
     $append->bindValue(':user_ID', $_POST['user_to_follow']);
     $append->bindValue(':type', 'follow request');
     $append->bindValue(':user_concerning', $_POST['user']);
