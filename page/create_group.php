@@ -6,7 +6,7 @@
 
     <div class="dropdown">
         <div class="dropdown__item">
-            <input id="group__search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="search_user()">
+            <input id="group__search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="group_search_user()">
         </div>
         <div id="group__search_user__list" class="dropdown__panel show overflow top">
 
@@ -20,7 +20,7 @@
 </div>
 
 <script type="text/javascript">
-    function search_user() {
+    function group_search_user() {
         document.getElementById('group__search_user__list').innerHTML = "";
         let input = document.getElementById('group__search_user').value;
         if (input!=""){
