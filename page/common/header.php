@@ -61,22 +61,20 @@
                                         <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                             <?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre 
                                             <br>
-                                            <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>">Accepter</a>
+                                            <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="#">Accepter</a>
                                         </a>
                                     </li>
                         <?php }  } ?>
                                 
                         <script type="text/javascript">
-                            function sup_notif(ID_sup) {
-                                alert("Hello world_1");
+                            function sup_notif(ID_sup, user_send) {
                                 console.log(ID_sup);
                                 let data = new FormData();
                                 data.append('ID_sup', ID_sup);
                                 let xhr = new XMLHttpRequest();
                                 xhr.onreadystatechange = () => {
                                     if (xhr.readyState == 4 && xhr.status == 200) {
-                                        let response = JSON.parse(xhr.response);
-                                        console.log(response);
+                                        window.location.assign("/trophee_nsi/page/index?content_type=user&id="+user_send);
                                     }
                                 }
                                 xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
@@ -92,6 +90,7 @@
                                 xhr.onreadystatechange = () => {
                                     if (xhr.readyState == 4 && xhr.status == 200) {
                                         let response = JSON.parse(xhr.response);
+                                        sup_notif(ID_delete_notif, user_send);
                                     }
                                 }
                                 xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
