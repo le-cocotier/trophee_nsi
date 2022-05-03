@@ -1,10 +1,11 @@
 <header>
     <a class="header__left" href="/trophee_nsi/page/index">
-        <img width="32" height="32" class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo">
+        <img width="28" height="28" class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo">
         <h1>Lambda</h1>
     </a>
     <nav class="header__right">
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
+            <!--searchbar-->
             <div class="dropdown">
                 <div class="dropdown__item">
                     <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
@@ -38,9 +39,11 @@
                     } else panel.classList.remove('show');
                 }
             </script>
+
+            <!--Boutton Notification-->
             <div class="dropdown hover header__right__item">
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
-                <div class="dropdown__panel">
+                <div class="dropdown__panel overflow">
                     <ul>
                         <?php
                             $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
@@ -48,12 +51,22 @@
                             while($line = $response->fetchArray()){
                                 if($line['type'] == 'follow'){ ?>
                                     <li>
-                                        <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
+                                        <a class="dropdown__panel__item" onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
+                                            <?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre
+                                        </a>
                                     </li>
-                        <?php }
+                        <?php   }
                                 if($line['type'] == 'follow request'){ ?>
                                     <li>
+<<<<<<< HEAD
                                         <a href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre <br><a onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>" >Accepter</a></a>
+=======
+                                        <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
+                                            <?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre 
+                                            <br>
+                                            <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>">Accepter</a>
+                                        </a>
+>>>>>>> 187031ed753d10663daaab2c52a85318aa8b178b
                                     </li>
                         <?php }  } ?>
                                 
@@ -92,6 +105,8 @@
                     </ul>
                 </div>
             </div>
+
+            <!--Boutton Utilisateur-->
             <div class="dropdown hover header__right__item">
                 <div class="dropdown__item">
                     <img width="28" height="28" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">

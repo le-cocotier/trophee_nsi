@@ -320,7 +320,7 @@ body.sign-in {
   position: sticky;
   height: 5vh;
 }
-.content-dm .dm__header discussion_title {
+.content-dm .dm__header #discussion_title {
   margin: 0 0.6em;
 }
 .content-dm .dm__content {
@@ -410,14 +410,21 @@ body.sign-in {
   font-size: 1.2em;
 }
 .content-main__band {
-  background-color: #d6d6d6;
+  background-color: #e2e2e2;
   height: 10vh;
 }
-.content-main__reviews {
-  width: 70%;
-  margin: auto;
-  display: flex;
-  justify-content: space-between;
+.content-main__container {
+  width: 50%;
+  margin: 3em auto 0 auto;
+}
+.content-main__container .head {
+  font-size: 20px;
+}
+.content-main__container__items > h2 {
+  margin: 0 0 0.2em 0;
+}
+.content-main__container__items > p {
+  margin: 0 0 0.4em 0;
 }
 
 .form-post {
