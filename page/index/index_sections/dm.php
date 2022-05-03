@@ -18,15 +18,15 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
         <h2 id="discussion_title"><?php echo $title; ?></h2>
         <?php if ($line['admin'] == $_SESSION['user_ID']) {
         echo <<<HTML
-        <div >
-            <div >
-                <button type='button' class="button">...</button>
+        <div class="dropdown hover">
+            <div class="dropdown__item">
+                <span type='button' class="button">...</span>
             </div>
-            <div >
-                <button type="button" onclick="rename()">Renommer</button>
-                <button type="button" >Ajouter quelqu'un</button>
+            <div class="dropdown__panel left">
+                <a class='dropdown__panel__item' href="#" type="button">Renommer</a>
+                <a class='dropdown__panel__item' href="#" type="button" >Ajouter quelqu'un</a>
                 <hr>
-                <button type="button">Supprimer le groupe</button>
+                <a class='dropdown__panel__item' href="#" type="button">Supprimer le groupe</a>
             </div>
         </div>
         HTML;
@@ -34,7 +34,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
     </div>
     <script type="text/javascript">
         function rename() {
-            document.getElementById('discussion_title').innerHTML = '<input type="text" value="'+document.getElementById('discussion_title').innerText+'"></input>';
+            document.getElementById('discussion_title').innerHTML = '<input class="input" type="text" value="'+document.getElementById('discussion_title').innerText+'"></input>';
         }
     </script>
     <div class="dm__content">

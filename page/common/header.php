@@ -1,7 +1,7 @@
 <header>
     <a class="header__left" href="/trophee_nsi/page/index">
-        <img width="48" height="48" class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo">
-        <h1>Lorem</h1>
+        <img width="32" height="32" class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo">
+        <h1>Lambda</h1>
     </a>
     <nav class="header__right">
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
