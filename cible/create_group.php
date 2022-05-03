@@ -28,15 +28,17 @@ if (isset($_POST['users'])){
         $group = 'false';
 
         $append = $bdd->prepare("INSERT INTO discussion(name, users_ID, 'group') VALUES(:name, :users_ID, :group)");
-        $append->bindValue(':name', $_POST['users']);
+        $append->bindValue(':name', 'DM');
         $append->bindValue(':group', $group);
         $append->bindValue(':users_ID', implode(',', $user_IDs));
         $append->execute();
-        $query = "SELECT ID from discussion where name='DM'";
+        $query = "SELECT ID from discussion where name='DM' ORDER BY ID DESC";
         $response = $bdd->query($query);
+        var_dump($response->fetchArray());
     }
-
-    header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray())['ID']);
+    $redirect = '/trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray()['ID']);
+    echo $redirect;
+    header('location: '.$redirect);
 }
 
 
