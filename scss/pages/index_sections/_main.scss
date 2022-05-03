@@ -1,8 +1,7 @@
 .content-main{
-    padding-top: 2em;
     &__header{
         display: flex;
-        margin: 0 auto;
+        margin: 4em auto 6em auto;
         width: 60%;
         align-items: center;
         & .text-title{
@@ -14,5 +13,15 @@
             margin: 0;
             font-size: 1.2em;
         }
+    }
+    &__band{
+        background-color: rgb(214, 214, 214);
+        height: 10vh;
+    }
+    &__reviews{
+        width: 70%;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
     }
 }

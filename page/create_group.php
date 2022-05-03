@@ -14,7 +14,7 @@
     </div>
 
     <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
-        <input id="users" type="hidden" name="users" value="">
+        <input id="users" type="hidden" name="users" value="" required>
         <input class="button is-primary create-group__panel__button" type="submit" value="Créer la discussion">
     </form>
 </div>
@@ -35,7 +35,6 @@
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let response = JSON.parse(xhr.response);
                     for (var i = 0; i < response['name'].length; i++) {
-                        console.log(response['name'][i]);
                         document.getElementById("group__search_user__list").innerHTML+="<a class='dropdown__panel__item' href='#' onclick='add_to_group(\""+response['name'][i]+"\")'>Ajouter "+response['name'][i]+"</a>";
                     }
                 }
