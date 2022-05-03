@@ -24,7 +24,7 @@ if (isset($_POST['users'])){
         $query = "SELECT ID from discussion where name='".$_POST['users'].','.$_SESSION['name'] ."'";
         $response = $bdd->query($query);
     }
-    else {
+    elseif (count($users_IDs) == 2) {
         $group = 'false';
 
         $append = $bdd->prepare("INSERT INTO discussion(name, users_ID, 'group') VALUES(:name, :users_ID, :group)");
