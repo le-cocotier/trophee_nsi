@@ -18,15 +18,15 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
         <h2 id="discussion_title"><?php echo $title; ?></h2>
         <?php if ($line['admin'] == $_SESSION['user_ID']) {
         echo <<<HTML
-        <div >
-            <div >
-                <button type='button' class="button">...</button>
+        <div class="dropdown hover">
+            <div class="dropdown__item">
+                <span type='button' class="button">...</span>
             </div>
-            <div >
-                <button type="button" onclick="rename()">Renommer</button>
-                <button type="button" >Ajouter quelqu'un</button>
+            <div class="dropdown__panel left">
+                <a class='dropdown__panel__item' href="#" type="button">Renommer</a>
+                <a class='dropdown__panel__item' href="#" type="button" >Ajouter quelqu'un</a>
                 <hr>
-                <button type="button">Supprimer le groupe</button>
+                <a class='dropdown__panel__item' href="#" type="button" onclick='delete_group()'>Supprimer le groupe</a>
             </div>
         </div>
         HTML;
@@ -34,7 +34,20 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
     </div>
     <script type="text/javascript">
         function rename() {
-            document.getElementById('discussion_title').innerHTML = '<input type="text" value="'+document.getElementById('discussion_title').innerText+'"></input>';
+            document.getElementById('discussion_title').innerHTML = '<input class="input" type="text" value="'+document.getElementById('discussion_title').innerText+'"></input>';
+        }
+
+        function delete_group() {
+            let xhr = new XMLHttpRequest();
+            let data = new FormData();
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    window.location.assign('/trophee_nsi/page/index/index.php');
+                }
+            }
+            data.append('ID', <?php echo $_GET['id']; ?>);
+            xhr.open("POST", '/trophee_nsi/cible/delete_group.php', true);
+            xhr.send(data);
         }
     </script>
     <div class="dm__content">
@@ -46,7 +59,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
             <input type="hidden" name="discussion_ID" value="<?php echo $_GET['id']; ?>">
             <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
             <input type="hidden" name="type" value="text">
-            <input class="input" type="text" name="mess" value="" placeholder="Ecrire un message...">
+            <input class="input" type="text" name="mess" value="" placeholder="Ecrire un message..." required>
             <input type="hidden" name="file" value="">
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s"); ?>">
             <input class="button is-primary" type="submit" name="" value="Envoyer">
@@ -56,7 +69,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
             <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
             <input type="hidden" name="type" value="file">
             <input type="hidden" name="mess" value="">
-            <input type="file" name="file">
+            <input type="file" name="file" required>
             <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
             <input class="button is-white" type="submit" name="" value="Envoyer l'image">
         </form>

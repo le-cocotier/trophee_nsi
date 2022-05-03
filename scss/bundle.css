@@ -24,7 +24,7 @@ header .header__left {
   align-items: center;
 }
 header .header__left h1 {
-  margin: 0 0 0 0.4em;
+  margin: 0 0 0 0.2em;
 }
 header .header__right {
   display: flex;
@@ -320,11 +320,12 @@ body.sign-in {
   position: sticky;
   height: 5vh;
 }
-.content-dm .dm__header h2 {
-  margin: 0 0 0 0.6em;
+.content-dm .dm__header discussion_title {
+  margin: 0 0.6em;
 }
 .content-dm .dm__content {
   margin: 1em 1em 4.5em 1em;
+  min-height: 20em;
 }
 .content-dm .dm__content .message {
   padding: 0.6em 1em;
@@ -393,6 +394,32 @@ body.sign-in {
   justify-content: center;
   align-items: center;
 }
+.content-main__header {
+  display: flex;
+  margin: 4em auto 6em auto;
+  width: 60%;
+  align-items: center;
+}
+.content-main__header .text-title {
+  font-size: 3em;
+  font-weight: 600;
+  margin: 0;
+}
+.content-main__header .text-under {
+  margin: 0;
+  font-size: 1.2em;
+}
+.content-main__band {
+  background-color: #d6d6d6;
+  height: 10vh;
+}
+.content-main__reviews {
+  width: 70%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
 .form-post {
   display: flex;
   flex-direction: column;
@@ -515,7 +542,6 @@ a {
 .dropdown .dropdown__panel {
   box-shadow: #e5e7eb 0 0 10px;
   display: none;
-  margin: 0.4em 0 0 0;
   width: 10vw;
   padding: 0;
   text-align: left;
@@ -535,6 +561,11 @@ a {
   bottom: 100%;
   left: 0;
   margin-bottom: 0.4em;
+}
+.dropdown .dropdown__panel.left {
+  right: 0;
+  left: 0;
+  margin-right: 0.4em;
 }
 .dropdown .dropdown__panel.show {
   display: block;
