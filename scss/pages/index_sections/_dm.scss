@@ -8,12 +8,13 @@
         align-items: center;
         position: sticky;
         height: 5vh;
-        discussion_title{
+        #discussion_title{
             margin: 0 0.6em;
         }
     }
     .dm__content{
         margin: 1em 1em 4.5em 1em;
+        min-height: 20em;
         .message{
             padding: 0.6em 1em;
             width: fit-content;

@@ -14,7 +14,7 @@
     </div>
 
     <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
-        <input id="users" type="hidden" name="users" value="">
+        <input id="users" type="hidden" name="users" value="" required>
         <input class="button is-primary create-group__panel__button" type="submit" value="Créer la discussion">
     </form>
 </div>

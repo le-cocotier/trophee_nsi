@@ -46,7 +46,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
             <input type="hidden" name="discussion_ID" value="<?php echo $_GET['id']; ?>">
             <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
             <input type="hidden" name="type" value="text">
-            <input class="input" type="text" name="mess" value="" placeholder="Ecrire un message...">
+            <input class="input" type="text" name="mess" value="" placeholder="Ecrire un message..." required>
             <input type="hidden" name="file" value="">
             <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s"); ?>">
             <input class="button is-primary" type="submit" name="" value="Envoyer">
@@ -56,7 +56,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
             <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
             <input type="hidden" name="type" value="file">
             <input type="hidden" name="mess" value="">
-            <input type="file" name="file">
+            <input type="file" name="file" required>
             <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
             <input class="button is-white" type="submit" name="" value="Envoyer l'image">
         </form>
