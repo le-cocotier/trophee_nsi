@@ -24,7 +24,7 @@ if (isset($_POST['users'])){
         $query = "SELECT ID from discussion where name='".$_POST['users'].','.$_SESSION['name'] ."'";
         $response = $bdd->query($query);
     }
-    elseif (count($users_IDs) == 2) {
+    elseif (count($user_IDs) == 2) {
         $group = 'false';
 
         $append = $bdd->prepare("INSERT INTO discussion(name, users_ID, 'group') VALUES(:name, :users_ID, :group)");
@@ -36,7 +36,7 @@ if (isset($_POST['users'])){
         $response = $bdd->query($query);
     }
 
-    header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray())['ID']);
+    // header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray())['ID']);
 }
 
 
