@@ -26,7 +26,7 @@ $line = $response->fetchArray();
                 <textarea class="input is-wide" name="description" rows="8" cols="100%" value="<?php echo $line['description']; ?>"><?php echo $line['description']; ?></textarea>
             </div>
             <div class="form-chunck is-vertical">
-                <label for="public">Profile public</label>
+                <label for="public">Profil public</label>
                 <label class="switch">
                     <input class="checkbox" type="checkbox" name="public">
                     <span class="switch__slider"></span>

@@ -1,5 +1,5 @@
 <?php
-// On vérifie si l'utilisateur fais partie du groupe
+/*// On vérifie si l'utilisateur fais partie du groupe
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
@@ -9,14 +9,14 @@ $users_ID=explode(",", $line["users_ID"]);
 $title = $line['name'];
 if (!in_array($_SESSION["user_ID"], $users_ID)) {
     header('location: /trophee_nsi/page/index/index.php');
-}
+}*/
 ?>
 
 <div class="content-dm">
     <div class="dm__header">
         <a href='/trophee_nsi/page/index/index.php' class="button is-black">Retour</a>
         <h2 id="discussion_title"><?php echo $title; ?></h2>
-        <?php if ($line['admin'] == $_SESSION['user_ID']) {
+        <?php /*if ($line['admin'] == $_SESSION['user_ID']) {
         echo <<<HTML
         <div >
             <div >
@@ -30,7 +30,7 @@ if (!in_array($_SESSION["user_ID"], $users_ID)) {
             </div>
         </div>
         HTML;
-        } ?>
+        }*/ ?>
     </div>
     <script type="text/javascript">
         function rename() {
