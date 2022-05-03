@@ -4,37 +4,41 @@
         <h1>Lorem</h1>
     </a>
     <nav class="header__right">
-        <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
-            <ul id="search_user__list">
+        <div class="dropdown">
+            <div class="dropdown__item">
+                <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
+            </div>
+            <div id="search_user__list" class="dropdown__panel overflow">
 
-            </ul>
-            <script type="text/javascript">
-                function search_user() {
-                    document.getElementById('search_user__list').innerHTML = "";
-                    let input = document.getElementById('search_user').value;
-                    if (input!=""){
-                        let data = new FormData();
-                        input=input.toLowerCase();
-                        data.append('letters', input);
-                        data.append('user_ID', <?php echo $_SESSION['user_ID'] ?>);
-
-                        let xhr = new XMLHttpRequest();
-                        xhr.onreadystatechange = () => {
-                            if (xhr.readyState == 4 && xhr.status == 200) {
-                                let response = JSON.parse(xhr.response);
-                                for (var i = 0; i < response['name'].length; i++) {
-                                    document.getElementById("search_user__list").innerHTML+="<li><a href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a></li>";
-
-                                }
+            </div>
+        </div>
+        <script type="text/javascript">
+            function search_user() {
+                let panel = document.getElementById('search_user__list');
+                panel.innerHTML = "";
+                let input = document.getElementById('search_user').value;
+                if (input!=""){
+                    panel.classList.add('show');
+                    let data = new FormData();
+                    input=input.toLowerCase();
+                    data.append('letters', input);
+                    data.append('user_ID', <?php echo $_SESSION['user_ID'] ?>);
+                    let xhr = new XMLHttpRequest();
+                    xhr.onreadystatechange = () => {
+                        if (xhr.readyState == 4 && xhr.status == 200) {
+                            let response = JSON.parse(xhr.response);
+                            for (var i = 0; i < response['name'].length; i++) {
+                                document.getElementById("search_user__list").innerHTML+="<a class='dropdown__panel__item' href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a>";
                             }
                         }
+                    }
                     xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
                     xhr.send(data);
-                }
+                } else panel.classList.remove('show');
             }
         </script>
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
-            <div class="dropdown header__right__item">
+            <div class="dropdown hover header__right__item">
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="dropdown__panel">
                     <ul>
@@ -69,7 +73,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="dropdown header__right__item">
+            <div class="dropdown hover header__right__item">
                 <div class="dropdown__item">
                     <img width="28" height="28" src=<?php echo get_pp_src($_SESSION['user_ID']); ?> alt="user_photo">
                     <p><?php echo $_SESSION['name']; ?></p>
