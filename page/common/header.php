@@ -50,10 +50,16 @@
                                     <li>
                                         <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
                                     </li>
-                        <?php }} ?>
+                        <?php }
+                                if($line['type'] == 'follow request'){ ?>
+                                    <li>
+                                        <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre <br><a onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="http://localhost/trophee_nsi/page/index/?content_type=user&id=<?php echo $line['user_concerning'];?>" >Accepter</a></a>
+                                    </li>
+                        <?php }  } ?>
                                 
                         <script type="text/javascript">
                             function sup_notif(ID_sup) {
+                                alert("Hello world_1");
                                 console.log(ID_sup);
                                 let data = new FormData();
                                 data.append('ID_sup', ID_sup);
@@ -65,6 +71,21 @@
                                     }
                                 }
                                 xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+                                xhr.send(data);
+                            }
+
+                            function accept(user_send, user_to_follow, ID_delete_notif) {
+                                let data = new FormData();
+                                data.append('user_to_follow', user_to_follow);
+                                data.append('user', user_send);
+                                data.append('accept_user', 'true');
+                                let xhr = new XMLHttpRequest();
+                                xhr.onreadystatechange = () => {
+                                    if (xhr.readyState == 4 && xhr.status == 200) {
+                                        let response = JSON.parse(xhr.response);
+                                    }
+                                }
+                                xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
                                 xhr.send(data);
                             }
                         </script>
