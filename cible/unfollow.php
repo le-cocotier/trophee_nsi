@@ -19,9 +19,7 @@ print_r(json_encode(["state"=>"unfollowed"]));
 $bdd_notif = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db', SQLITE3_OPEN_READWRITE);
 $response_notif = $bdd_notif->query("SELECT * FROM notifications where user_concerning='".$_POST['user']."'");
 while($line_notif = $response_notif->fetchArray()){
-    //if($line_notif['user_ID']==$_POST['user_to_unfollow']){
     $response_notif = $bdd_notif->query("DELETE FROM notifications where user_ID='".$_POST['user_to_unfollow']."'");
-    //}
 }
 
  ?>
