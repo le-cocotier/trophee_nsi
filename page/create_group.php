@@ -1,8 +1,5 @@
 <div class="create-group__panel">
     <h1 id="titre" class="create-group__panel__title"></h1>
-    <!--<ul id="group__search_user__list" class="create-group__panel__list">
-
-    </ul>-->
 
     <div class="dropdown">
         <div class="dropdown__item">

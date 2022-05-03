@@ -323,6 +323,9 @@ body.sign-in {
 .content-dm .dm__header #discussion_title {
   margin: 0 0.6em;
 }
+.content-dm .dm__header #discussion_title .rename_input {
+  margin-right: 0.4em;
+}
 .content-dm .dm__content {
   margin: 1em 1em 4.5em 1em;
   min-height: 20em;
@@ -394,6 +397,28 @@ body.sign-in {
   justify-content: center;
   align-items: center;
 }
+.popup_add-user {
+  position: absolute;
+  z-index: 99;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  height: 95vh;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+}
+.popup_add-user-container {
+  background-color: #ffffff;
+  width: 30vw;
+  margin: auto;
+  padding: 1em;
+  border-radius: 10px;
+  text-align: center;
+}
+.popup_add-user-container h1 {
+  margin: 0 0 0.5em 0;
+}
+
 .content-main__header {
   display: flex;
   margin: 4em auto 6em auto;
@@ -511,10 +536,6 @@ a {
   color: inherit;
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
 .container {
   display: flex;
 }
@@ -532,6 +553,7 @@ a {
 .dropdown {
   position: relative;
   display: inline-block;
+  z-index: 999;
 }
 .dropdown .dropdown__item {
   display: flex;

@@ -23,9 +23,6 @@ a{
 //===================================
 //COMMON STYLES
 //===================================
-::-webkit-scrollbar {
-    width: 10px;
-}
 .container{
     display: flex;
 }
@@ -43,6 +40,7 @@ a{
 .dropdown{
     position: relative;
     display: inline-block;
+    z-index: 999;
     & &__item{
         display: flex;
         align-items: center;

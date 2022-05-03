@@ -10,6 +10,9 @@
         height: 5vh;
         #discussion_title{
             margin: 0 0.6em;
+            .rename_input{
+                margin-right: 0.4em;
+            }
         }
     }
     .dm__content{
@@ -87,6 +90,28 @@
 
             }
 
+        }
+    }
+}
+
+.popup_add-user{
+    position: absolute;
+    z-index: 99;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    height: 95vh;
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+    &-container{
+        background-color: $color-surface;
+        width: 30vw;
+        margin: auto;
+        padding: 1em;
+        border-radius: $border-radius;
+        text-align: center;
+        h1{
+            margin: 0 0 0.5em 0;
         }
     }
 }
