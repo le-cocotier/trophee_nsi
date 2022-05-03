@@ -1,5 +1,5 @@
 <?php
-/*$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM content where discussion_ID='$discussion_ID'");
 
 while ($line = $response->fetchArray()) {
@@ -64,47 +64,5 @@ while ($line = $response->fetchArray()) {
         }
     }
 
-}*/
+}
  ?>
-
-
-
-<div class='message message-right'>
-    <img class="content img" src='../../img/notif.png'>
-    <p class="user">Some user</p>
-</div>
-<div class="message message-right">
-    <p class="content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum obcaecati repudiandae, mollitia illum animi nesciunt! Ea fugiat placeat sit animi, numquam, libero velit nulla aliquid, quas nostrum ut ducimus eveniet?</p>
-    <p class="user">Some user</p>
-    </div>
-<div class='message message-left'>
-    <p class="content">testest</p>
-    <p class="user">Vous</p>
-</div>
-<div class='message message-left'>
-    <p class="content">testest</p>
-    <p class="user">Vous</p>
-</div>
-
-<div class='message message-left'>
-    <p class="content">testest</p>
-    <p class="user">Vous</p>
-</div>
-
-<div class='message message-left'>
-    <p class="content">testest</p>
-    <p class="user">Vous</p>
-</div>
-<div class='message message-left'>
-    <img class="content img" src='../../img/notif.png'>
-    <p class="user">Some user</p>
-</div>
-<div class='message message-left'>
-    <img class="content img" src='../../img/notif.png'>
-    <p class="user">Some user</p>
-</div>
-<div class='message message-left'>
-    <img class="content img" src='../../img/notif.png'>
-    <p class="user">Some user</p>
-</div>
-
