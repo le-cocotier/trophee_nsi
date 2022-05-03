@@ -36,7 +36,7 @@ if (isset($_POST['users'])){
         $response = $bdd->query($query);
     }
 
-    // header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray())['ID']);
+    header('location: /trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray())['ID']);
 }
 
 
