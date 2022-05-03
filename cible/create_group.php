@@ -29,7 +29,7 @@ if (isset($_POST['users'])){
         $append->bindValue(':group', $group);
         $append->bindValue(':users_ID', implode(',', $user_IDs));
         $append->execute();
-        $query = "SELECT ID from discussion where name='".$_POST['users'] ."'";
+        $query = "SELECT ID from discussion where name='DM'";
         $response = $bdd->query($query);
     }
 

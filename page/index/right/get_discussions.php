@@ -9,12 +9,20 @@ while ($line = $response->fetchArray()) {
         $get=$line['ID'];
         if ($line['group'] == 'true') {
             $class="is-group hidden";
+            $name = $line['name'];
+
         }
         else {
             $class="is-dm";
+            if (array_search($_SESSION['user_ID'] , $users_ID) == 1){
+                $name= get_username($users_ID[0]);
+            }
+            else {
+                $name= get_username($users_ID[1]);
+            }
         }
         $pp="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460__340.png";
-        $name=$line['name'];
+
         $request = "SELECT * FROM content where discussion_ID='$get' ORDER BY ID DESC LIMIT 1";
         $last_message= $bdd->query($request);
         $message_response=$last_message->fetchArray();
