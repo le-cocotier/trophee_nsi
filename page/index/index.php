@@ -12,6 +12,7 @@
     <section>  
         <div class="section__frame <?php if (!(isset($_SESSION['name']) && isset($_SESSION['password']))){ echo "is-wide"; }?>">
             <?php
+            if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
                 if(isset($_GET["content_type"])){
                     if($_GET["content_type"] == "feed") {
                         include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/feed.php';
@@ -35,6 +36,9 @@
                 else {
                     include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/feed.php';
                 }
+            } else{
+                include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/main.php';
+            }
             ?>
         </div>
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>

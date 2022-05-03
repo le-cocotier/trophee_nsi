@@ -4,70 +4,70 @@
         <h1>Lorem</h1>
     </a>
     <nav class="header__right">
-        <div class="dropdown">
-            <div class="dropdown__item">
-                <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
-            </div>
-            <div id="search_user__list" class="dropdown__panel overflow">
+        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
+            <div class="dropdown">
+                <div class="dropdown__item">
+                    <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
+                </div>
+                <div id="search_user__list" class="dropdown__panel overflow">
 
+                </div>
             </div>
-        </div>
-        <script type="text/javascript">
-            function search_user() {
-                let panel = document.getElementById('search_user__list');
-                panel.innerHTML = "";
-                let input = document.getElementById('search_user').value;
-                if (input!=""){
-                    panel.classList.add('show');
-                    let data = new FormData();
-                    input=input.toLowerCase();
-                    data.append('letters', input);
-                    data.append('user_ID', <?php echo $_SESSION['user_ID'] ?>);
-                    let xhr = new XMLHttpRequest();
-                    xhr.onreadystatechange = () => {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
-                            let response = JSON.parse(xhr.response);
-                            for (var i = 0; i < response['name'].length; i++) {
-                                document.getElementById("search_user__list").innerHTML+="<a class='dropdown__panel__item' href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a>";
+            <script type="text/javascript">
+                function search_user() {
+                    let panel = document.getElementById('search_user__list');
+                    panel.innerHTML = "";
+                    let input = document.getElementById('search_user').value;
+                    if (input!=""){
+                        panel.classList.add('show');
+                        let data = new FormData();
+                        input=input.toLowerCase();
+                        data.append('letters', input);
+                        data.append('user_ID', <?php echo $_SESSION['user_ID'] ?>);
+                        let xhr = new XMLHttpRequest();
+                        xhr.onreadystatechange = () => {
+                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                let response = JSON.parse(xhr.response);
+                                for (var i = 0; i < response['name'].length; i++) {
+                                    document.getElementById("search_user__list").innerHTML+="<a class='dropdown__panel__item' href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a>";
+                                }
                             }
                         }
-                    }
-                    xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
-                    xhr.send(data);
-                } else panel.classList.remove('show');
-            }
-        </script>
-        <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
+                        xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
+                        xhr.send(data);
+                    } else panel.classList.remove('show');
+                }
+            </script>
             <div class="dropdown hover header__right__item">
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="dropdown__panel">
                     <ul>
-                    <?php
-                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
-                        $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
-                        while($line = $response->fetchArray()){
-                            if($line['type'] == 'follow'){ ?>
-                                <li>
-                                    <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
-                                </li>
-                    <?php }} ?>
-
-                    <script type="text/javascript">
-                        function sup_notif(ID_sup) {
-                            console.log(ID_sup);
-                            let data = new FormData();
-                            data.append('ID_sup', ID_sup);
-                            let xhr = new XMLHttpRequest();
-                            xhr.onreadystatechange = () => {
-                                if (xhr.readyState == 4 && xhr.status == 200) {
-                                    let response = JSON.parse(xhr.response);
-                                    console.log(response);
+                        <?php
+                            $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
+                            $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
+                            while($line = $response->fetchArray()){
+                                if($line['type'] == 'follow'){ ?>
+                                    <li>
+                                        <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
+                                    </li>
+                        <?php }} ?>
+                                
+                        <script type="text/javascript">
+                            function sup_notif(ID_sup) {
+                                console.log(ID_sup);
+                                let data = new FormData();
+                                data.append('ID_sup', ID_sup);
+                                let xhr = new XMLHttpRequest();
+                                xhr.onreadystatechange = () => {
+                                    if (xhr.readyState == 4 && xhr.status == 200) {
+                                        let response = JSON.parse(xhr.response);
+                                        console.log(response);
+                                    }
                                 }
+                                xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+                                xhr.send(data);
                             }
-                            xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
-                            xhr.send(data);
-                        }
-            </script>
+                        </script>
                     </ul>
                 </div>
             </div>
