@@ -4,12 +4,12 @@
         <h1>Lorem</h1>
     </a>
     <nav class="header__right">
-        <input id="search_user" class="input" type="text" name="search_user" onkeyup="group_search_user()">
+        <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
             <ul id="search_user__list">
 
             </ul>
             <script type="text/javascript">
-                function group_search_user() {
+                function search_user() {
                     document.getElementById('search_user__list').innerHTML = "";
                     let input = document.getElementById('search_user').value;
                     if (input!=""){
@@ -28,12 +28,11 @@
                                 }
                             }
                         }
-                    }
                     xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
                     xhr.send(data);
                 }
             }
-        </script>        
+        </script>
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
             <div class="dropdown header__right__item">
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
