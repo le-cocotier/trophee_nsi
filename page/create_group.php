@@ -8,7 +8,7 @@
         <div class="dropdown__item">
             <input id="group__search_user" class="input create-group__panel__input" type="text" name="search_user" onkeyup="group_search_user()">
         </div>
-        <div id="group__search_user__list" class="dropdown__panel show overflow top">
+        <div id="group__search_user__list" class="dropdown__panel overflow top">
 
         </div>
     </div>
@@ -21,9 +21,11 @@
 
 <script type="text/javascript">
     function group_search_user() {
-        document.getElementById('group__search_user__list').innerHTML = "";
+        let panel = document.getElementById('group__search_user__list')
+        panel.innerHTML = "";
         let input = document.getElementById('group__search_user').value;
         if (input!=""){
+            panel.classList.add('show');
             let data = new FormData();
             input=input.toLowerCase();
             data.append('letters', input);
@@ -40,7 +42,7 @@
             }
             xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
             xhr.send(data);
-        }
+        } else panel.classList.remove('show');
     }
     let liste_of_users = [];
     function add_to_group(user){

@@ -23,6 +23,9 @@ a{
 //===================================
 //COMMON STYLES
 //===================================
+::-webkit-scrollbar {
+    width: 10px;
+}
 .container{
     display: flex;
 }
@@ -35,6 +38,75 @@ a{
     justify-content: center;
 }
 
+
+//dropdown
+.dropdown{
+    position: relative;
+    display: inline-block;
+    & &__item{
+        display: flex;
+        align-items: center;
+        img{
+            margin-right: 0.4em;
+            border-radius: 50px;
+        }
+        p{
+            font-weight: 400;
+            font-size: 16px;
+            margin: 0;
+        }
+    }
+    & &__panel{
+        box-shadow: $color-highlight 0 0 10px;
+        display: none;
+        margin: 0.4em 0 0 0;
+        width: 10vw;
+        padding: 0;
+        text-align: left;
+        right: 0;
+        position: absolute;
+        background-color: #fff;
+        border-radius: $border-radius;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        overflow-y: hidden;
+        &.overflow{
+            max-height: 20vh;
+            height: fit-content;
+            overflow-y: scroll;
+        }
+        &.top{
+            bottom: 100%;
+            left: 0;
+            margin-bottom: 0.4em;
+        }
+        &.show{
+            display: block;
+        }
+        &__item{
+            display: block;
+            padding: 0.8em 1em;
+            &:hover{
+                background-color: #eeeeee;
+                transition: 0.2s ease-in-out;
+            }
+            &.red{
+                color: rgb(212, 106, 106);
+            }
+        }
+        hr{
+            border: none;
+            height: 1px;
+            margin: 0;
+            color: rgb(204, 204, 204);
+            background-color: rgb(204, 204, 204);;
+        }
+    }
+    &.hover:hover {
+        & .dropdown__panel{
+            display: block;
+        }
+    }
+}
 
 //boutons et différentes couleurs
 button{
