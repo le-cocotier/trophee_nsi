@@ -1,23 +1,34 @@
 @import "../../_variables.scss";
 .content-dm{
+    overflow: hidden;
     .dm__header{
         padding: 1em;
         background-color: #eef7eb;
         display: flex;
         align-items: center;
+        position: sticky;
+        height: 5vh;
         h2{
             margin: 0 0 0 0.6em;
         }
     }
     .dm__content{
-        margin: 1em;
+        margin: 1em 1em 4.5em 1em;
         .message{
             padding: 0.6em 1em;
             width: fit-content;
             max-width: 40vw;
+            .content{
+                margin: 0;
+                padding: 1em;
+                border-radius: $border-radius;
+            }
             &-left{
                 .content{
                     background-color: $color-surface;
+                }
+                .img{
+                    margin-right: auto;
                 }
             }
             &-right{
@@ -30,14 +41,11 @@
                 .user{
                     text-align: end;
                 }
-            }
-            .content{
-                margin: 0;
-                padding: 1em;
-                border-radius: $border-radius;
+                .img{
+                    margin-left: auto;
+                }
             }
             .img{
-                margin-left: auto;
                 display: block;
                 max-width: 200px;
                 height: auto;

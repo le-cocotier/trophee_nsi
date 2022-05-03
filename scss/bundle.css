@@ -137,21 +137,6 @@ section .section__right-frame__content .create-group__panel__list a:hover {
   transition: 0.2s ease-in-out;
 }
 
-/*TODO: responsive
-@media (max-width: 1024px){
-    section{
-        display: block;
-        .section__frame {
-            display: none;
-        }
-
-        .section__right-frame{
-            width: 100%;
-            max-width: 100%;
-            height: 95vh;
-        }
-    }
-}*/
 .switch {
   position: relative;
   display: inline-block;
@@ -324,25 +309,38 @@ body.sign-in {
   margin-left: 0.5em;
 }
 
+.content-dm {
+  overflow: hidden;
+}
 .content-dm .dm__header {
   padding: 1em;
   background-color: #eef7eb;
   display: flex;
   align-items: center;
+  position: sticky;
+  height: 5vh;
 }
 .content-dm .dm__header h2 {
   margin: 0 0 0 0.6em;
 }
 .content-dm .dm__content {
-  margin: 1em;
+  margin: 1em 1em 4.5em 1em;
 }
 .content-dm .dm__content .message {
   padding: 0.6em 1em;
   width: fit-content;
   max-width: 40vw;
 }
+.content-dm .dm__content .message .content {
+  margin: 0;
+  padding: 1em;
+  border-radius: 10px;
+}
 .content-dm .dm__content .message-left .content {
   background-color: #ffffff;
+}
+.content-dm .dm__content .message-left .img {
+  margin-right: auto;
 }
 .content-dm .dm__content .message-right {
   display: block;
@@ -355,13 +353,10 @@ body.sign-in {
 .content-dm .dm__content .message-right .user {
   text-align: end;
 }
-.content-dm .dm__content .message .content {
-  margin: 0;
-  padding: 1em;
-  border-radius: 10px;
+.content-dm .dm__content .message-right .img {
+  margin-left: auto;
 }
 .content-dm .dm__content .message .img {
-  margin-left: auto;
   display: block;
   max-width: 200px;
   height: auto;
