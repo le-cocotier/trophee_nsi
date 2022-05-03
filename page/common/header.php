@@ -44,14 +44,12 @@
                     <ul>
                     <?php
                         $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
-                        $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."'");
+                        $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
                         while($line = $response->fetchArray()){
                             if($line['type'] == 'follow'){ ?>
-
                                 <li>
                                     <a onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>"><?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre</a>
                                 </li>
-
                     <?php }} ?>
 
                     <script type="text/javascript">
