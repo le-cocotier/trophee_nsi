@@ -10,13 +10,27 @@
         </div>
     </div>
 
-    <form id="form" action="/trophee_nsi/cible/create_group.php" method="post">
+    <form id="form" method="post" onsubmit="return false">
         <input id="users" type="hidden" name="users" value="" required>
-        <input class="button is-primary create-group__panel__button" type="submit" value="Créer la discussion">
+        <input class="button is-primary create-group__panel__button" type="submit" onclick='create_group()' value="Créer la discussion">
     </form>
 </div>
 
 <script type="text/javascript">
+
+    function create_group(){
+        let xhr = new XMLHttpRequest();
+        let data = new FormData(document.getElementById('form'));
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let response = JSON.parse(xhr.response);
+                window.location.assign('/trophee_nsi/page/index/index.php?content_type=dm&id='+ response['ID']);
+            }
+        }
+        xhr.open("POST", '/trophee_nsi/cible/create_group.php', true);
+        xhr.send(data);
+    }
+
     function group_search_user() {
         let panel = document.getElementById('group__search_user__list')
         panel.innerHTML = "";

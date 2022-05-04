@@ -34,11 +34,8 @@ if (isset($_POST['users'])){
         $append->execute();
         $query = "SELECT ID from discussion where name='DM' ORDER BY ID DESC";
         $response = $bdd->query($query);
-        var_dump($response->fetchArray());
     }
-    $redirect = '/trophee_nsi/page/index/index.php?content_type=dm&id='.($response->fetchArray()['ID']);
-    echo $redirect;
-    header('location: '.$redirect);
+    print_r(json_encode(['ID' => $response->fetchArray()['ID']]));
 }
 
 
