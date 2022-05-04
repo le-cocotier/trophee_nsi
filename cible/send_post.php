@@ -1,6 +1,6 @@
 <?php
 
-$bdd = new SQLite3('../database/posts.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/posts.db', SQLITE3_OPEN_READWRITE);
 
 if ($_FILES['image']['error'] == 0){
     $append = $bdd->prepare("INSERT INTO posts(title, user, content, image, type, size, date) VALUES(:title, :user, :content, :image, :type, :size, :date)");
@@ -9,11 +9,6 @@ if ($_FILES['image']['error'] == 0){
     $append->bindValue(':type', $_FILES['image']['type']);
 }
 else {
-    // besoin verif isset
-    $_POST['title'] = htmlspecialchars($_POST['title']);
-    $_POST['user'] = htmlspecialchars($_POST['user']);
-    $_POST['content'] = htmlspecialchars($_POST['content']);
-    
     $append = $bdd->prepare("INSERT INTO posts(title, user, content, date) VALUES(:title, :user, :content, :date)");
 
 }
@@ -25,5 +20,5 @@ $append->bindValue(':content', $_POST['content']);
 $append->bindValue(':date', $_POST['date']);
 $append->execute();
 
-header('location: ../page/index/index.php')
+header('location: /trophee_nsi/page/index/index.php')
 ?>

@@ -1,43 +1,43 @@
-<?php session_start(); include '../../cible/functions.php';?>
+<?php session_start(); include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/functions.php';?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href='../../scss/bundle.css'>
+    <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
     <title>Document</title>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body class="index">
-    <?php include "../common/header.php";?>
-    <section>
+    <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/common/header.php";?>
+    <section>  
         <div class="section__frame <?php if (!(isset($_SESSION['name']) && isset($_SESSION['password']))){ echo "is-wide"; }?>">
             <?php
             if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
                 if(isset($_GET["content_type"])){
                     if($_GET["content_type"] == "feed") {
-                        include 'index_sections/feed.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/feed.php';
                     }
                     elseif($_GET["content_type"] == "dm" && isset($_GET["id"])) {
-                        include 'index_sections/dm.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/dm.php';
                     }
                     elseif($_GET["content_type"] == "community" && isset($_GET["id"])){
-                        include 'index_sections/community.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/community.php';
                     }
                     elseif($_GET["content_type"] == "user" && isset($_GET["id"])){
-                        include 'index_sections/user_profile.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/user_profile.php';
                     }
                     elseif($_GET["content_type"] == "settings"){
-                        include 'index_sections/settings.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/settings.php';
                     }
                     else{
                         echo "TODO: 404.php";
                     }
                 }
                 else {
-                    include 'index_sections/feed.php';
+                    include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/feed.php';
                 }
             } else{
-                include 'index_sections/main.php';
+                include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/index_sections/main.php';
             }
             ?>
         </div>
@@ -49,11 +49,11 @@
                 </div>
                 <div class="section__right-frame__content">
                     <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){
-                        include 'right/get_discussions.php';
+                        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/page/index/right/get_discussions.php';
                     } ?>
                     <div class="create-group">
                         <button href="#" onclick="openGroup()" class="create-group__button">Créer un groupe</button>
-                        <?php include "../create_group.php"; ?>
+                        <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/create_group.php"; ?>
                     </div>
                 </div>
             </div>

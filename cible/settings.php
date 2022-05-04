@@ -1,15 +1,8 @@
 <?php
 session_start();
-$bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT password FROM users where id="'.$_SESSION["user_ID"].'"');
 $password = $response->fetchArray()['password'];
-
-// besoin verif isset
-
-$_POST['title'] = htmlspecialchars($_POST['name']);
-$_POST['user'] = htmlspecialchars($_POST['email']);
-$_POST['content'] = htmlspecialchars($_POST['description']);
-
 if (sha1($_POST['password']) == $password) {
     $image = "";
     if ($_FILES['image']['error'] == 0){

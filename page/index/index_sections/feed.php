@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3('../../../database/users.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
 if (isset($_SESSION['name']) && isset($_SESSION['password'])){
 
     $response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
@@ -15,7 +15,7 @@ if (isset($_SESSION['name']) && isset($_SESSION['password'])){
         <div class="post-header">
             <h4 class="post-header__title">Postez quelque chose...</h4>
         </div>
-        <form class="form-post" action='../../../cible/send_post.php' method="post" enctype="multipart/form-data">
+        <form class="form-post" action='/trophee_nsi/cible/send_post.php' method="post" enctype="multipart/form-data">
             <div class="form-chunck is-vertical">
                 <label for="username">Titre</label>
                 <input class="input" type="text" name="title" placeholder="Une idée originale..." required>

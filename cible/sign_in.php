@@ -2,12 +2,8 @@
 
 
 if (isset($_POST['name']) && isset($_POST['password'])) {
-
-    $_POST['name'] = htmlspecialchars($_POST['name']);
-	$_POST['password'] = htmlspecialchars($_POST['password']);
-
     $error = ["error"=>array()];
-    $bdd = new SQLite3('../database/users.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd->query('SELECT * FROM users where name="'.$_POST['name'].'"');
 
     $line = $response->fetchArray();
