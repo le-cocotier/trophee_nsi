@@ -44,26 +44,22 @@
             <div class="dropdown hover header__right__item">
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="dropdown__panel overflow">
-                    <ul>
+                    <
                         <?php
                             $bdd = new SQLite3('../../database/notifications.db');
                             $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
                             while($line = $response->fetchArray()){
                                 if($line['type'] == 'follow'){ ?>
-                                    <li>
                                         <a class="dropdown__panel__item" onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                             <?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre
                                         </a>
-                                    </li>
                         <?php   }
                                 if($line['type'] == 'follow request'){ ?>
-                                    <li>
                                         <a class="dropdown__panel__item" href="../index/index.php?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                             <?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre
                                             <br>
                                             <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="#">Accepter</a>
                                         </a>
-                                    </li>
                         <?php }  } ?>
 
                         <script type="text/javascript">
@@ -97,7 +93,6 @@
                                 xhr.send(data);
                             }
                         </script>
-                    </ul>
                 </div>
             </div>
 
@@ -119,3 +114,35 @@
         <?php }?>
     </nav>
 </header>
+
+<script type="text/javascript">
+    function sup_notif(ID_sup, user_send) {
+        console.log(ID_sup);
+        let data = new FormData();
+        data.append('ID_sup', ID_sup);
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                window.location.assign("/trophee_nsi/page/index?content_type=user&id="+user_send);
+            }
+        }
+        xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+        xhr.send(data);
+    }
+
+    function accept(user_send, user_to_follow, ID_delete_notif) {
+        let data = new FormData();
+        data.append('user_to_follow', user_to_follow);
+        data.append('user', user_send);
+        data.append('accept_user', 'true');
+        let xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = () => {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                let response = JSON.parse(xhr.response);
+                sup_notif(ID_delete_notif, user_send);
+            }
+        }
+        xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+        xhr.send(data);
+    }
+</script>

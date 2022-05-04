@@ -45,6 +45,7 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                  ?>
             </div>
         </div>
+<<<<<<< HEAD
 
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password']) && $_GET['id'] != $_SESSION['user_ID']) {?>
             <script type="text/javascript">
@@ -67,11 +68,46 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                                 document.getElementById('follow').classList = ['button is-alert'];
                                 document.getElementById('follow').innerText = 'annuler la demande';
                             }
+=======
+        <div class="posts">
+            <?php
+            if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
+                echo get_user_posts($line['id']);
+            }
+            else {
+                echo 'Ce compte est privée';
+            }
+            ?>
+        </div>
+    </div>
+
+    <?php if (isset($_SESSION['name']) && isset($_SESSION['password']) && $_GET['id'] != $_SESSION['user_ID']) {?>
+        <script type="text/javascript">
+            function follow() {
+                let xhr = new XMLHttpRequest();
+                let data = new FormData();
+                data.append('user_to_follow', <?php echo $_GET['id']; ?>);
+                data.append('user', <?php echo $_SESSION['user_ID']; ?>);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        let response = JSON.parse(xhr.response);
+                        console.log(response['state']);
+                        if (response['state'] == 'followed') {
+                            document.getElementById('follow').setAttribute('onclick', 'unfollow()');
+                            document.getElementById('follow').classList = ['button is-error'];
+                            document.getElementById('follow').innerText = 'Se désabonner';
+                        }
+                        else {
+                            document.getElementById('follow').setAttribute('onclick', 'cancel_follow()');
+                            document.getElementById('follow').classList = ['button is-alert'];
+                            document.getElementById('follow').innerText = 'Annuler la demande';
+>>>>>>> 8ddd93dbf17fe065ebdc7953deac4918ce8b4858
                         }
                     }
                     xhr.open("POST", '../../../cible/follow.php', true);
                     xhr.send(data);
                 }
+<<<<<<< HEAD
                 function unfollow(){
                     let xhr = new XMLHttpRequest();
                     let data = new FormData();
@@ -86,6 +122,25 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
 
                                 document.getElementById('follow').innerText = "s'abonner";
                             }
+=======
+                xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+                xhr.send(data);
+            }
+
+            function unfollow(){
+                let xhr = new XMLHttpRequest();
+                let data = new FormData();
+                data.append('user_to_unfollow', <?php echo $_GET['id']; ?>);
+                data.append('user', <?php echo $_SESSION['user_ID']; ?>);
+                xhr.onreadystatechange = () => {
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        let response = JSON.parse(xhr.response);
+                        if (response['state'] = 'unfollowed') {
+                            document.getElementById('follow').setAttribute('onclick', 'follow()');
+                            document.getElementById('follow').classList = ['button is-primary'];
+
+                            document.getElementById('follow').innerText = "S'abonner";
+>>>>>>> 8ddd93dbf17fe065ebdc7953deac4918ce8b4858
                         }
                     }
                     xhr.open("POST", '../../../cible/unfollow.php', true);
@@ -103,8 +158,12 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                                 document.getElementById('follow').setAttribute('onclick', 'follow()');
                                 document.getElementById('follow').classList = ['button is-primary'];
 
+<<<<<<< HEAD
                                 document.getElementById('follow').innerText = "s'abonner";
                             }
+=======
+                            document.getElementById('follow').innerText = "S'abonner";
+>>>>>>> 8ddd93dbf17fe065ebdc7953deac4918ce8b4858
                         }
                     }
                     xhr.open("POST", '../../../cible/cancel_follow.php', true);
