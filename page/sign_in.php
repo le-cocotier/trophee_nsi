@@ -11,7 +11,7 @@
 </head>
 <body class="sign-in">
     <div id="container">
-        <img class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo brand">
+        <img class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo brand" width="64px" height="64px">
         <div class="container__buttons">
             <a id="button_sing-in" href="#" class="active" onclick="switchForm('sign-in')">Connexion</a>
             <a id="button_sing-up" href="#" onclick="switchForm('sign-up')">Inscription</a>
