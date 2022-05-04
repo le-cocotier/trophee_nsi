@@ -36,13 +36,13 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
         </div>
         <div class="posts">
             <?php
-             if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
+            if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
                 echo get_user_posts($line['id']);
             }
             else {
                 echo 'Ce compte est privée';
             }
-             ?>
+            ?>
         </div>
     </div>
 
@@ -60,18 +60,19 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                         if (response['state'] == 'followed') {
                             document.getElementById('follow').setAttribute('onclick', 'unfollow()');
                             document.getElementById('follow').classList = ['button is-error'];
-                            document.getElementById('follow').innerText = 'se désabonner';
+                            document.getElementById('follow').innerText = 'Se désabonner';
                         }
                         else {
                             document.getElementById('follow').setAttribute('onclick', 'cancel_follow()');
                             document.getElementById('follow').classList = ['button is-alert'];
-                            document.getElementById('follow').innerText = 'annuler la demande';
+                            document.getElementById('follow').innerText = 'Annuler la demande';
                         }
                     }
                 }
                 xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
                 xhr.send(data);
             }
+
             function unfollow(){
                 let xhr = new XMLHttpRequest();
                 let data = new FormData();
@@ -84,7 +85,7 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                             document.getElementById('follow').setAttribute('onclick', 'follow()');
                             document.getElementById('follow').classList = ['button is-primary'];
 
-                            document.getElementById('follow').innerText = "s'abonner";
+                            document.getElementById('follow').innerText = "S'abonner";
                         }
                     }
                 }
@@ -103,7 +104,7 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
                             document.getElementById('follow').setAttribute('onclick', 'follow()');
                             document.getElementById('follow').classList = ['button is-primary'];
 
-                            document.getElementById('follow').innerText = "s'abonner";
+                            document.getElementById('follow').innerText = "S'abonner";
                         }
                     }
                 }
