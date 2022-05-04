@@ -205,9 +205,9 @@ section {
             }
             &__user{
                 display: flex;
-                //justify-content: flex-start;
                 align-items: center;
                 &__img {
+                    object-fit: contain;
                     border-radius: 100px;
                     margin-right: 0.6em;
                     width: auto;
@@ -222,6 +222,11 @@ section {
             margin: 0 0 2% 0;
             padding: 0 1% 0 0%;
             white-space: pre-wrap;
+        }
+        > img{
+            max-width: 35vw;
+            margin: auto;
+            display: block;
         }
     }
     &.is-dm, &.is-group{
