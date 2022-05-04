@@ -57,7 +57,7 @@
                                 <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                     <?php echo get_username($line['user_concerning']); ?> a demandé à vous suivre 
                                     <br>
-                                    <a class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" href="#">Accepter</a>
+                                    <button class="button is-primary" onclick="accept(<?php echo $line['user_concerning'];?>, <?php echo $_SESSION['user_ID']; ?>, <?php echo $line['ID']; ?>)" style="margin-top: 0.4em;">Accepter</button>
                                 </a>
                     <?php } } ?>
                 </div>

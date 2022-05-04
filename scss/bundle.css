@@ -207,6 +207,7 @@ section .section__right-frame__content .create-group__panel__list a:hover {
   align-items: center;
 }
 .card.is-post .post-header__user__img {
+  object-fit: contain;
   border-radius: 100px;
   margin-right: 0.6em;
   width: auto;
@@ -219,6 +220,11 @@ section .section__right-frame__content .create-group__panel__list a:hover {
   margin: 0 0 2% 0;
   padding: 0 1% 0 0%;
   white-space: pre-wrap;
+}
+.card.is-post > img {
+  max-width: 35vw;
+  margin: auto;
+  display: block;
 }
 .card.is-dm, .card.is-group {
   display: flex;
@@ -433,23 +439,6 @@ body.sign-in {
 .content-main__header .text-under {
   margin: 0;
   font-size: 1.2em;
-}
-.content-main__band {
-  background-color: #e2e2e2;
-  height: 10vh;
-}
-.content-main__container {
-  width: 50%;
-  margin: 3em auto 0 auto;
-}
-.content-main__container .head {
-  font-size: 20px;
-}
-.content-main__container__items > h2 {
-  margin: 0 0 0.2em 0;
-}
-.content-main__container__items > p {
-  margin: 0 0 0.4em 0;
 }
 
 .form-post {
