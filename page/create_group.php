@@ -24,10 +24,10 @@
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
                 let response = JSON.parse(xhr.response);
-                window.location.assign('/trophee_nsi/page/index/index.php?content_type=dm&id='+ response['ID']);
+                window.location.assign('index/index.php?content_type=dm&id='+ response['ID']);
             }
         }
-        xhr.open("POST", '/trophee_nsi/cible/create_group.php', true);
+        xhr.open("POST", '../cible/create_group.php', true);
         xhr.send(data);
     }
 
@@ -50,7 +50,7 @@
                     }
                 }
             }
-            xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
+            xhr.open("POST", '../cible/get_users.php', true);
             xhr.send(data);
         } else panel.classList.remove('show');
     }

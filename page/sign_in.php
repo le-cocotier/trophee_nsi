@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
-    <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
+    <link type="text/css" rel="stylesheet" href='../scss/bundle.css'>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body class="sign-in">
     <div id="container">
-        <img class="container__brand" src='/trophee_nsi/img/logo_small.png' alt="Logo brand">
+        <img class="container__brand" src='../img/logo_small.png' alt="Logo brand">
         <div class="container__buttons">
             <a id="button_sing-in" href="#" class="active" onclick="switchForm('sign-in')">Connexion</a>
             <a id="button_sing-up" href="#" onclick="switchForm('sign-up')">Inscription</a>
@@ -57,8 +57,8 @@
             </form>
         </div>
 
-        <a class="container__go-home" href='/trophee_nsi/page/index/index.php'>Retourner à l'accueil</a>
+        <a class="container__go-home" href='../page/index/index.php'>Retourner à l'accueil</a>
     </div>
-    <script src='/trophee_nsi/js/pages/sign-in.js'></script>
+    <script src='../js/pages/sign-in.js'></script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (isset($_POST['users'])){
-    $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db');
+    $bdd_user = new SQLite3('../database/users.db');
 
     $user_names = implode("','",explode(",", $_POST['users']));
     $user_IDs = [$_SESSION['user_ID']];
@@ -11,7 +11,7 @@ if (isset($_POST['users'])){
         array_push($user_IDs, $line['id']);
     }
 
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3('../database/message.db', SQLITE3_OPEN_READWRITE);
 
     if (count($user_IDs) >2){
         $group = 'true';
