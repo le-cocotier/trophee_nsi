@@ -1,5 +1,9 @@
 <?php
 if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['birth_date'])) {
+	// Blocage des codes html, css (php ?)
+	$_POST['name'] = htmlspecialchars($_POST['name']);
+	$_POST['password'] = htmlspecialchars($_POST['password']);
+	$_POST['email'] = htmlspecialchars($_POST['email']);
 
 	// date aujourd'hui
 	$date = new DateTime();

@@ -1,8 +1,12 @@
 <?php
 
 $bdd = new SQLite3('../database/message.db', SQLITE3_OPEN_READWRITE);
+// besoin verif isset
+
 
 if ($_POST['type'] == 'text') {
+    
+    $_POST['mess'] = htmlspecialchars($_POST['mess']);
     $append = $bdd->prepare("INSERT INTO content(discussion_ID, user_ID, type, mess, date) VALUES(:discussion_ID, :user_ID, :type, :mess, :date)");
     $append->bindValue(':discussion_ID', $_POST['discussion_ID']);
     $append->bindValue(':user_ID', $_POST['user_ID']);

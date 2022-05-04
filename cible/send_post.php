@@ -9,6 +9,11 @@ if ($_FILES['image']['error'] == 0){
     $append->bindValue(':type', $_FILES['image']['type']);
 }
 else {
+    // besoin verif isset
+    $_POST['title'] = htmlspecialchars($_POST['title']);
+    $_POST['user'] = htmlspecialchars($_POST['user']);
+    $_POST['content'] = htmlspecialchars($_POST['content']);
+    
     $append = $bdd->prepare("INSERT INTO posts(title, user, content, date) VALUES(:title, :user, :content, :date)");
 
 }
