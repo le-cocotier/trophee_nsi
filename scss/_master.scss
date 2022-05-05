@@ -22,17 +22,10 @@ a{
 
 //===================================
 //COMMON STYLES
-//===================================
-.container{
-    display: flex;
-}
+//===================================.
 .align-items{
     display: flex;
     align-items: center;
-}
-.justify-content{
-    display: flex;
-    justify-content: center;
 }
 
 
@@ -57,7 +50,8 @@ a{
     & &__panel{
         box-shadow: $color-highlight 0 0 10px;
         display: none;
-        width: 10vw;
+        max-width: 10vw;
+        min-width: fit-content;
         padding: 0;
         text-align: left;
         right: 0;
@@ -65,7 +59,7 @@ a{
         background-color: #fff;
         border-radius: $border-radius;
         box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-        overflow-y: hidden;
+        overflow: hidden;
         &.overflow{
             max-height: 20vh;
             height: fit-content;
