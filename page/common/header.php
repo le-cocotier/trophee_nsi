@@ -8,7 +8,7 @@
             <!--searchbar-->
             <div class="dropdown">
                 <div class="dropdown__item">
-                    <input id="search_user" class="input" type="text" name="search_user" onkeyup="search_user()">
+                    <input id="search_user" placeholder='rechercher un utilisateur' class="input" type="text" name="search_user" onkeyup="search_user()">
                 </div>
                 <div id="search_user__list" class="dropdown__panel overflow">
 
