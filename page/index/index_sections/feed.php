@@ -5,6 +5,7 @@ if (isset($_SESSION['name']) && isset($_SESSION['password'])){
     $response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
     $line = $response->fetchArray();
     $line = explode(",",$line['friends']);
+    array_push($line, $_SESSION['user_ID']);
     $liste_of_users = "'".implode("','", $line)."'";
 }
  ?>
