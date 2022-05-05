@@ -209,7 +209,7 @@ section .section__right-frame__content .create-group__panel__list a:hover {
 .card.is-post .post-header__user__img {
   border-radius: 100px;
   margin-right: 0.6em;
-  width: auto;
+  object-fit: contain;
 }
 .card.is-post .post-header__user__name {
   color: #888888;
@@ -434,23 +434,6 @@ body.sign-in {
   margin: 0;
   font-size: 1.2em;
 }
-.content-main__band {
-  background-color: #e2e2e2;
-  height: 10vh;
-}
-.content-main__container {
-  width: 50%;
-  margin: 3em auto 0 auto;
-}
-.content-main__container .head {
-  font-size: 20px;
-}
-.content-main__container__items > h2 {
-  margin: 0 0 0.2em 0;
-}
-.content-main__container__items > p {
-  margin: 0 0 0.4em 0;
-}
 
 .form-post {
   display: flex;
@@ -536,18 +519,9 @@ a {
   color: inherit;
 }
 
-.container {
-  display: flex;
-}
-
 .align-items {
   display: flex;
   align-items: center;
-}
-
-.justify-content {
-  display: flex;
-  justify-content: center;
 }
 
 .dropdown {
@@ -571,7 +545,8 @@ a {
 .dropdown .dropdown__panel {
   box-shadow: #e5e7eb 0 0 10px;
   display: none;
-  width: 10vw;
+  max-width: 10vw;
+  min-width: fit-content;
   padding: 0;
   text-align: left;
   right: 0;
@@ -579,7 +554,7 @@ a {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  overflow-y: hidden;
+  overflow: hidden;
 }
 .dropdown .dropdown__panel.overflow {
   max-height: 20vh;

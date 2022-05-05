@@ -5,7 +5,7 @@ $message pour le Message
 $name pour le le nom de la discussion
 */?>
 
-<a class="card align-items <?php echo $class; ?>" href=<?php echo("?content_type=dm&id=".$get); ?>>
+<a class="card <?php echo $class; ?>" href=<?php echo("?content_type=dm&id=".$get); ?>>
     <img class="card-img" height="64" width="64" src=<?php echo $pp ?> alt="user_photo">
     <div class="content">
         <h5 class="card-title"><?php echo $name ?></h5>

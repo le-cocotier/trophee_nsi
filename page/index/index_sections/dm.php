@@ -123,17 +123,17 @@ if (isset($_GET['id']) && $_GET['id'] != ""){
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == 4 && xhr.status == 200) {
                     let response = JSON.parse(xhr.response);
-                    let xhr = new XMLHttpRequest();
+                    let xhr2 = new XMLHttpRequest();
                     let data = new FormData();
-                    xhr.onreadystatechange = () => {
-                        if (xhr.readyState == 4 && xhr.status == 200) {
+                    xhr2.onreadystatechange = () => {
+                        if (xhr2.readyState == 4 && xhr2.status == 200) {
                         }
                     }
                     data.append('users_ID', response[0]);
                     data.append('new_user', user);
                     data.append('ID', <?php echo $_GET['id']; ?>);
-                    xhr.open("POST", '/trophee_nsi/cible/add_user_group.php', true);
-                    xhr.send(data);
+                    xhr2.open("POST", '/trophee_nsi/cible/add_user_group.php', true);
+                    xhr2.send(data);
                 }
             }
             data.append('discussion', <?php echo $_GET['id']; ?>);

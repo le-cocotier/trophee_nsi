@@ -205,12 +205,11 @@ section {
             }
             &__user{
                 display: flex;
-                //justify-content: flex-start;
                 align-items: center;
                 &__img {
                     border-radius: 100px;
                     margin-right: 0.6em;
-                    width: auto;
+                    object-fit: contain;
                 }
                 &__name{
                     color: rgb(136, 136, 136);
