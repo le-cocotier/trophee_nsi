@@ -18,7 +18,7 @@ function get_pp_src($ID) {
 function get_user_posts($ID) {
 
     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/posts.db', SQLITE3_OPEN_READWRITE);
-    $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC ";
+    $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT 10";
     $response = $bdd->query($query);
     while ($line = $response->fetchArray()) {
         $user_ID = $line['user'];
