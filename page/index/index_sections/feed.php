@@ -1,17 +1,15 @@
 <?php
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
-if (isset($_SESSION['name']) && isset($_SESSION['password'])){
 
-    $response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
-    $line = $response->fetchArray();
+$response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
+$line = $response->fetchArray();
+if ($line != NULL){
     $line = explode(",",$line['friends']);
     array_push($line, $_SESSION['user_ID']);
     $liste_of_users = "'".implode("','", $line)."'";
-}
  ?>
 
 <div class="content-flow">
-    <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
     <div class="card is-post">
         <div class="post-header">
             <h4 class="post-header__title">Postez quelque chose...</h4>
@@ -34,6 +32,9 @@ if (isset($_SESSION['name']) && isset($_SESSION['password'])){
             <input class="button is-primary" type="submit" name="" value="Poster">
         </form>
     </div>
-    <?php }
-    echo get_user_posts($liste_of_users); ?>
+    <?php
+    echo get_user_posts($liste_of_users); }
+    else {
+        header('location: /trophee_nsi/page/index/main.php');
+    }?>
 </div>

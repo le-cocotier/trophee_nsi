@@ -1,11 +1,11 @@
 <?php
 // On vérifie si l'utilisateur fais partie du groupe
-if (isset($_GET['id']) && $_GET['id'] != ""){
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
-    $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
+$response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
-    $discussion_ID = $_GET['id'];
-    $line = $response->fetchArray();
+$discussion_ID = $_GET['id'];
+$line = $response->fetchArray();
+if ($line != NULL){
     $users_ID=explode(",", $line["users_ID"]);
     $title = $line['name'];
     if (!in_array($_SESSION["user_ID"], $users_ID)) {
