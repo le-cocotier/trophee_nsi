@@ -1,9 +1,10 @@
 <?php
-if (isset($_GET['id']) && $_GET['id'] != ""){
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
-    $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
-    $line = $response->fetchArray();
-     ?>
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+$response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
+$line = $response->fetchArray();
+if ($line != NULL){
+ ?>
+
     <div class="content-flow">
         <div class="card is-post card-user">
             <div class="card-user__pic">
