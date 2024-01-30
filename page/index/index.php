@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
-    <title>Document</title>
-    <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Lambda</title>
+    <link rel="icon" href="src='/trophee_nsi/img/logo.png" type="image/x-icon">
 </head>
 <body class="index">
     <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/common/header.php";?>

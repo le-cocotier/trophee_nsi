@@ -1,5 +1,4 @@
-Liste des choses à améliorer sur Lambda : 
--ajout d'une icone et d'un titre
+Liste des choses à améliorer sur Lambda
 -chiffre montrant le nombre de notifications
 -page montrant les amis 
 -le fait de ne pas poster d'image ne renvoie pas "undefined variable"
@@ -11,3 +10,5 @@ Liste des choses à améliorer sur Lambda :
 -likes
 -commentaires sous un post
 -page pour les posts privés et publics
+-enlever le petit "up" en dessous de l'image
+
