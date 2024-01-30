@@ -24,6 +24,7 @@ function get_user_posts($ID) {
         $user_ID = $line['user'];
         $title = $line['title'];
         $content = $line['content'];
+        $id = $line['ID'];
         if ($line['image'] != NULL){
             $stream = $bdd->openBlob('posts', 'image', $line['ID']);
             $img = base64_encode(stream_get_contents($stream));

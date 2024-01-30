@@ -84,6 +84,21 @@
             if(group.style.display === "block") group.style.display = "none";
             else group.style.display = "block";
         }
+
+        function delete_post(id) {
+            console.log("hello");
+            let xhr = new XMLHttpRequest();
+            let data = new FormData();
+            data.append('ID', id);
+            console.log(data);
+            xhr.onreadystatechange = () => {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    window.location.assign('/trophee_nsi/page/index/index.php');
+                }
+            }
+            xhr.open("POST", '/trophee_nsi/cible/delete_post.php', true);
+            xhr.send(data);
+        }
     </script>
 </body>
 </html>
