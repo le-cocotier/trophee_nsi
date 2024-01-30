@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link type="text/css" rel="stylesheet" href='/trophee_nsi/scss/bundle.css'>
     <title>Lambda</title>
-    <link rel="icon" href="src='/trophee_nsi/img/logo.png" type="image/x-icon">
+    <link rel="icon" href="/trophee_nsi/img/logo.png" type="image/x-icon">
 </head>
 <body class="index">
     <?php include $_SERVER["DOCUMENT_ROOT"]."/trophee_nsi/page/common/header.php";?>

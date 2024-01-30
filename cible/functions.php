@@ -1,5 +1,5 @@
 <?php
-//renvoie le nom de l'utilisateuren fonction de son user_IDs
+// renvoie le nom de l'utilisateuren fonction de son user_IDs
 
 function get_username($ID){
     $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
@@ -15,7 +15,7 @@ function get_pp_src($ID) {
     return "'data:".$line['type'] .";base64,".base64_encode(stream_get_contents($stream))."'";
 }
 
-function get_user_posts($ID) {
+function get_user_posts($ID, $is_user=false) {
 
     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/posts.db', SQLITE3_OPEN_READWRITE);
     $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT 10";
@@ -24,7 +24,9 @@ function get_user_posts($ID) {
         $user_ID = $line['user'];
         $title = $line['title'];
         $content = $line['content'];
-        $id = $line['ID'];
+        if ($is_user == true){
+            $id = $line['ID'];            
+        }
         if ($line['image'] != NULL){
             $stream = $bdd->openBlob('posts', 'image', $line['ID']);
             $img = base64_encode(stream_get_contents($stream));
