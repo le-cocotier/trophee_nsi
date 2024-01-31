@@ -15,10 +15,10 @@ function get_pp_src($ID) {
     return "'data:".$line['type'] .";base64,".base64_encode(stream_get_contents($stream))."'";
 }
 
-function get_user_posts($ID, $is_user=false) {
+function get_user_posts($ID, $limit=10, $is_user=false) {
 
     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
-    $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT 10";
+    $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT ".$limit;
     $response = $bdd->query($query);
     while ($line = $response->fetchArray()) {
         $user_ID = $line['user'];
@@ -37,6 +37,13 @@ function get_user_posts($ID, $is_user=false) {
         }
         include $_SERVER["DOCUMENT_ROOT"].'/includes/post.php';
     }
+    if (!isset($_GET['nb_post'])){
+        $_GET['nb_post'] = 10;
+    } else {
+        $_GET['nb_post'] += 10;
+    } ?>
+    <button onclick="window.location.assign('/page/index/index.php?<?php echo http_build_query($_GET); ?>')">more</button> 
+    <?php
 }
 
 function get_friends($ID){
