@@ -45,7 +45,7 @@
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="dropdown__panel overflow">
                     <?php
-                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
+                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db');
                         $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
                         while($line = $response->fetchArray()){
                             if($line['type'] == 'follow'){ ?>
