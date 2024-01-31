@@ -1,19 +1,20 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
 $line = $response->fetchArray();
 if ($line != NULL){
  ?>
-
     <div class="content-flow">
         <div class="card is-post card-user">
             <div class="card-user__pic">
                 <img width="128" height="128" src='data:<?php $stream = $bdd->openBlob('users', 'pp', $line['id']); echo $line['type']; ?>;base64,<?php echo base64_encode(stream_get_contents($stream)); ?>' alt="user_photo">
                 <a href="#" class="card-user__pic__follow"><?php echo $line['subscriptions']. ' abonnements'; ?></a>
                 <a href="#" class="card-user__pic__follow"><?php echo $line['subscribers']. ' abonnés'; ?></a>
+
+                <!-- Si le profil n'est pas celui de l'utilisateur -->
+
                 <?php if (isset($_SESSION['name']) && isset($_SESSION['password']) && $_GET['id'] != $_SESSION['user_ID']) {
                     if (!in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
-                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
                         $query = "SELECT * FROM notifications where user_ID=".$_GET['id']." AND user_concerning=".$_SESSION['user_ID']." AND type='follow request'";
                         $response = $bdd->query($query);
                         if ($response->fetchArray() == false){
@@ -37,8 +38,14 @@ if ($line != NULL){
         </div>
         <div class="posts">
             <?php
+            # Affichage post (si public, amis ou lui-même)
             if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
-                echo get_user_posts($line['id']);
+                if ($_GET['id'] == $_SESSION['user_ID']){
+                    $id = $_SESSION['user_ID'];
+                    echo get_user_posts($line['id'], true);
+                } else{
+                    echo get_user_posts($line['id']);
+                }
             }
             else {
                 echo 'Ce compte est privée';
@@ -70,7 +77,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+                xhr.open("POST", '/cible/follow.php', true);
                 xhr.send(data);
             }
 
@@ -90,7 +97,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/unfollow.php', true);
+                xhr.open("POST", '/cible/unfollow.php', true);
                 xhr.send(data);
             }
             function cancel_follow() {
@@ -109,7 +116,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/cancel_follow.php', true);
+                xhr.open("POST", '/cible/cancel_follow.php', true);
                 xhr.send(data);
             }
         </script>
@@ -118,7 +125,8 @@ if ($line != NULL){
 else{
     ?>
 <script type="text/javascript">
-    window.location.assign('/trophee_nsi/page/index/index.php');
+    window.location.assign('/page/index/index.php');
 </script>
     <?php
 }
+?>

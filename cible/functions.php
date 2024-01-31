@@ -1,29 +1,32 @@
 <?php
-//renvoie le nom de l'utilisateuren fonction de son user_IDs
+// renvoie le nom de l'utilisateuren fonction de son user_IDs
 
 function get_username($ID){
-    $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+    $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd_user->query("SELECT name FROM users where id='$ID'");
     return ($response->fetchArray())['name'];
 }
 
 function get_pp_src($ID) {
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd->query("SELECT type FROM users where id='$ID'");
     $line = $response->fetchArray();
     $stream = $bdd->openBlob('users', 'pp', $ID);
     return "'data:".$line['type'] .";base64,".base64_encode(stream_get_contents($stream))."'";
 }
 
-function get_user_posts($ID) {
+function get_user_posts($ID, $is_user=false) {
 
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/posts.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
     $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT 10";
     $response = $bdd->query($query);
     while ($line = $response->fetchArray()) {
         $user_ID = $line['user'];
         $title = $line['title'];
         $content = $line['content'];
+        if ($is_user == true){
+            $id = $line['ID'];            
+        }
         if ($line['image'] != NULL){
             $stream = $bdd->openBlob('posts', 'image', $line['ID']);
             $img = base64_encode(stream_get_contents($stream));
@@ -32,12 +35,12 @@ function get_user_posts($ID) {
         else{
             $img = '';
         }
-        include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/includes/post.php';
+        include $_SERVER["DOCUMENT_ROOT"].'/includes/post.php';
     }
 }
 
 function get_friends($ID){
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
     $query = "SELECT friends FROM users where id='$ID'";
     $response = $bdd->query($query);
     return explode(",", $response->fetchArray()['friends']);

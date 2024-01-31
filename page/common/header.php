@@ -1,6 +1,6 @@
 <header>
-    <a class="header__left" href="/trophee_nsi/page/index">
-        <img width="28" height="28" class="container__brand" src='/trophee_nsi/img/logo.png' alt="Logo">
+    <a class="header__left" href="/page/index">
+        <img width="28" height="28" class="container__brand" src='/img/logo.png' alt="Logo">
         <h1>Lambda</h1>
     </a>
     <nav class="header__right">
@@ -30,11 +30,11 @@
                             if (xhr.readyState == 4 && xhr.status == 200) {
                                 let response = JSON.parse(xhr.response);
                                 for (var i = 0; i < response['name'].length; i++) {
-                                    document.getElementById("search_user__list").innerHTML+="<a class='dropdown__panel__item' href='/trophee_nsi/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a>";
+                                    document.getElementById("search_user__list").innerHTML+="<a class='dropdown__panel__item' href='/page/index/index.php?content_type=user&id="+response['id'][i]+"'>"+response['name'][i]+"</a>";
                                 }
                             }
                         }
-                        xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
+                        xhr.open("POST", '/cible/get_users.php', true);
                         xhr.send(data);
                     } else panel.classList.remove('show');
                 }
@@ -45,11 +45,11 @@
                 <img class="dropdown__item" width="28" height="28" src="../../img/notif.png" alt="notif">
                 <div class="dropdown__panel overflow">
                     <?php
-                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
+                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db');
                         $response = $bdd->query("SELECT * FROM notifications where user_ID='".$_SESSION['user_ID']."' ORDER BY ID DESC LIMIT 10");
                         while($line = $response->fetchArray()){
                             if($line['type'] == 'follow'){ ?>
-                                <a class="dropdown__panel__item" onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
+                                <a class="dropdown__panel__item" onclick="sup_notif(<?php echo $line['ID']; ?>)" href="/page/index?content_type=user&id=<?php echo $line['user_concerning']; ?>">
                                     <?php echo get_username($line['user_concerning']); ?> a commencé à vous suivre
                                 </a>
                     <?php   }
@@ -70,14 +70,14 @@
                     <p><?php echo $_SESSION['name']; ?></p>
                 </div>
                 <div class="dropdown__panel">
-                    <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=user&id=<?php echo $_SESSION['user_ID']; ?>">Mon profil</a>
-                    <a class="dropdown__panel__item" href="/trophee_nsi/page/index?content_type=settings">Options</a>
+                    <a class="dropdown__panel__item" href="/page/index?content_type=user&id=<?php echo $_SESSION['user_ID']; ?>">Mon profil</a>
+                    <a class="dropdown__panel__item" href="/page/index?content_type=settings">Options</a>
                     <hr>
-                    <a class="dropdown__panel__item red" href="/trophee_nsi/page/sign_in.php">Se déconnecter</a>
+                    <a class="dropdown__panel__item red" href="/page/sign_in.php">Se déconnecter</a>
                 </div>
             </div>
         <?php }else{?>
-            <a href="/trophee_nsi/page/sign_in.php" class="button is-primary">Se connecter</a>
+            <a href="/page/sign_in.php" class="button is-primary">Se connecter</a>
         <?php }?>
     </nav>
 </header>
@@ -90,10 +90,10 @@
         let xhr = new XMLHttpRequest();
         xhr.onreadystatechange = () => {
             if (xhr.readyState == 4 && xhr.status == 200) {
-                window.location.assign("/trophee_nsi/page/index?content_type=user&id="+user_send);
+                window.location.assign("/page/index?content_type=user&id="+user_send);
             }
         }
-        xhr.open("POST", '/trophee_nsi/cible/delete_notif_view.php', true);
+        xhr.open("POST", '/cible/delete_notif_view.php', true);
         xhr.send(data);
     }
 
@@ -109,7 +109,7 @@
                 sup_notif(ID_delete_notif, user_send);
             }
         }
-        xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+        xhr.open("POST", '/cible/follow.php', true);
         xhr.send(data);
     }
 </script>
