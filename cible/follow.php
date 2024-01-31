@@ -1,6 +1,6 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/functions.php';
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
+include $_SERVER["DOCUMENT_ROOT"].'/cible/functions.php';
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT public FROM users where id='".$_POST['user_to_follow']."'");
 $public = $response->fetchArray()['public'];
 if(isset($_POST['accept_user']) && $_POST['accept_user']=='true'){

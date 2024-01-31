@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db');
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db');
 
 $user_names = implode("','",explode(",", $_POST['new_user']));
 $user_IDs = [];

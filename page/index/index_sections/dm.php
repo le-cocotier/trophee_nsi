@@ -1,6 +1,6 @@
 <?php
 // On vérifie si l'utilisateur fais partie du groupe
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
 $discussion_ID = $_GET['id'];
@@ -9,7 +9,7 @@ if ($line != NULL){
     $users_ID=explode(",", $line["users_ID"]);
     $title = $line['name'];
     if (!in_array($_SESSION["user_ID"], $users_ID)) {
-        header('location: /trophee_nsi/page/index/index.php');
+        header('location: /page/index/index.php');
     }
     ?>
     <div class="popup_add-user">
@@ -30,7 +30,7 @@ if ($line != NULL){
 
     <div class="content-dm">
         <div class="dm__header">
-            <a href='/trophee_nsi/page/index/index.php' class="button is-black">Retour</a>
+            <a href='/page/index/index.php' class="button is-black">Retour</a>
             <h2 id="discussion_title"><?php echo $title; ?></h2>
             <?php if ($line['admin'] == $_SESSION['user_ID']) { ?>
                 <div class="dropdown hover">
@@ -49,11 +49,11 @@ if ($line != NULL){
 
         <div class="dm__content">
             <!-- On récupère les messages de la discussion -->
-            <?php $only_new=false; include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/get_messages.php'; ?>
+            <?php $only_new=false; include $_SERVER["DOCUMENT_ROOT"].'/cible/get_messages.php'; ?>
         </div>
 
         <div class="dm__footer">
-            <form class="form-message" action='/trophee_nsi/cible/send_message.php' method="post">
+            <form class="form-message" action='/cible/send_message.php' method="post">
                 <input type="hidden" name="discussion_ID" value="<?php echo $_GET['id']; ?>">
                 <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
                 <input type="hidden" name="type" value="text">
@@ -62,7 +62,7 @@ if ($line != NULL){
                 <input type="hidden" name="date" value="<?php echo date("Y-m-d H:i:s"); ?>">
                 <input class="button is-primary" type="submit" name="" value="Envoyer">
             </form>
-            <form class="form-img" action='/trophee_nsi/cible/send_message.php' method="post" enctype="multipart/form-data">
+            <form class="form-img" action='/cible/send_message.php' method="post" enctype="multipart/form-data">
                 <input type="hidden" name="discussion_ID" value="<?php echo $_GET['id']; ?>">
                 <input type="hidden" name="user_ID" value=<?php echo $_SESSION['user_ID']; ?>>
                 <input type="hidden" name="type" value="file">
@@ -112,7 +112,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/get_users.php', true);
+                xhr.open("POST", '/cible/get_users.php', true);
                 xhr.send(data);
             } else panel.classList.remove('show');
         }
@@ -132,12 +132,12 @@ if ($line != NULL){
                     data.append('users_ID', response[0]);
                     data.append('new_user', user);
                     data.append('ID', <?php echo $_GET['id']; ?>);
-                    xhr2.open("POST", '/trophee_nsi/cible/add_user_group.php', true);
+                    xhr2.open("POST", '/cible/add_user_group.php', true);
                     xhr2.send(data);
                 }
             }
             data.append('discussion', <?php echo $_GET['id']; ?>);
-            xhr.open("POST", '/trophee_nsi/cible/is_on_group.php', true);
+            xhr.open("POST", '/cible/is_on_group.php', true);
             xhr.send(data);
         }
 
@@ -148,12 +148,12 @@ if ($line != NULL){
             let data = new FormData();
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    window.location.assign('/trophee_nsi/page/index/index.php?content_type=dm&id=<?php echo $_GET['id']; ?>');
+                    window.location.assign('/page/index/index.php?content_type=dm&id=<?php echo $_GET['id']; ?>');
                 }
             }
             data.append('ID', <?php echo $_GET['id']; ?>);
             data.append('name', name);
-            xhr.open("POST", '/trophee_nsi/cible/rename_group.php', true);
+            xhr.open("POST", '/cible/rename_group.php', true);
             xhr.send(data);
             document.getElementById('rename_button').setAttribute('onclick', 'rename_input()');
             document.getElementById('discussion_title').innerHTML = name;
@@ -164,11 +164,11 @@ if ($line != NULL){
             let data = new FormData();
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    window.location.assign('/trophee_nsi/page/index/index.php');
+                    window.location.assign('/page/index/index.php');
                 }
             }
             data.append('ID', <?php echo $_GET['id']; ?>);
-            xhr.open("POST", '/trophee_nsi/cible/delete_group.php', true);
+            xhr.open("POST", '/cible/delete_group.php', true);
             xhr.send(data);
         }
     </script>
@@ -177,7 +177,7 @@ if ($line != NULL){
 else {
     ?>
 <script type="text/javascript">
-    window.location.assign('/trophee_nsi/page/index/index.php');
+    window.location.assign('/page/index/index.php');
 </script>
     <?php
 }

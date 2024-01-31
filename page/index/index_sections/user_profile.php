@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
 $line = $response->fetchArray();
 if ($line != NULL){
@@ -77,7 +77,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/follow.php', true);
+                xhr.open("POST", '/cible/follow.php', true);
                 xhr.send(data);
             }
 
@@ -97,7 +97,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/unfollow.php', true);
+                xhr.open("POST", '/cible/unfollow.php', true);
                 xhr.send(data);
             }
             function cancel_follow() {
@@ -116,7 +116,7 @@ if ($line != NULL){
                         }
                     }
                 }
-                xhr.open("POST", '/trophee_nsi/cible/cancel_follow.php', true);
+                xhr.open("POST", '/cible/cancel_follow.php', true);
                 xhr.send(data);
             }
         </script>
@@ -125,7 +125,7 @@ if ($line != NULL){
 else{
     ?>
 <script type="text/javascript">
-    window.location.assign('/trophee_nsi/page/index/index.php');
+    window.location.assign('/page/index/index.php');
 </script>
     <?php
 }

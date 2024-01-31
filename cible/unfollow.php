@@ -1,7 +1,7 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/cible/functions.php';
+include $_SERVER["DOCUMENT_ROOT"].'/cible/functions.php';
 
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT subscribers FROM users where id='".$_POST['user_to_unfollow']."'");
 $nb_subscribers = $response->fetchArray()['subscribers'];
 $nb_subscribers-=1;
