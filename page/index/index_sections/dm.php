@@ -1,6 +1,6 @@
 <?php
 // On vérifie si l'utilisateur fais partie du groupe
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/message.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion where ID='".$_GET['id']."'");
 
 $discussion_ID = $_GET['id'];

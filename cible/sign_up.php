@@ -18,7 +18,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 		// print_r(json_encode("{'error': 'date'}"));
 
 	}
-	$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+	$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
 
 
 	// Je reagarde si l'user exixte déjà

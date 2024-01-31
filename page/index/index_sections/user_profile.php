@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT * FROM users where id="'.$_GET['id'].'"');
 $line = $response->fetchArray();
 if ($line != NULL){
@@ -15,7 +15,6 @@ if ($line != NULL){
 
                 <?php if (isset($_SESSION['name']) && isset($_SESSION['password']) && $_GET['id'] != $_SESSION['user_ID']) {
                     if (!in_array($_GET['id'], get_friends($_SESSION['user_ID']))){
-                        $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/notifications.db');
                         $query = "SELECT * FROM notifications where user_ID=".$_GET['id']." AND user_concerning=".$_SESSION['user_ID']." AND type='follow request'";
                         $response = $bdd->query($query);
                         if ($response->fetchArray() == false){

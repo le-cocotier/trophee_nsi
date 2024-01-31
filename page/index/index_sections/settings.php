@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/users.db');
+$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/trophee_nsi/database/main.db');
 $response = $bdd->query('SELECT * FROM users where id="'.$_SESSION['user_ID'].'"');
 $line = $response->fetchArray();
  ?>

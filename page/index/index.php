@@ -93,7 +93,7 @@
             console.log(data);
             xhr.onreadystatechange = () => {
                 if (xhr.readyState == 4 && xhr.status == 200) {
-                    window.location.assign('/trophee_nsi/page/index/index.php');
+                    window.location.assign(window.location.href);
                 }
             }
             xhr.open("POST", '/trophee_nsi/cible/delete_post.php', true);
