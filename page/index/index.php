@@ -6,6 +6,7 @@
     <link type="text/css" rel="stylesheet" href='/scss/bundle.css'>
     <title>Lambda</title>
     <link rel="icon" href="/img/logo.png" type="image/x-icon">
+    <script type="text/javascript" src="/js/pages/index.js"></script>
 </head>
 <body class="index">
     <?php include $_SERVER["DOCUMENT_ROOT"]."/page/common/header.php";?>
@@ -59,46 +60,5 @@
             </div>
         <?php } ?>
     </section>
-    <script>
-        let current = "is-dm";
-        function changeRightMenu(where){
-            if(where === current) return;
-            if(current === "is-dm"){
-                document.querySelectorAll(".is-dm").forEach(el => el.classList.add("hidden"));
-                document.querySelectorAll(".is-group").forEach(el => el.classList.remove("hidden"));
-                document.querySelector("#dm-button").classList.remove("active");
-                document.querySelector("#groups-button").classList.add("active");
-                current = "is-group";
-            }
-            else{
-                document.querySelectorAll(".is-group").forEach(el => el.classList.add("hidden"));
-                document.querySelectorAll(".is-dm").forEach(el => el.classList.remove("hidden"));
-                document.querySelector("#dm-button").classList.add("active");
-                document.querySelector("#groups-button").classList.remove("active");
-                current = "is-dm";
-            }
-        }
-
-        function openGroup(){
-            let group = document.querySelector(".create-group__panel");
-            if(group.style.display === "block") group.style.display = "none";
-            else group.style.display = "block";
-        }
-
-        function delete_post(id) {
-            console.log("hello");
-            let xhr = new XMLHttpRequest();
-            let data = new FormData();
-            data.append('ID', id);
-            console.log(data);
-            xhr.onreadystatechange = () => {
-                if (xhr.readyState == 4 && xhr.status == 200) {
-                    window.location.assign(window.location.href);
-                }
-            }
-            xhr.open("POST", '/cible/delete_post.php', true);
-            xhr.send(data);
-        }
-    </script>
 </body>
 </html>
