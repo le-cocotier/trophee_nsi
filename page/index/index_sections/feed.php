@@ -25,7 +25,7 @@ if ($line != NULL){
             </div>
             <div class="form-chunck is-vertical">
                 <label for="username">Rajoutez une image</label>
-                <input type="file" name="image">
+                <input type="file" name="image" accept=".jpg, .jpeg, .png, .gif">
             </div>
             <input type="hidden" name="user" value="<?php echo $_SESSION['user_ID']; ?>">
             <input type="hidden" name="date" value="<?php echo date('Y-m-d H:i:s'); ?>">
@@ -33,7 +33,12 @@ if ($line != NULL){
         </form>
     </div>
     <?php
-    echo get_user_posts($liste_of_users); }
+    if (isset($_GET['nb_post'])){
+        echo get_user_posts($liste_of_users, $_GET['nb_post']); ?> 
+    <?php } else{
+        echo get_user_posts($liste_of_users); ?>
+    <?php }
+}
     else {
         header('location: /page/index/main.php');
     }?>
