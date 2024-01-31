@@ -38,7 +38,7 @@ function get_user_posts($ID, $limit=10, $is_user=false) {
         include $_SERVER["DOCUMENT_ROOT"].'/includes/post.php';
     }
     if (!isset($_GET['nb_post'])){
-        $_GET['nb_post'] = 10;
+        $_GET['nb_post'] = 20;
     } else {
         $_GET['nb_post'] += 10;
     } ?>
