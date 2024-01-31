@@ -42,9 +42,9 @@ if ($line != NULL){
             if ($line['public'] == 'true' OR in_array($_GET['id'], get_friends($_SESSION['user_ID'])) OR $_GET['id'] == $_SESSION['user_ID']){
                 if ($_GET['id'] == $_SESSION['user_ID']){
                     $id = $_SESSION['user_ID'];
-                    echo get_user_posts($line['id'], true);
+                    echo get_user_posts($line['id'], 10, true);
                 } else{
-                    echo get_user_posts($line['id']);
+                    echo get_user_posts($line['id'], 10);
                 }
             }
             else {
