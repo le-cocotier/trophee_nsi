@@ -1,14 +1,9 @@
 Liste des choses à améliorer sur Lambda
 -chiffre montrant le nombre de notifications
--page montrant les amis 
--le fait de ne pas poster d'image ne renvoie pas "undefined variable"
+-page montrant les amis
 -plus grande barre de recherche des amis
--resize les images trop grandes en taille
 -resize les images trop grandes en résolution
 -lis les fichiers texte de code pour les afficher
--faire en sorte qu'on puisse scroller à l'infini
 -likes
 -commentaires sous un post
 -page pour les posts privés et publics
--enlever le petit "up" en dessous de l'image
-
