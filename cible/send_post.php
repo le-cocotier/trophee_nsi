@@ -1,26 +1,8 @@
 <?php
-
-// Compress image
-function compressImage($source, $destination, $quality) {
-
-    $info = getimagesize($source);
-
-    if ($info['mime'] == 'image/jpeg') {
-        $image = imagecreatefromjpeg($source);
-    }
-    elseif ($info['mime'] == 'image/gif') {
-        $image = imagecreatefromgif($source);
-    }
-    elseif ($info['mime'] == 'image/png') {
-        $image = imagecreatefrompng($source);
-    }
-    imagejpeg($image, $destination, $quality);
-    return $destination;
-}
-
+include 'functions.php';
 $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
 
-// On si une image à été fournis
+// On vérifie si il y a une image à été fournis
 if ($_FILES['image']['error'] == 0){
     $source = $_FILES["image"]["tmp_name"];
     $size = filesize($_FILES['image']['tmp_name']);
@@ -29,11 +11,14 @@ if ($_FILES['image']['error'] == 0){
         $response = compressImage($source, $_FILES['image']['tmp_name'].$i, 85 - $i*5);
         $size = filesize($_FILES['image']['tmp_name'].$i);
         $i+=1;
-        echo $size." ";
     }
     $append = $bdd->prepare("INSERT INTO posts(title, user, content, image, type, size, date) VALUES(:title, :user, :content, :image, :type, :size, :date)");
-    $append->bindValue(':image', file_get_contents($response));
-    $append->bindValue(':size', filesize($_FILES['image']['tmp_name'].$i-1));
+    if (isset($response)){
+        $append->bindValue(':image', file_get_contents($response));        
+    } else {
+        $append->bindValue(':image', file_get_contents($source));
+    }
+    $append->bindValue(':size', $size);
     $append->bindValue(':type', $_FILES['image']['type']);
 }
 else {
