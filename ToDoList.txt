@@ -6,13 +6,11 @@ Liste des choses à améliorer sur Lambda
 -lis les fichiers texte de code pour les afficher
 -likes
 -commentaires sous un post
-<<<<<<< HEAD
 -page pour les posts privés et publics
 -enlever le petit "up" en dessous de l'image
 -avoir un aperçu de l'image que l'on veut poster avant de la poster
 -interface de création de meme comme sur make it meme:
 	-base de données de memes à laquelle on peut ajouter son meme et y placer des zones de texte où on écrira le texte du meme
 	-accès à la banque de données de meme avec un moteur de recherche et une interface permettant de remplir les zones de texte et de publier le meme rapidement
-=======
 -page pour les posts privés et publics
->>>>>>> refs/remotes/origin/main
+-mettre l'heure de publication à côté des posts
