@@ -160,6 +160,13 @@ button{
             transition: 0.2s ease-in-out;
         }
     }
+    &.is-delete{
+        border-radius: 20px;
+        max-width: 10px;
+        &:hover{
+            content: "";
+        }
+    }
 }
 
 
