@@ -160,6 +160,25 @@ button{
             transition: 0.2s ease-in-out;
         }
     }
+    &.is-delete {
+        border-radius: 20px;
+        width: 50px;
+        height: 50px;
+        margin-bottom: 10px;
+        .image {
+            width: 100%;
+            height: 100%;
+            background-image: url('/img/bin_black.png');
+            background-position: center;
+            background-size: cover;
+            transition: background-image 0.3s ease;
+        }
+    
+        &:hover .image {
+            background-image: url('/img/bin_red.png');
+        }
+    }
+    
 }
 
 
