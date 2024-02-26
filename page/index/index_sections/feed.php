@@ -37,6 +37,32 @@ if ($line != NULL){
         echo get_user_posts($liste_of_users, $_GET['nb_post']); ?> 
     <?php } else{
         echo get_user_posts($liste_of_users); ?>
+
+            <script>
+                 function comment(id) {
+                     let input = document.getElementById("comment-input-"+id);
+                     let data = new FormData();
+                     data.append('post_ID', id);
+                     data.append('input', input.value);
+                     let xhr = new XMLHttpRequest();
+                     xhr.onreadystatechange = ()  => {
+                         if (xhr.readyState == 4 && xhr.status == 200){
+                             console.log("good");
+                         }
+                     }
+                        xhr.open("POST", '/cible/post_comment.php', true);
+                     xhr.send(data);
+                 }
+
+                 function display_comments(id){
+                     let comments = document.getElementById("comment-section-"+id);
+                     if (comments.style.display == "block"){
+                         comments.style.display = "None";
+                     } else{
+                         comments.style.display = "block";
+                     }
+                 }
+            </script>
     <?php }
 }
     else {

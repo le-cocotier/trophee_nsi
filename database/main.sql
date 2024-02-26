@@ -1,8 +1,3 @@
-attach 'users.db' as u;
-attach 'posts.db' as p;
-attach 'notifications.db' as n;
-attach 'message.db' as m;
-
 
 CREATE TABLE IF NOT EXISTS "users" (
 	"id"	INTEGER NOT NULL,
@@ -68,9 +63,15 @@ CREATE TABLE IF NOT EXISTS "notifications" (
 	FOREIGN KEY("user_ID") REFERENCES users("id")
 );
 
-
-insert into users select * from u.users;
-insert into posts select * from p.posts;
-insert into notifications select * from n.notifications;
-insert into content select * from m.content;
-insert into discussion select * from m.discussion;
+CREATE TABLE IF NOT EXISTS "comments" (
+	"ID"	INTEGER NOT NULL,
+	"user_ID"	INTEGER,
+	"post_ID"	INTEGER,
+	"replies"	TEXT,
+	"likes"		INTEGER,
+	"date"		DATETIME,
+	"content"	TEXT,
+	PRIMARY KEY("ID" AUTOINCREMENT),
+	FOREIGN KEY("user_ID") REFERENCES users("id"),
+	FOREIGN KEY("post_ID") REFERENCES post("ID")
+);

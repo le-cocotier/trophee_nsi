@@ -7,6 +7,16 @@ function get_username($ID){
     return ($response->fetchArray())['name'];
 }
 
+function get_comments($post_ID){
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $response = $bdd->query("SELECT c.*, u.name FROM comments as c, users as u where c.post_ID='$post_ID' and c.user_ID=u.id");
+    $comments = [];
+    while ($line = $response->fetchArray()){
+        array_push($comments, $line);
+    }
+    return $comments;
+}
+
 function get_pp_src($ID) {
     $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd->query("SELECT type FROM users where id='$ID'");
@@ -24,8 +34,11 @@ function get_user_posts($ID, $limit=10, $is_user=false) {
         $user_ID = $line['user'];
         $title = $line['title'];
         $content = $line['content'];
+        $is_user_post = false;
+        $id = $line['ID'];
+        $comments = get_comments($id);
         if ($is_user == true){
-            $id = $line['ID'];            
+            $is_user_post = true;
         }
         if ($line['image'] != NULL){
             $stream = $bdd->openBlob('posts', 'image', $line['ID']);
