@@ -24,7 +24,7 @@ if ($line != NULL){
                 <textarea placeholder="Racontez en un peu plus..." class="input is-secondary" name="content" rows="8" cols="80" required></textarea>
             </div>
             <div class="form-chunck is-vertical">
-                <label for="username">Rajoutez une image</label>
+                <label for="username">Ajoutez une image</label>
                 <input type="file" name="image" accept=".jpg, .jpeg, .png, .gif">
             </div>
             <input type="hidden" name="user" value="<?php echo $_SESSION['user_ID']; ?>">

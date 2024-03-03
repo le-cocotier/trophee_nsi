@@ -211,6 +211,13 @@ section {
                     margin: 0;
                 }
             }
+            &__title {
+                font-size: 28px;
+                font-weight: lighter;
+                margin: 0 0 0.2em 0;
+                word-wrap: break-word;
+                white-space: normal;
+            }
         }
         .post-content{
             &__title {

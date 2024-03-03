@@ -168,6 +168,12 @@ section {
         .card.is-post .post-header__user__name {
           color: #888888;
           margin: 0; }
+      .card.is-post .post-header__title {
+        font-size: 28px;
+        font-weight: lighter;
+        margin: 0 0 0.2em 0;
+        word-wrap: break-word;
+        white-space: normal; }
     .card.is-post .post-content__title {
       font-size: 28px;
       font-weight: 300;
@@ -240,7 +246,7 @@ body.sign-in {
         color: #a5a5a5;
         transition: 0.2s ease-in-out; }
       #container .container__buttons a.active {
-        color: #21A63C;
+        color: #268138;
         transition: 0.2s ease-in-out; }
         #container .container__buttons a.active:hover {
           color: #26b943;
@@ -282,7 +288,7 @@ body.sign-in {
         display: block;
         margin-left: auto; }
         .content-dm .dm__content .message-right .content {
-          background-color: #21A63C;
+          background-color: #268138;
           color: white; }
         .content-dm .dm__content .message-right .user {
           text-align: end; }
@@ -359,7 +365,8 @@ body.sign-in {
     flex-direction: column;
     margin-bottom: 0.2em; }
     .form-post .form-chunck label {
-      margin-right: 0.6em; }
+      margin-right: 0.6em;
+      margin-bottom: 0.5em; }
     .form-post .form-chunck input {
       width: inherit; }
     .form-post .form-chunck.is-vertical input, .form-post .form-chunck.is-vertical label {
@@ -496,7 +503,7 @@ button {
       background-color: #272727;
       transition: 0.2s ease-in-out; }
   .button.is-primary {
-    background-color: #21A63C;
+    background-color: #268138;
     color: white; }
     .button.is-primary:hover {
       background-color: #26b943;
@@ -558,7 +565,7 @@ button {
   .input::placeholder {
     color: gray; }
   .input:focus {
-    border: 1px #21A63C solid;
+    border: 1px #268138 solid;
     transition: 0.2s ease-in-out; }
   .input.is-secondary:focus {
     border: 1px #146625 solid;
