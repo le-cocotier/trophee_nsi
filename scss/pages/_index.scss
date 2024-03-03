@@ -193,21 +193,16 @@ section {
         padding: 20px;
         width: 100%;
         .post-header{
+            display: flex;
+            justify-content: space-between;
             box-sizing: border-box;
             width: 100%;
             margin-bottom: 0.2em;
-            &__title {
-                font-size: 28px;
-                font-weight: 300;
-                margin: 0 0 0.2em 0;
-                word-wrap: break-word;
-                white-space: normal;
-            }
             &__user{
                 display: flex;
                 align-items: center;
                 &__img {
-                    border-radius: 100px;
+                    border-radius: 20px;
                     margin-right: 0.6em;
                     object-fit: contain;
                 }
@@ -218,9 +213,19 @@ section {
             }
         }
         .post-content{
-            margin: 0 0 2% 0;
-            padding: 0 1% 0 0%;
-            white-space: pre-wrap;
+            &__title {
+                font-size: 28px;
+                font-weight: 300;
+                margin: 0 0 0.2em 0;
+                word-wrap: break-word;
+                white-space: normal;
+            }
+            &__parapgraph {
+                color: blue;
+                margin: 0 0 2% 0;
+                padding: 0 1% 0 0%;
+                white-space: pre-wrap;
+            }
         }
     }
     &.is-dm, &.is-group{
