@@ -27,7 +27,8 @@ header {
     align-items: center;
     justify-content: flex-end; }
     header .header__right #search_user {
-      margin-right: 0.4em; }
+      margin-right: 0.4em;
+      padding-left: 0.8em; }
     header .header__right__item {
       margin: 0 0.4em 0 0;
       padding: 0.4em;
@@ -52,7 +53,7 @@ section {
       padding-top: 20px;
       margin: 0 20%; }
   section .section__right-frame {
-    background-color: #eef7eb;
+    background-color: #ebebeb;
     width: 20%;
     max-width: 20%; }
     section .section__right-frame__header {
@@ -147,7 +148,8 @@ section {
 .card {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: #e5e7eb 0 0 10px; }
+  box-shadow: #e5e7eb 0 0 10px;
+  transition: transform 0.3s ease 0s; }
   .card.is-post {
     margin-bottom: 1em;
     padding: 20px;
@@ -181,10 +183,11 @@ section {
       word-wrap: break-word;
       white-space: normal; }
     .card.is-post .post-content__parapgraph {
-      color: blue;
       margin: 0 0 2% 0;
       padding: 0 1% 0 0%;
       white-space: pre-wrap; }
+    .card.is-post .post-content__image {
+      border-radius: 10px; }
   .card.is-dm, .card.is-group {
     display: flex;
     width: 90%;
@@ -209,6 +212,10 @@ section {
         margin: 0; }
       .card.is-dm .content .card-under, .card.is-group .content .card-under {
         margin: 0; }
+
+.card:hover {
+  transform: translateX(3px);
+  box-shadow: #e5e7eb 0 0 20px; }
 
 body.sign-in {
   display: flex;

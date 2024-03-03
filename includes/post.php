@@ -16,7 +16,7 @@
         <h4 class="post-content__title"><?php echo $title; ?></h4>
         <p class="post-content__paragraph"><?php echo $content; ?></p>
         <?php if ($img != ''){ ?>
-            <img src="data:<?php echo $img_type; ?>;base64,<?php echo $img; ?>" style="width:100%">
+            <img src="data:<?php echo $img_type; ?>;base64,<?php echo $img; ?>" style="width:100%" class="post-content__image">
         <?php } ?>
     </div>
 </div>
