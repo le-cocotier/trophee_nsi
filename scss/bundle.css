@@ -27,7 +27,8 @@ header {
     align-items: center;
     justify-content: flex-end; }
     header .header__right #search_user {
-      margin-right: 0.4em; }
+      margin-right: 0.4em;
+      padding-left: 0.8em; }
     header .header__right__item {
       margin: 0 0.4em 0 0;
       padding: 0.4em;
@@ -52,7 +53,7 @@ section {
       padding-top: 20px;
       margin: 0 20%; }
   section .section__right-frame {
-    background-color: #eef7eb;
+    background-color: #ebebeb;
     width: 20%;
     max-width: 20%; }
     section .section__right-frame__header {
@@ -147,35 +148,46 @@ section {
 .card {
   background-color: #ffffff;
   border-radius: 12px;
-  box-shadow: #e5e7eb 0 0 10px; }
+  box-shadow: #e5e7eb 0 0 10px;
+  transition: transform 0.3s ease 0s; }
   .card.is-post {
     margin-bottom: 1em;
     padding: 20px;
     width: 100%; }
     .card.is-post .post-header {
+      display: flex;
+      justify-content: space-between;
       box-sizing: border-box;
       width: 100%;
       margin-bottom: 0.2em; }
-      .card.is-post .post-header__title {
-        font-size: 28px;
-        font-weight: 300;
-        margin: 0 0 0.2em 0;
-        word-wrap: break-word;
-        white-space: normal; }
       .card.is-post .post-header__user {
         display: flex;
         align-items: center; }
         .card.is-post .post-header__user__img {
-          border-radius: 100px;
+          border-radius: 20px;
           margin-right: 0.6em;
           object-fit: contain; }
         .card.is-post .post-header__user__name {
           color: #888888;
           margin: 0; }
-    .card.is-post .post-content {
+      .card.is-post .post-header__title {
+        font-size: 28px;
+        font-weight: lighter;
+        margin: 0 0 0.2em 0;
+        word-wrap: break-word;
+        white-space: normal; }
+    .card.is-post .post-content__title {
+      font-size: 28px;
+      font-weight: 300;
+      margin: 0 0 0.2em 0;
+      word-wrap: break-word;
+      white-space: normal; }
+    .card.is-post .post-content__parapgraph {
       margin: 0 0 2% 0;
       padding: 0 1% 0 0%;
       white-space: pre-wrap; }
+    .card.is-post .post-content__image {
+      border-radius: 10px; }
   .card.is-dm, .card.is-group {
     display: flex;
     width: 90%;
@@ -200,6 +212,10 @@ section {
         margin: 0; }
       .card.is-dm .content .card-under, .card.is-group .content .card-under {
         margin: 0; }
+
+.card:hover {
+  transform: translateX(3px);
+  box-shadow: #e5e7eb 0 0 20px; }
 
 body.sign-in {
   display: flex;
@@ -518,18 +534,20 @@ button {
       transition: 0.2s ease-in-out; }
   .button.is-delete {
     border-radius: 20px;
-    width: 50px;
-    height: 50px;
+    width: 42px;
+    height: 42px;
     margin-bottom: 10px; }
     .button.is-delete .image {
       width: 100%;
       height: 100%;
       background-image: url("/img/bin_black.png");
       background-position: center;
-      background-size: cover;
+      background-size: contain;
       transition: background-image 0.3s ease; }
     .button.is-delete:hover .image {
       background-image: url("/img/bin_red.png"); }
+    .button.is-delete:hover {
+      background-color: white; }
 
 .form-chunck {
   padding-bottom: 1em; }
