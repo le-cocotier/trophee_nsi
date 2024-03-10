@@ -229,7 +229,7 @@ section {
                 word-wrap: break-word;
                 white-space: normal;
             }
-            &__parapgraph {
+            &__parapgraph { 
                 margin: 0 0 2% 0;
                 padding: 0 1% 0 0%;
                 white-space: pre-wrap;
@@ -237,6 +237,46 @@ section {
             &__image {
                 border-radius: 10px;
             }
+        }
+        .post-comments{
+            display: flex;
+            flex-direction: column;
+            &__buttons{
+                margin-bottom: 1em;
+                display: grid;
+                grid-template-columns: auto 1fr auto;
+                gap: 10px;
+                align-items: center;
+                &__show{
+                    grid-column: 1;
+                }
+                &__input{
+                    grid-column: 2;
+                    resize: vertical;
+                    overflow-y: auto;
+                    min-height: 40px;
+                    max-height: 200px;
+                }
+                &__send{
+                    border-radius: 50px;
+                    grid-column: 3;
+                }
+            }
+            &__comments{
+                display: flex;
+                justify-content: center;
+                flex-direction: column-reverse;
+                &__section{
+                    margin-bottom: 1em;
+                    &__img{
+                        border-radius: 20px;
+                    }
+                    &__date{
+                        color: $color-text-light;
+                        font-size: smaller;
+                    }
+                }
+            }   
         }
     }
     &.is-dm, &.is-group{
@@ -272,6 +312,6 @@ section {
 }
 
 .card:hover {
-    transform: translateX(3px);
+    transform: translateY(-1px);
     box-shadow: $color-highlight 0 0 20px;
 }

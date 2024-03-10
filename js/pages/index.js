@@ -33,7 +33,6 @@ function openGroup(){
 }
 
 function delete_post(id) {
-    console.log("hello");
     let xhr = new XMLHttpRequest();
     let data = new FormData();
     data.append('ID', id);

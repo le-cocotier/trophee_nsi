@@ -188,6 +188,37 @@ section {
       white-space: pre-wrap; }
     .card.is-post .post-content__image {
       border-radius: 10px; }
+    .card.is-post .post-comments {
+      display: flex;
+      flex-direction: column; }
+      .card.is-post .post-comments__buttons {
+        margin-bottom: 1em;
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        align-items: center; }
+        .card.is-post .post-comments__buttons__show {
+          grid-column: 1; }
+        .card.is-post .post-comments__buttons__input {
+          grid-column: 2;
+          resize: vertical;
+          overflow-y: auto;
+          min-height: 40px;
+          max-height: 200px; }
+        .card.is-post .post-comments__buttons__send {
+          border-radius: 50px;
+          grid-column: 3; }
+      .card.is-post .post-comments__comments {
+        display: flex;
+        justify-content: center;
+        flex-direction: column-reverse; }
+        .card.is-post .post-comments__comments__section {
+          margin-bottom: 1em; }
+          .card.is-post .post-comments__comments__section__img {
+            border-radius: 20px; }
+          .card.is-post .post-comments__comments__section__date {
+            color: #9b9fa9;
+            font-size: smaller; }
   .card.is-dm, .card.is-group {
     display: flex;
     width: 90%;
@@ -214,7 +245,7 @@ section {
         margin: 0; }
 
 .card:hover {
-  transform: translateX(3px);
+  transform: translateY(-1px);
   box-shadow: #e5e7eb 0 0 20px; }
 
 body.sign-in {
