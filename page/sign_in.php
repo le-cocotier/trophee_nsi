@@ -1,4 +1,8 @@
-<?php session_start(); $_SESSION = [];?>
+<?php
+session_start();
+$_SESSION = [];
+include '../config.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -6,12 +10,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Se connecter</title>
-    <link type="text/css" rel="stylesheet" href='/scss/bundle.css'>
+    <script type="text/javascript">
+        var root = '<?php echo SITE_URL; ?>';
+    </script>
+    <link type="text/css" rel="stylesheet" href='<?php echo SITE_URL; ?>/scss/bundle.css'>
     <link rel="icon" href="data:;base64,iVBORw0KGgo=">
 </head>
 <body class="sign-in">
     <div id="container">
-        <img class="container__brand" src='/img/logo.png' alt="Logo brand" width="64px" height="64px">
+        <img class="container__brand" src='<?php echo SITE_URL; ?>/img/logo.png' alt="Logo brand" width="64px" height="64px">
         <div class="container__buttons">
             <a id="button_sing-in" href="#" class="active" onclick="switchForm('sign-in')">Connexion</a>
             <a id="button_sing-up" href="#" onclick="switchForm('sign-up')">Inscription</a>
@@ -57,8 +64,8 @@
             </form>
         </div>
 
-        <a class="container__go-home" href='/page/index/index.php'>Retourner à l'accueil</a>
+        <a class="container__go-home" href='<?php echo SITE_URL; ?>/page/index/index.php'>Retourner à l'accueil</a>
     </div>
-    <script src='/js/pages/sign-in.js'></script>
+    <script src='<?php echo SITE_URL; ?>/js/pages/sign-in.js'></script>
 </body>
 </html>

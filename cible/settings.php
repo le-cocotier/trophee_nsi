@@ -1,6 +1,7 @@
 <?php
+include '../config.php';
 session_start();
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query('SELECT password FROM users where id="'.$_SESSION["user_ID"].'"');
 $password = $response->fetchArray()['password'];
 if (sha1($_POST['password']) == $password) {
@@ -29,5 +30,5 @@ if (sha1($_POST['password']) == $password) {
 
 
 
-header('location: /page/index/index.php?content_type=settings');
+header('location: '.SITE_URL.'/page/index/index.php?content_type=settings');
 ?>

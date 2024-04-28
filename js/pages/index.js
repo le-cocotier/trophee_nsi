@@ -43,6 +43,6 @@ function delete_post(id) {
             window.location.assign(window.location.href);
         }
     }
-    xhr.open("POST", '/cible/delete_post.php', true);
+    xhr.open("POST", root+'/cible/delete_post.php', true);
     xhr.send(data);
 }

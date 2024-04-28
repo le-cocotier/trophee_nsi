@@ -30,11 +30,11 @@ function submitSignIn(){
                 }
             }
             else {
-                window.location.assign('/page/index/index.php');
+                window.location.assign(root+'/page/index/index.php');
             }
         }
     }
-    request.open("POST", "/cible/sign_in.php", true);
+    request.open("POST", root+"/cible/sign_in.php", true);
     request.send(data);
 }
 
@@ -103,12 +103,12 @@ function sumbitSignUp(){
                 }
             }
             else {
-                window.location.assign('/page/index/index.php');
+                window.location.assign(root+'/page/index/index.php');
 
             }
         }
     }
-    request.open("POST", "/cible/sign_up.php", true);
+    request.open("POST", root+"/cible/sign_up.php", true);
     request.send(data);
 }
 

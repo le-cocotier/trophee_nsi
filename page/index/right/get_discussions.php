@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM discussion");
 
 
@@ -38,7 +38,7 @@ while ($line = $response->fetchArray()) {
             }
 
         }
-        include($_SERVER["DOCUMENT_ROOT"].'/page/index/right/discussion.php');
+        include(SITE_ROOT.'/page/index/right/discussion.php');
     }
 }
 

@@ -1,60 +1,67 @@
-<?php session_start(); include $_SERVER["DOCUMENT_ROOT"].'/cible/functions.php';?>
+<?php
+session_start();
+include '../../config.php';
+include SITE_ROOT.'/cible/functions.php';
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <link type="text/css" rel="stylesheet" href='/scss/bundle.css'>
+    <link type="text/css" rel="stylesheet" href='<?php echo SITE_URL; ?>/scss/bundle.css'>
     <title>Lambda</title>
-    <link rel="icon" href="/img/logo.png" type="image/x-icon">
-    <script type="text/javascript" src="/js/pages/index.js"></script>
+    <link rel="icon" href="<?php echo SITE_URL; ?>/img/logo.png" type="image/x-icon">
+    <script type="text/javascript">
+        var root = '<?php echo SITE_URL; ?>';
+    </script>
+    <script type="text/javascript" src="<?php echo SITE_URL; ?>/js/pages/index.js"></script>
 </head>
 <body class="index">
-    <?php include $_SERVER["DOCUMENT_ROOT"]."/page/common/header.php";?>
+    <?php include SITE_ROOT."/page/common/header.php";?>
     <section>  
         <div class="section__frame <?php if (!(isset($_SESSION['name']) && isset($_SESSION['password']))){ echo "is-wide"; }?>">
             <?php
             if (isset($_SESSION['name']) && isset($_SESSION['password'])) {
                 if(isset($_GET["content_type"])){
                     if($_GET["content_type"] == "feed") {
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/feed.php';
+                        include SITE_ROOT.'/page/index/index_sections/feed.php';
                     }
                     elseif($_GET["content_type"] == "dm" && isset($_GET["id"])) {
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/dm.php';
+                        include SITE_ROOT.'/page/index/index_sections/dm.php';
                     }
                     elseif($_GET["content_type"] == "community" && isset($_GET["id"])){
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/community.php';
+                        include SITE_ROOT.'/page/index/index_sections/community.php';
                     }
                     elseif($_GET["content_type"] == "user" && isset($_GET["id"])){
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/user_profile.php';
+                        include SITE_ROOT.'/page/index/index_sections/user_profile.php';
                     }
                     elseif($_GET["content_type"] == "settings"){
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/settings.php';
+                        include SITE_ROOT.'/page/index/index_sections/settings.php';
                     }
                     else{
                         echo "TODO: 404.php";
                     }
                 }
                 else {
-                    include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/feed.php';
+                    include SITE_ROOT.'/page/index/index_sections/feed.php';
                 }
             } else{
-                include $_SERVER["DOCUMENT_ROOT"].'/page/index/index_sections/main.php';
+                include SITE_ROOT.'/page/index/index_sections/main.php';
             }
             ?>
         </div>
         <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){ ?>
             <div class="section__right-frame">
                 <div class="section__right-frame__header">
-                    <img onclick="changeRightMenu('is-dm')" id="dm-button" class="active" width="28" height="28" src="../../img/messages.png" alt="messages">
-                    <img onclick="changeRightMenu('is-group')" id="groups-button" width="28" height="28" src="../../img/groups.png" alt="groupes">
+                    <img onclick="changeRightMenu('is-dm')" id="dm-button" class="active" width="28" height="28" src="<?php echo SITE_URL; ?>/img/messages.png" alt="messages">
+                    <img onclick="changeRightMenu('is-group')" id="groups-button" width="28" height="28" src="<?php echo SITE_URL; ?>/img/groups.png" alt="groupes">
                 </div>
                 <div class="section__right-frame__content">
                     <?php if (isset($_SESSION['name']) && isset($_SESSION['password'])){
-                        include $_SERVER["DOCUMENT_ROOT"].'/page/index/right/get_discussions.php';
+                        include SITE_ROOT.'/page/index/right/get_discussions.php';
                     } ?>
                     <div class="create-group">
                         <button href="#" onclick="openGroup()" class="create-group__button">Créer un groupe</button>
-                        <?php include $_SERVER["DOCUMENT_ROOT"]."/page/create_group.php"; ?>
+                        <?php include SITE_ROOT."/page/create_group.php"; ?>
                     </div>
                 </div>
             </div>

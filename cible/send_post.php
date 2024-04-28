@@ -1,6 +1,7 @@
 <?php
+include '../config.php';
 include 'functions.php';
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 
 // On vérifie si il y a une image à été fournis
 if ($_FILES['image']['error'] == 0){
@@ -32,5 +33,5 @@ $append->bindValue(':content', $_POST['content']);
 $append->bindValue(':date', $_POST['date']);
 $append->execute();
 
-header('location: /page/index/index.php');
+header('location: '.SITE_URL.'/page/index/index.php');
 ?>

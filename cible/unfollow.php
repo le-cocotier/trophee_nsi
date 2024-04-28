@@ -1,7 +1,9 @@
 <?php
-include $_SERVER["DOCUMENT_ROOT"].'/cible/functions.php';
 
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+include '../config.php';
+include SITE_ROOT.'/cible/functions.php';
+
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT subscribers FROM users where id='".$_POST['user_to_unfollow']."'");
 $nb_subscribers = $response->fetchArray()['subscribers'];
 $nb_subscribers-=1;
