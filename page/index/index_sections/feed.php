@@ -39,6 +39,20 @@ if ($line != NULL){
         echo get_user_posts($liste_of_users); ?>
 
             <script>
+                 function up_vote(id){
+                     let data = new FormData();
+                     data.append('ID', id);
+                     let xhr = new XMLHttpRequest();
+                     xhr.onreadystatechange = () => {
+                         if (xhr.readyState == 4 && xhr.status == 200){
+                             console.log('like');
+                             document.getElementById("up_vote_button-"+id).innerText = "unlike";
+                         }
+                     }
+                     xhr.open('POST', '/cible/up_vote.php', true);
+                     xhr.send(data);
+                 }
+
                  function comment(id) {
                      let input = document.getElementById("comment-input-"+id);
                      let data = new FormData();

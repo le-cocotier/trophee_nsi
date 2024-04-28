@@ -1,5 +1,17 @@
 <?php
 // renvoie le nom de l'utilisateuren fonction de son user_IDs
+function is_up_vote($post_ID, $ID){
+    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $response = $bdd->query("SELECT up_vote from posts where ID='$post_ID'");
+    $line = $response->fetchArray();
+    $likes = explode(',', $line['up_vote']);
+    var_dump($likes);
+    var_dump($ID);
+    if (in_array($ID, $likes)){
+        return true;
+    }
+    return false;
+}
 
 function get_username($ID){
     $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
@@ -37,6 +49,8 @@ function get_user_posts($ID, $limit=10, $is_user=false) {
         $is_user_post = false;
         $id = $line['ID'];
         $comments = get_comments($id);
+        $is_up_vote = is_up_vote($id, $_SESSION['user_ID']);
+        var_dump($is_up_vote);
         if ($is_user == true){
             $is_user_post = true;
         }
