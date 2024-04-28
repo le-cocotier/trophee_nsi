@@ -1,4 +1,5 @@
 <?php
+include '../config.php';
 if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email']) && isset($_POST['birth_date'])) {
 
 	// date aujourd'hui
@@ -18,7 +19,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 		// print_r(json_encode("{'error': 'date'}"));
 
 	}
-	$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+	$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 
 
 	// Je reagarde si l'user exixte déjà
@@ -37,7 +38,7 @@ if (isset($_POST['name']) && isset($_POST['password']) && isset($_POST['email'])
 	if (count($error['error']) == 0){
 		$append = $bdd->prepare("INSERT INTO users(name, password, email, birth_date, subscribers, subscriptions, pp, type, public) VALUES(:name, :password, :email, :birth_date, 0, 0, :pp, :type, 'false')");
 
-		$append->bindValue(':pp', file_get_contents($_SERVER["DOCUMENT_ROOT"]."/img/blank-profile.png"));
+		$append->bindValue(':pp', file_get_contents(SITE_ROOT."/img/blank-profile.png"));
 		$append->bindValue(':type', 'image/png');
 		$append->bindValue(':name', $_POST['name']);
 		$append->bindValue(':password', sha1($_POST['password']));

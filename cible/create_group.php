@@ -1,7 +1,8 @@
 <?php
 session_start();
+include '../config.php';
 if (isset($_POST['users'])){
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db');
+    $bdd = new SQLite3(SITE_ROOT.'/database/main.db');
 
     $user_names = implode("','",explode(",", $_POST['users']));
     $user_IDs = [$_SESSION['user_ID']];

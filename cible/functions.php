@@ -2,13 +2,13 @@
 // renvoie le nom de l'utilisateuren fonction de son user_IDs
 
 function get_username($ID){
-    $bdd_user = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $bdd_user = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd_user->query("SELECT name FROM users where id='$ID'");
     return ($response->fetchArray())['name'];
 }
 
 function get_pp_src($ID) {
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
     $response = $bdd->query("SELECT type FROM users where id='$ID'");
     $line = $response->fetchArray();
     $stream = $bdd->openBlob('users', 'pp', $ID);
@@ -17,7 +17,7 @@ function get_pp_src($ID) {
 
 function get_user_posts($ID, $limit=10, $is_user=false) {
 
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
     $query = "SELECT * FROM posts where user IN (".$ID.") ORDER BY date DESC LIMIT ".$limit;
     $response = $bdd->query($query);
     while ($line = $response->fetchArray()) {
@@ -35,19 +35,19 @@ function get_user_posts($ID, $limit=10, $is_user=false) {
         else{
             $img = '';
         }
-        include $_SERVER["DOCUMENT_ROOT"].'/includes/post.php';
+        include SITE_ROOT.'/includes/post.php';
     }
     if (!isset($_GET['nb_post'])){
         $_GET['nb_post'] = 20;
     } else {
         $_GET['nb_post'] += 10;
     } ?>
-    <button onclick="window.location.assign('/page/index/index.php?<?php echo http_build_query($_GET); ?>')">more</button> 
+<button onclick="window.location.assign('<?php echo SITE_URL; ?>/page/index/index.php?<?php echo http_build_query($_GET); ?>')">more</button>
     <?php
 }
 
 function get_friends($ID){
-    $bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+    $bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
     $query = "SELECT friends FROM users where id='$ID'";
     $response = $bdd->query($query);
     return explode(",", $response->fetchArray()['friends']);

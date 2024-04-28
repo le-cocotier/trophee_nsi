@@ -1,6 +1,7 @@
 <?php
+include '../config.php';
 include 'functions.php';
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 
 if ($_POST['type'] == 'text') {
     $append = $bdd->prepare("INSERT INTO content(discussion_ID, user_ID, type, mess, date) VALUES(:discussion_ID, :user_ID, :type, :mess, :date)");

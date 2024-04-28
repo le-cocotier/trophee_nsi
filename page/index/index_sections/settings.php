@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db');
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db');
 $response = $bdd->query('SELECT * FROM users where id="'.$_SESSION['user_ID'].'"');
 $line = $response->fetchArray();
  ?>
@@ -8,7 +8,7 @@ $line = $response->fetchArray();
         <div class="post-header">
             <h4 class="post-header__title">Options</h4>
         </div>
-        <form id="sign-in_form" action="/cible/settings.php" method="post" enctype='multipart/form-data'>
+        <form id="sign-in_form" action="<?php echo SITE_URL; ?>/cible/settings.php" method="post" enctype='multipart/form-data'>
             <div class="form-chunck is-vertical">
                 <label for="username">Username</label>
                 <input class="input is-wide" type="text" name="name" value=<?php echo $line['name']; ?>>

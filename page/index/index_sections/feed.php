@@ -1,5 +1,5 @@
 <?php
-$bdd = new SQLite3($_SERVER["DOCUMENT_ROOT"].'/database/main.db', SQLITE3_OPEN_READWRITE);
+$bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 
 $response = $bdd->query('SELECT friends from users where id="'.$_SESSION['user_ID'].'"');
 $line = $response->fetchArray();
@@ -14,7 +14,7 @@ if ($line != NULL){
         <div class="post-header">
             <h4 class="post-header__title">Postez quelque chose...</h4>
         </div>
-        <form class="form-post" action='/cible/send_post.php' method="post" enctype="multipart/form-data">
+        <form class="form-post" action='<?php echo SITE_URL; ?>/cible/send_post.php' method="post" enctype="multipart/form-data">
             <div class="form-chunck is-vertical">
                 <label for="username">Titre</label>
                 <input class="input" type="text" name="title" placeholder="Une idée originale..." required>
@@ -40,6 +40,6 @@ if ($line != NULL){
     <?php }
 }
     else {
-        header('location: /page/index/main.php');
+        header('location: '.SITE_URL.'/page/index/main.php');
     }?>
 </div>
