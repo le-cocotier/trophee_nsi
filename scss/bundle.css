@@ -541,12 +541,12 @@ button {
     .button.is-delete .image {
       width: 100%;
       height: 100%;
-      background-image: url("/img/bin_black.png");
+      background-image: url("/lambda/img/bin_black.png");
       background-position: center;
       background-size: contain;
       transition: background-image 0.3s ease; }
     .button.is-delete:hover .image {
-      background-image: url("/img/bin_red.png"); }
+      background-image: url("/lambda/img/bin_red.png"); }
     .button.is-delete:hover {
       background-color: white; }
 

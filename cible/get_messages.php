@@ -1,5 +1,4 @@
 <?php
-include '../config.php';
 $bdd = new SQLite3(SITE_ROOT.'/database/main.db', SQLITE3_OPEN_READWRITE);
 $response = $bdd->query("SELECT * FROM content where discussion_ID='$discussion_ID'");
 

@@ -9,7 +9,7 @@ if ($line != NULL){
     $users_ID=explode(",", $line["users_ID"]);
     $title = $line['name'];
     if (!in_array($_SESSION["user_ID"], $users_ID)) {
-        header('location: '.SITE_URLSITE_URL.'/page/index/index.php');
+        header('location: '.SITE_URL.'/page/index/index.php');
     }
     ?>
     <div class="popup_add-user">

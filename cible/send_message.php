@@ -36,5 +36,5 @@ else if ($_POST['type'] == 'file') {
     $append->execute();
 }
 
-header('location: /page/index/index.php?content_type=dm&id='.$_POST["discussion_ID"]);
+header('location: '.SITE_URL.'/page/index/index.php?content_type=dm&id='.$_POST["discussion_ID"]);
 ?>
